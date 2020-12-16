@@ -1,0 +1,42 @@
+name: kissim
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+    # Base depends
+  - python>=3.6
+  - pip
+    # Package dependencies
+  - biopandas
+  - biopython 1.77
+  - numpy
+  - nglview
+  - scipy
+  - matplotlib
+  - seaborn
+  - jupyter
+  - jupyterlab
+  - ipywidgets>=7.5
+  # Testing
+  - pytest
+  - pytest-cov
+  - codecov
+  # Docs
+  - sphinx
+  - sphinx_rtd_theme
+  - nbsphinx
+  # Developement
+  - black
+  - pylint
+  # Remove when opencadd is conda-installable
+  - rdkit
+  - bravado
+  - tqdm
+  - pip:
+    - black-nb
+    - https://github.com/volkamerlab/opencadd/archive/c860671ae88eb84afdd6ef599a4ecea9587c123c.zip
+    - https://github.com/volkamerlab/kissim/archive/b91153dfc7af51fbe9ad84be6daf8243f11bbdf3.zip
+## For Jupyter lab extensions, run:
+# conda install nodejs
+# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @jupyterlab/toc @ijmbarr/jupyterlab_spellchecker
+
