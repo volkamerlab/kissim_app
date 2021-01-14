@@ -79,7 +79,7 @@ target/
 /data/*
 !/data/processed
 /data/processed/*
-!/data/processed/structure_klifs_ids.csv
+!/data/processed/structure_klifs_ids.txt
 
 # Mac OS-specific storage files
 .DS_Store
