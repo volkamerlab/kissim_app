@@ -1,0 +1,2 @@
+kissim-encoder -i "../../data/processed/structure_klifs_ids.txt" -o "../../results/fingerprints.json" -c 6
+#kissim-encoder -i 109 118 110 113 111 116 112 114 115 117 -o "../../results/fingerprints.json" -c 7 -l "../../data/external/20201223_KLIFS_ABL2_HUMAN"
