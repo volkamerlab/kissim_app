@@ -81,6 +81,9 @@ target/
 /data/processed/*
 !/data/processed/structure_klifs_ids.txt
 
+# exclude results from source control
+/results
+
 # Mac OS-specific storage files
 .DS_Store
 
