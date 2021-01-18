@@ -1,6 +1,8 @@
 Kinase structural similarity
 ==============================
 
+> ⚠ This project is work-in-progress.
+
 Application case of the kissim library for subpocket-based kinase pocket comparison
 
 Project Organization
