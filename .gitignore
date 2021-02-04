@@ -84,6 +84,9 @@ target/
 # exclude results from source control
 /results
 
+# exclude figures from source control
+/notebooks/figures/*
+
 # Mac OS-specific storage files
 .DS_Store
 
