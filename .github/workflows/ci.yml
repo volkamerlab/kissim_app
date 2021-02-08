@@ -54,6 +54,10 @@ jobs:
         run: |
           conda info --all
           conda list
+      - name: Generate fingerprints 
+        shell: bash -l {0}
+        run: |
+          kissim encode -i "data/processed/structure_klifs_ids_test.txt" -o "results/fingerprints.json" -c 1 -l "data/external/20201223_KLIFS_ABL2_HUMAN"
       - name: Run tests
         shell: bash -l {0}
         run: |
