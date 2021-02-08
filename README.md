@@ -1,6 +1,8 @@
 Kinase structural similarity
 ==============================
 
+[![GitHub Actions Build Status](https://github.com/volkamerlab/kissim_app/workflows/CI/badge.svg)](https://github.com/volkamerlab/kissim_app/actions?query=workflow%3ACI)
+
 > ⚠ This project is work-in-progress.
 
 Application case of the kissim library for subpocket-based kinase pocket comparison
