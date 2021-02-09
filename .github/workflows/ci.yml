@@ -57,7 +57,7 @@ jobs:
       - name: Generate fingerprints 
         shell: bash -l {0}
         run: |
-          kissim encode -i 109 118 110 113 111 -o $GITHUB_WORKSPACE"results/fingerprints.json" -c 1 -l $GITHUB_WORKSPACE"data/external/20201223_KLIFS_ABL2_HUMAN"
+          kissim encode -i 109 118 110 113 111 -o $GITHUB_WORKSPACE"/results/fingerprints.json" -c 1 -l $GITHUB_WORKSPACE"/data/external/20201223_KLIFS_ABL2_HUMAN"
       - name: Run tests
         shell: bash -l {0}
         run: |
