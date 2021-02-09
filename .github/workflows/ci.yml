@@ -57,7 +57,7 @@ jobs:
       - name: Unzip fingerprints 
         shell: bash -l {0}
         run: |
-          unzip results/fingerprint.zip 
+          unzip ../../results/fingerprint.zip 
       - name: Run tests
         shell: bash -l {0}
         run: |
