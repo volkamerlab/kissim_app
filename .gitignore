@@ -88,6 +88,7 @@ target/
 
 # exclude figures from source control
 /notebooks/figures/*
+!/notebooks/figures/.gitkeep 
 
 # Mac OS-specific storage files
 .DS_Store
