@@ -79,9 +79,6 @@ target/
 /data/*
 
 !/data/processed
-/data/processed/*
-!/data/processed/structure_klifs_ids.txt
-!/data/processed/structure_klifs_ids.csv
 
 # exclude results from source control
 /results/*
