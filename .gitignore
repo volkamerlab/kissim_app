@@ -84,6 +84,7 @@ target/
 # exclude results from source control
 /results/*
 !/results/fingerprints.zip
+!/results/fingerprints_clean.zip
 
 # exclude figures from source control
 /notebooks/figures/*
