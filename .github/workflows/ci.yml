@@ -58,6 +58,10 @@ jobs:
         shell: bash -l {0}
         run: |
           unzip results/fingerprints.zip -d results
+      - name: Unzip fingerprints (clean)
+        shell: bash -l {0}
+        run: |
+          unzip results/fingerprints_clean.zip -d results
       - name: Run tests
         shell: bash -l {0}
         run: |
