@@ -78,3 +78,17 @@ jobs:
       - name: Run black-nb
         run: |
           black-nb -l 99 --check notebooks
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install lint dependencies
+        shell: bash
+        run: |
+          python -m pip install flake8-nb
+      - name: Run flake8-nb
+        shell: bash
+        run: |
+          flake8-nb --config tox.ini notebooks
