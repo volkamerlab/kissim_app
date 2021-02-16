@@ -1,0 +1,25 @@
+kinase.group;kinase.klifs_name;structure.pdb_id;structure.chain;structure.alternate_model;ligand.name
+AGC;ROCK1;3D9V;A;-;H-1152P
+AGC;AKT2;3D0E;A;-;GSK690693
+AGC;PDK1;1UU3;A;A;LY333531
+CAMK;LCK;1QPD;A;-;Staurosporine
+CAMK;PHKg2;2Y7J;A;A;Sunitinib
+CAMK;DAPK1;1WVX;A;-;BDB402
+CK1;CK1g3;2IZS;A;A;4-amino-2-((3-chlorophenyl)amino)-5-(4-fluorobenzoyl)thiazol-3-ium 
+CK1;CK1g1;2CMW;A;A;2-(2-hydroxyethylamino)-6-(3-chloroanilino)-9- isopropylpurine
+CK1;CK1g3;2CHL;A;A;5-amino-N-(2,6-difluorophenyl)-3-((4-sulfamoylphenyl)amino)-1H-1,2,4-triazole-1-carbothioamide 
+CMGC;GSK3B;3ZRM;A;A;7-(4-hydroxyphenyl)-2-(pyridin-4-yl)thieno[3,2-c]pyridin-4(5H)-one 
+CMGC;CDK2;3MY5;A;A;DRB
+CMGC;CK2a1;3MB6;A;A;CPA
+Other;TTK;3GFW;A;-;Mps1-IN-1
+Other;AurA;2XRU;A;-;PHA-828300
+Other;Wee1;1X8B;A;-;PD0407824
+STE;MST3;3A7I;A;-;Adenine
+STE;YSK1;2XIK;A;A;(Z)-5-((5-chloro-2-oxoindolin-3-ylidene)methyl)-N-(2-(diethylamino)ethyl)-2,4-dimethyl-1H-pyrrole-3-carboxamide 
+STE;MAP3K5;2CLQ;B;A;Staurosporine
+TK;SYK;3FQS;A;A;R406
+TK;JAK2;2W1I;A;-;AT9283
+TK;EGFR;2ITQ;A;A;AFN941
+TKL;LIMK1;3S95;A;A;Staurosporine
+TKL;ACTR2;3Q4T;A;A;Dorsomorphin
+TKL;TGFbR1;2WOU;A;-;4-((4-((2,6-dimethyl-3-pyridyl)oxy)-2-pyridyl)amino)benzenesulfonamide

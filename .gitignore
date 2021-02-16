@@ -77,8 +77,9 @@ target/
 
 # exclude data from source control by default
 /data/*
-
 !/data/processed
+!/data/external
+/data/external/20210114_KLIFS_HUMAN/*
 
 # exclude results from source control
 /results/*
