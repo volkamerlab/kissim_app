@@ -2,4 +2,4 @@
 
 # Compare fingerprints
 
-kissim compare -i "../../results/fingerprints_test.json" -o "../../results/" -c 7
+kissim compare -i "../../results/test/fingerprints.json" -o "../../results/test" -c 7
