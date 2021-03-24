@@ -41,26 +41,30 @@ cd /home/${USER}
 #conda activate kissim
 
 # Encode structures
-cd /home/${USER}
-kissim encode \
--i "kissim_app/data/processed/structure_klifs_ids.txt" \
--o "kissim_app/results/fingerprints.json" \
--c 32 \
--l "kissim_app/data/external/20210114_KLIFS_HUMAN"
+#cd /home/${USER}
+#kissim encode \
+#-i "kissim_app/data/processed/structure_klifs_ids.txt" \
+#-o "kissim_app/results/fingerprints.json" \
+#-c 32 \
+#-l "kissim_app/data/external/20210114_KLIFS_HUMAN"
 # Zip fingerprints
-cd /home/${USER}/kissim_app/results/
-zip fingerprints.zip fingerprints.json
+#cd /home/${USER}/kissim_app/results/
+#zip fingerprints.zip fingerprints.json
 
 # Compare fingerprints
-cd /home/${USER}
-kissim compare \
--i "kissim_app/results/fingerprints.json" \
--o "kissim_app/results/" \
--c 32
+#cd /home/${USER}
+#kissim compare \
+#-i "kissim_app/results/fingerprints.json" \
+#-o "kissim_app/results/" \
+#-c 32
 # Zip distances
-cd /home/${USER}/kissim_app/results/
-zip feature_distances.zip feature_distances.json
-zip fingerprint_distances.zip fingerprint_distances.json
+#cd /home/${USER}/kissim_app/results/
+#zip feature_distances.zip feature_distances.json
+#zip fingerprint_distances.zip fingerprint_distances.json
+
+# Weight features
+cd /home/${USER}/src/comparison
+python weight_feature_distances.py
 
 
 ##################
