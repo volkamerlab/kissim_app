@@ -17,15 +17,22 @@ cd /home/${USER}
 #conda activate kissim
 
 # Encode structures
-cd /home/${USER}/kissim_app/src/encoding
-bash encode_structures_test.sh
+cd /home/${USER}
+kissim encode \
+-i "kissim_app/data/processed/structure_klifs_ids.txt" \
+-o "kissim_app/results/test/fingerprints.json" \
+-c 32 \
+-l "kissim_app/data/external/20210114_KLIFS_HUMAN"
 # Zip fingerprints
 cd /home/${USER}/kissim_app/results/test/
 zip fingerprints.zip fingerprints.json
 
 # Compare fingerprints
-cd /home/${USER}/kissim_app/src/comparison
-bash compare_fingerprints_test.sh
+cd /home/${USER}
+kissim compare \
+-i "kissim_app/results/test/fingerprints.json" \
+-o "kissim_app/results/" \
+-c 32
 # Zip distances
 cd /home/${USER}/kissim_app/results/test/
 zip feature_distances.zip feature_distances.json
