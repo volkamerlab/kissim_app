@@ -31,7 +31,7 @@ zip fingerprints.zip fingerprints.json
 cd /home/${USER}
 kissim compare \
 -i "kissim_app/results/test/fingerprints.json" \
--o "kissim_app/results/" \
+-o "kissim_app/results/test" \
 -c 32
 # Zip distances
 cd /home/${USER}/kissim_app/results/test/
