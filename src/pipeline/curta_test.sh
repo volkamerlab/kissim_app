@@ -19,7 +19,7 @@ cd /home/${USER}
 # Encode structures
 cd /home/${USER}
 kissim encode \
--i "kissim_app/data/processed/structure_klifs_ids.txt" \
+-i "kissim_app/data/processed/structure_klifs_ids_test.txt" \
 -o "kissim_app/results/test/fingerprints.json" \
 -c 32 \
 -l "kissim_app/data/external/20210114_KLIFS_HUMAN"
