@@ -34,7 +34,7 @@ print("Generate fingerprint distances for different feature weights...")
 for feature_weights_name, feature_weights in FEATURE_WEIGHTS_DICT.items():
     print(f"Feature weights: {feature_weights}")
     fingerprint_distance_generator = FingerprintDistanceGenerator.from_feature_distances_generator(
-        feature_distances_generator, feature_weights
+        feature_distances_generator, feature_weights, n_cores=32
     )
     feature_weights_tag = "-".join(
         [str(int(i * 1000)) for i in fingerprint_distance_generator.feature_weights]
