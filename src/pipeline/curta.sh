@@ -63,7 +63,7 @@ cd /home/${USER}
 #zip fingerprint_distances.zip fingerprint_distances.json
 
 # Weight features
-cd /home/${USER}/src/comparison
+cd /home/${USER}/kissim_app/src/comparison
 python weight_feature_distances.py
 
 
