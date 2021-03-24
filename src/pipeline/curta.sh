@@ -38,7 +38,7 @@
 cd /home/${USER}
 
 # Activate environment
-conda activate kissim
+#conda activate kissim
 
 # Encode structures
 cd /home/${USER}/kissim_app/src/encoding

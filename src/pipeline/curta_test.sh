@@ -14,19 +14,19 @@
 cd /home/${USER}
 
 # Activate environment
-conda activate kissim
+#conda activate kissim
 
 # Encode structures
 cd /home/${USER}/kissim_app/src/encoding
 bash encode_structures_test.sh
 # Zip fingerprints
-cd /home/${USER}/kissim_app/results/
+cd /home/${USER}/kissim_app/results/test/
 zip fingerprints.zip fingerprints.json
 
 # Compare fingerprints
 cd /home/${USER}/kissim_app/src/comparison
 bash compare_fingerprints_test.sh
 # Zip distances
-cd /home/${USER}/kissim_app/results/
+cd /home/${USER}/kissim_app/results/test/
 zip feature_distances.zip feature_distances.json
 zip fingerprint_distances.zip fingerprint_distances.json
