@@ -1,9 +1,9 @@
 #!/bin/bash
 #SBATCH --job-name=kissim_app
 #SBATCH --mail-user=dominique.sydow@fu-berlin.de
-#SBATCH --mail-type=end
+#SBATCH --mail-type=begin,end
 #SBATCH --nodes=1
-#SBATCH --ntasks=32
+#SBATCH --ntasks=16
 #SBATCH --mem-per-cpu=4096
 #SBATCH --time=10:00:00
 #SBATCH --qos=standard
@@ -29,7 +29,7 @@
 #  pip install kissim
 
 # # Clone kissim_app repo:
-#  git clone git clone https://github.com/volkamerlab/kissim_app.git
+#  git clone https://github.com/volkamerlab/kissim_app.git
 
 # # Rsync KLIFS dataset from local computer to cluster using (from local computer terminal):
 # rsync -a /home/dominique/Documents/GitHub/kissim_app/data/external/20210114_KLIFS_HUMAN -e ssh sydowd@curta.zedat.fu-berlin.de:/home/sydowd/kissim_app/data/external
