@@ -3,7 +3,7 @@
 #SBATCH --mail-user=dominique.sydow@fu-berlin.de
 #SBATCH --mail-type=begin,end
 #SBATCH --nodes=1
-#SBATCH --ntasks=16
+#SBATCH --ntasks=7
 #SBATCH --mem-per-cpu=4096
 #SBATCH --time=10:00:00
 #SBATCH --qos=standard
@@ -39,27 +39,28 @@
 #   Curta job    #
 ##################
 
+KISSIM_APP=/home/${USER}/Documents/GitHub/kissim_app
+RESULTS=$KISSIM_APP/results/test
+NCORES=7
+
 # Encode structures
-cd /home/${USER}
-kissim encode -i "kissim_app/data/processed/structure_klifs_ids.txt" -o "kissim_app/results/fingerprints.json" -c 32 -l "kissim_app/data/external/20210114_KLIFS_HUMAN"
+kissim encode -i 108 109 12347 -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/20210114_KLIFS_HUMAN
 # Zip fingerprints
 
 # Remove structural outliers
-cd /home/${USER}/kissim_app/src/encoding
-python remove_outliers.py
+cd $KISSIM_APP/src/encoding
+python remove_outliers.py -i $RESULTS/fingerprints.json
 
 # Compare fingerprints
-cd /home/${USER}
-kissim compare \
--i "kissim_app/results/fingerprints_clean.json" -o "kissim_app/results/" -c 32
+kissim compare -i $RESULTS/fingerprints_clean.json -o $RESULTS -c $NCORES
 
 # Weight features
-cd /home/${USER}/kissim_app/src/comparison
-python weight_feature_distances.py
+cd $KISSIM_APP/src/comparison
+python weight_feature_distances.py -i $RESULTS/feature_distances.json -c $NCORES
 
 # Zip results
-cd /home/${USER}/kissim_app
-zip -r results.zip results
+cd $KISSIM_APP
+#zip -r results.zip results
 
 
 
