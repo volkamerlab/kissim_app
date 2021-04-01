@@ -1,5 +1,5 @@
-`kissim`-based kinome-wide kinase pocket comparison
-===================================================
+Kinome-wide structural pocket similarity
+========================================
 
 [![GitHub Actions Build Status](https://github.com/volkamerlab/kissim_app/workflows/CI/badge.svg)](https://github.com/volkamerlab/kissim_app/actions?query=workflow%3ACI)
 
