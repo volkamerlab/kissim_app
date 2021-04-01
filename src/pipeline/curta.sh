@@ -40,11 +40,11 @@
 ##################
 
 KISSIM_APP=/home/${USER}/kissim_app
-RESULTS=$KISSIM_APP/results/test
+RESULTS=$KISSIM_APP/results
 NCORES=7
 
 # Encode structures
-kissim encode -i 108 109 12347 -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/20210114_KLIFS_HUMAN
+kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/20210114_KLIFS_HUMAN
 # Zip fingerprints
 
 # Remove structural outliers
@@ -60,7 +60,7 @@ python weight_feature_distances.py -i $RESULTS/feature_distances.json -c $NCORES
 
 # Zip results
 cd $KISSIM_APP
-#zip -r results.zip results
+zip -r results.zip results
 
 
 
