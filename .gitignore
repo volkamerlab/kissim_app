@@ -78,11 +78,17 @@ target/
 # exclude data from source control by default
 /data/*
 !/data/processed
-/data/processed/*
-!/data/processed/structure_klifs_ids.txt
+!/data/external
+/data/external/20210114_KLIFS_HUMAN/*
 
 # exclude results from source control
-/results
+/results/*
+!/results/fingerprints.zip
+!/results/fingerprints_clean.zip
+
+# exclude figures from source control
+/notebooks/figures/*
+!/notebooks/figures/.gitkeep 
 
 # Mac OS-specific storage files
 .DS_Store
