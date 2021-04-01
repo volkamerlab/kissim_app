@@ -5,10 +5,9 @@
 
 > ⚠ This project is work-in-progress.
 
-![Kinome-wide all-against-all comparison](docs/_static/kissim_app_toc.png)
-
 All-against all comparison of structurally covered kinases using the [`kissim`](https://github.com/volkamerlab/kissim) fingerprint. 
 
+![Kinome-wide all-against-all comparison](docs/_static/kissim_app_toc.png)
 
 ## Project Organization
 
@@ -89,7 +88,7 @@ The `kissim` project is a collaboration between the Volkamer Lab (Dominique Sydo
 
 #### Python packages
 
-See Python packages listed in the [`kissim`](https://github.com/volkamerlab/kissim#python-packages) repository README.
+See Python packages listed in the [`kissim` repository README](https://github.com/volkamerlab/kissim#python-packages).
 
 #### Repository
 
