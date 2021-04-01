@@ -25,22 +25,31 @@ FEATURE_WEIGHTS_DICT = {
     "111": [1.0 / 3 / 8] * 8 + [1.0 / 3 / 4] * 4 + [1.0 / 3 / 3] * 3,
 }
 
-print("Read feature distances...")
-feature_distances_generator = FeatureDistancesGenerator.from_json(
-    RESULTS / "feature_distances.json"
-)
 
-print("Generate fingerprint distances for different feature weights...")
-for feature_weights_name, feature_weights in FEATURE_WEIGHTS_DICT.items():
-    print(f"Feature weights: {feature_weights}")
-    fingerprint_distance_generator = FingerprintDistanceGenerator.from_feature_distances_generator(
-        feature_distances_generator, feature_weights, n_cores=32
+def main(feature_distances_generator_path, feature_weights_dict):
+
+    print("Read feature distances...")
+    feature_distances_generator = FeatureDistancesGenerator.from_json(
+        RESULTS / "feature_distances.json"
     )
-    feature_weights_tag = "-".join(
-        [str(int(i * 1000)) for i in fingerprint_distance_generator.feature_weights]
-    )
-    fingerprint_distance_json_filepath = (
-        RESULTS / f"fingerprint_distances_{feature_weights_tag}.json"
-    )
-    print(f"To file {fingerprint_distance_json_filepath}")
-    fingerprint_distance_generator.to_json(fingerprint_distance_json_filepath)
+
+    print("Generate fingerprint distances for different feature weights...")
+
+    for _, feature_weights in FEATURE_WEIGHTS_DICT.items():
+        print(f"Feature weights: {feature_weights}")
+        fingerprint_distance_generator = (
+            FingerprintDistanceGenerator.from_feature_distances_generator(
+                feature_distances_generator, feature_weights, n_cores=32
+            )
+        )
+        feature_weights_tag = "-".join(
+            [str(int(i * 1000)) for i in fingerprint_distance_generator.feature_weights]
+        )
+        fingerprint_distance_json_filepath = (
+            RESULTS / f"fingerprint_distances_{feature_weights_tag}.json"
+        )
+        print(f"To file {fingerprint_distance_json_filepath}")
+        fingerprint_distance_generator.to_json(fingerprint_distance_json_filepath)
+
+
+main(RESULTS / "feature_distances.json", FEATURE_WEIGHTS_DICT)
