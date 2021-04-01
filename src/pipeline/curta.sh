@@ -39,7 +39,7 @@
 #   Curta job    #
 ##################
 
-KISSIM_APP=/home/${USER}/Documents/GitHub/kissim_app
+KISSIM_APP=/home/${USER}/kissim_app
 RESULTS=$KISSIM_APP/results/test
 NCORES=7
 
