@@ -69,4 +69,4 @@ zip -r results.zip results
 ##################
 
 # # Rsync output files from local computer to cluster using (from local computer terminal):
-# rsync -a -e ssh sydowd@curta.zedat.fu-berlin.de:/home/sydowd/kissim_app/results.zip /home/dominique/Documents/GitHub/kissim_app 
+# rsync -a -e ssh sydowd@curta.zedat.fu-berlin.de:/home/sydowd/kissim_app/results.zip /home/dominique/Documents/GitHub/kissim_app -v --stats --progress
