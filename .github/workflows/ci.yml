@@ -12,7 +12,9 @@ on:
     - cron: "0 3 1,15 * *"
 
 jobs:
+
   test:
+
     name: Pytest
     runs-on: ${{ matrix.cfg.os }}
     strategy:
@@ -33,8 +35,8 @@ jobs:
           #  python-version: "3.6"
 
     steps:
-      - uses: actions/checkout@v2
 
+      - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
           python-version: ${{ matrix.cfg.python-version }}
@@ -42,7 +44,6 @@ jobs:
           channel-priority: true
           environment-file: environment.yaml
           auto-activate-base: false
-
       - name: Additional info about the build
         shell: bash
         run: |
@@ -67,10 +68,14 @@ jobs:
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
           pytest $PYTEST_ARGS notebooks/ 
+  
   format:
+    
     name: Black
     runs-on: ubuntu-latest
+
     steps:
+    
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install format dependencies
@@ -78,10 +83,14 @@ jobs:
       - name: Run black-nb
         run: |
           black-nb -l 99 --check notebooks
+  
   lint:
+
     name: Lint
     runs-on: ubuntu-latest
+
     steps:
+
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install lint dependencies
