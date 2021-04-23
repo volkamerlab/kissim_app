@@ -36,18 +36,15 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
     ├── requirements.txt   <- The requirements file for reproducing the analysis environment, e.g.
     │                         generated with `pip freeze > requirements.txt`
     │
-    ├── setup.py           <- makes project pip installable (pip install -e .) so src can be imported
+    ├── setup.py           <- Makes project pip installable (pip install -e .) so src can be imported
+    │
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module
-    │   │
     │   ├── data           <- Scripts to download or generate data
-    │   │   └── make_dataset.py
-    │   │
-    │   ├── encoding       <- Scripts to turn raw data into fingerprints
-    │   │   └── encode_structures.py
-    │   │
-    │   └── comparison     <- Scripts to compare fingerprints
-    │       └── compare_fingerprints.py
+    │   ├── encoding       <- Scripts to encode raw data as fingerprints
+    │   ├── comparison     <- Scripts to compare fingerprints
+    │   ├── pipeline       <- Scripts to encode and compare
+    │   └── visualization  <- Scripts to create exploratory and results oriented visualizations
     |
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
