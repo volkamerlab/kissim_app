@@ -57,7 +57,10 @@ def _kinmap_kinase_names(kinase_names):
     change_log = pd.DataFrame({"kinase.input": kinase_names, "kinase.kinmap": kinmap_kinase_names})
     change_log = change_log[change_log["kinase.input"] != change_log["kinase.kinmap"]]
     if change_log.shape[0] > 0:
-        logger.warning(f"Changed kinase names (unknown names may be discarded):\n{change_log}")
+        logger.warning(
+            f"Changed kinase names (unknown names may be discarded"
+            f" - see function docstring):\n{change_log}"
+        )
 
     return kinmap_kinase_names
 
