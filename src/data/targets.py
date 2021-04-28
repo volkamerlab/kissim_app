@@ -11,7 +11,7 @@ from . import ligands, kinases
 logger = logging.getLogger(__name__)
 
 
-def _pkidb_ligands_to_targets(ligand_names, fda_approved=False):
+def pkidb(ligand_names, fda_approved=False):
     """
     Get targets for input ligands based on PKIDB data.
     Ligand names will be mapped onto the PKIDB ligand IDs (mismatching ligands are removed).
@@ -19,7 +19,7 @@ def _pkidb_ligands_to_targets(ligand_names, fda_approved=False):
 
     Parameters
     ----------
-    ligand_names : list of str
+    ligand_names : str or list of str
         Ligand names.
     fda_approved : bool
         Optional: Input ligand names will only be considered if they are part of the FDA-approved
@@ -32,10 +32,13 @@ def _pkidb_ligands_to_targets(ligand_names, fda_approved=False):
         their KinMap name (columns). Kinases that have no name in KinMap will be discarded
     """
 
+    if isinstance(ligand_names, str):
+        ligand_names = [ligand_names]
+
     pkidb_df = ligands.pkidb(fda_approved=fda_approved)
 
     # Get targets (listed in PKIDB) for each of the input ligands
-    ligand_target_sets = [_pkidb_targets(ligand_name, pkidb_df) for ligand_name in ligand_names]
+    ligand_target_sets = [_pkidb(ligand_name, pkidb_df) for ligand_name in ligand_names]
     ligand_target_sets = pd.DataFrame(
         {"ligand.input": ligand_names, "targets.pkidb": ligand_target_sets}
     )
@@ -52,8 +55,8 @@ def _pkidb_ligands_to_targets(ligand_names, fda_approved=False):
     # Implode DataFrame (one row per ligand)
     ligand_target_sets = pd.DataFrame(
         [
-            ligand_targets.groupby("ligand.input")["targets.kinmap"].apply(list),
             ligand_targets.groupby("ligand.input")["targets.pkidb"].apply(list),
+            ligand_targets.groupby("ligand.input")["targets.kinmap"].apply(list),
         ]
     ).transpose()
     # Sort by number of targets (ascending)
@@ -64,7 +67,7 @@ def _pkidb_ligands_to_targets(ligand_names, fda_approved=False):
     return ligand_target_sets
 
 
-def _pkidb_targets(ligand_name, pkidb_df):
+def _pkidb(ligand_name, pkidb_df):
     """
     Get reported PKIDB targets for input ligand.
 
