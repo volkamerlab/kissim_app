@@ -68,7 +68,7 @@ def _pkidb_ligand_names(ligand_names, fda_approved=False):
     change_log = pd.DataFrame({"ligand.input": ligand_names, "ligand.pkidb": pkidb_ligand_names})
     change_log = change_log[change_log["ligand.input"] != change_log["ligand.pkidb"]]
     if change_log.shape[0] > 0:
-        logger.warning(f"Changed ligand names:\n{change_log}")
+        logger.warning(f"Changed ligand names (unknown names may be discarded):\n{change_log}")
 
     return pkidb_ligand_names
 
