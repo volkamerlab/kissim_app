@@ -3,7 +3,6 @@ Load ligand datasets.
 """
 
 import logging
-
 from pathlib import Path
 
 import numpy as np
@@ -12,7 +11,7 @@ from rdkit.Chem import PandasTools
 
 logger = logging.getLogger(__name__)
 
-DATA_PATH = Path(__name__).parent / "../../data/external/ligands"
+DATA_PATH = Path(__file__).parent / "../../data/external/ligands"
 PKIDB_PATH = DATA_PATH / "PKIDB/pkidb_2021-04-19.sdf"
 
 
