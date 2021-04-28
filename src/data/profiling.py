@@ -8,13 +8,14 @@ import json
 
 import pandas as pd
 
-from . import ligands
+from . import ligands, kinases
 
 logger = logging.getLogger(__name__)
 
 DATA_PATH = Path(__file__).parent / "../../data/external/profiling"
 KARAMAN_PATH = DATA_PATH / "Karaman/Karaman_profiling.js"
 DAVIS_PATH = DATA_PATH / "Davis/Davis_profiling.js"
+PKIS2_PATH = DATA_PATH / "PKIS2/pone.0181585.s004.xlsx"
 
 
 def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
@@ -108,16 +109,119 @@ def _kinmap_profiling(data_path, data_name, pkidb_ligands=False, fda_approved=Fa
     data_df = pd.DataFrame(data_df)
 
     if pkidb_ligands:
-        ligand_names_new = ligands._pkidb_ligand_names(data_df.columns, fda_approved)
-        # Cast column name for all unknown ligands to "unknown" and drop these columns
-        ligand_names_new = [
-            "unknown" if column_name.startswith("unknown") else column_name
-            for column_name in ligand_names_new
-        ]
-        # Rename ligands
-        data_df.columns = ligand_names_new
-        # Remove ligands that could not be mapped to PKIDB
-        data_df = data_df.drop("unknown", axis=1)
-        data_df
+        data_df = _pkidb_ligands(data_df, fda_approved=False)
 
     return data_df
+
+
+def _pkidb_ligands(profiling_df, fda_approved=False):
+
+    ligand_names_new = ligands._pkidb_ligand_names(profiling_df.columns, fda_approved)
+    # Cast column name for all unknown ligands to "unknown" and drop these columns
+    ligand_names_new = [
+        "unknown" if column_name.startswith("unknown") else column_name
+        for column_name in ligand_names_new
+    ]
+    # Rename ligands
+    profiling_df.columns = ligand_names_new
+    # Remove ligands that could not be mapped to PKIDB
+    profiling_df = profiling_df.drop("unknown", axis=1)
+
+    return profiling_df
+
+
+def pkis2(kinmap_kinases=False, data_path=PKIS2_PATH):
+
+    df = pd.read_excel(data_path)
+    # Remove empty line
+    df = df[:-1]
+    # Set compound name as index and drop a few columns
+    df = df.set_index("Compound")
+    df = df.iloc[:, 6:]
+    # Transpose matrix and set columns/index name
+    df = df.transpose()
+    df.columns.name = "compound"
+    df.index.name = "kinase"
+
+    # Delete information in brackets
+    """
+    Affects the following kinases:
+    [
+        'GCN2(Kin.Dom.2,S808G)',
+        'JAK1(JH1domain-catalytic)',
+        'JAK1(JH2domain-pseudokinase)',
+        'JAK2(JH1domain-catalytic)',
+        'JAK3(JH1domain-catalytic)',
+        'RPS6KA4(Kin.Dom.1-N-terminal)',
+        'RPS6KA4(Kin.Dom.2-C-terminal)',
+        'RPS6KA5(Kin.Dom.1-N-terminal)',
+        'RPS6KA5(Kin.Dom.2-C-terminal)',
+        'RSK1(Kin.Dom.1-N-terminal)',
+        'RSK1(Kin.Dom.2-C-terminal)',
+        'RSK2(Kin.Dom.1-N-terminal)',
+        'RSK2(Kin.Dom.2-C-terminal)',
+        'RSK3(Kin.Dom.1-N-terminal)',
+        'RSK3(Kin.Dom.2-C-terminal)',
+        'RSK4(Kin.Dom.1-N-terminal)',
+        'RSK4(Kin.Dom.2-C-terminal)',
+        'TYK2(JH1domain-catalytic)',
+        'TYK2(JH2domain-pseudokinase)'
+    ]
+    """
+    query = "("
+    kinase_names = df.index
+    kinase_names = [
+        kinase_name.split(query)[0] if contains_query else kinase_name
+        for kinase_name, contains_query in zip(
+            kinase_names, kinase_names.str.contains(f"\\{query}")
+        )
+    ]
+    df.index = kinase_names
+
+    # Convert abbreviate Greek letters
+    df_index = df.index
+    df_index = df_index.str.replace("-alpha", "a")
+    df_index = df_index.str.replace("-beta", "b")
+    df_index = df_index.str.replace("-delta", "d")
+    df_index = df_index.str.replace("-gamma", "g")
+    df_index = df_index.str.replace("-epsilon", "e")
+    df.index = df_index
+
+    # Delete information after dash
+    """
+    Affects the following kinases:
+    [
+        'ABL1-nonphosphorylated',
+        'ABL1-phosphorylated',
+        'CDK4-cyclinD1',
+        'CDK4-cyclinD3',
+        'CSF1R-autoinhibited',
+        'FLT3-autoinhibited',
+        'KIT-autoinhibited'
+    ]
+    """
+    query = "-"
+    kinase_names = df.index
+    kinase_names = [
+        kinase_name.split(query)[0] if contains_query else kinase_name
+        for kinase_name, contains_query in zip(kinase_names, kinase_names.str.contains(query))
+    ]
+    df.index = kinase_names
+
+    # Drop duplicate kinases (keep first)
+    df = df.reset_index().drop_duplicates("index").set_index("index")
+    df.index.name = "kinase"
+
+    if kinmap_kinases:
+        kinase_names_new = kinases._kinmap_kinase_names(df.index)
+        # Cast column name for all unknown kinases to "unknown" and drop these columns
+        kinase_names_new = [
+            "unknown" if column_name.startswith("unknown") else column_name
+            for column_name in kinase_names_new
+        ]
+        # Rename kinases
+        df.index = kinase_names_new
+        # Remove kinases that could not be mapped to KinMap
+        df = df.drop("unknown", axis=0)
+
+    return df
