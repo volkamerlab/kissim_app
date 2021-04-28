@@ -3,6 +3,7 @@ Load kinase distances matrices.
 """
 
 import logging
+from pathlib import Path
 
 import pandas as pd
 from kissim.comparison import FingerprintDistanceGenerator
@@ -11,19 +12,24 @@ from . import kinases
 
 logger = logging.getLogger(__name__)
 
+RESULTS_PATH = Path(__file__).parent / "../../results"
+KISSIM_PATH = RESULTS_PATH / "fingerprint_distances.json"
 
-def kissim(distances_path, structure_kinase_mapping_by="minimum", kinmap_kinases=False):
+
+def kissim(
+    structure_kinase_mapping_by="minimum", kinmap_kinases=False, distances_path=KISSIM_PATH
+):
     """
     Get kinase distance matrix from `kissim` using a user-defined structure-kinase mapping method.
 
     Parameters
     ----------
-    distances_path : str or pathlib.Path
-        Path to fingerprint distances JSON `kissim` file.
     structure_kinase_mapping_by : str
         Structure-kinase mapping method (default: minimum).
     kinmap_kinases : bool
         Map kinase names to KinMap kinase names (default: False).
+    distances_path : str or pathlib.Path
+        Path to fingerprint distances JSON `kissim` file.
     """
 
     fingerprint_distance_generator = FingerprintDistanceGenerator.from_json(distances_path)
