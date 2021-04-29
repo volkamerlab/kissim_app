@@ -18,11 +18,42 @@ DAVIS_PATH = DATA_PATH / "Davis/Davis_profiling.js"
 PKIS2_PATH = DATA_PATH / "PKIS2/pone.0181585.s004.xlsx"
 
 
+def load(dataset_name, pkidb_ligands=False, fda_approved=False):
+    """
+    Utility function to load different profiling datasets via the same API.
+
+    Parameters
+    ----------
+    dataset_name : str
+        Dataset name: 'karaman' or 'davis'
+    pkidb_ligands : bool
+        Keep only PKIDB ligands (will rename ligands to their names in PKIDB). Default is False.
+    fda_approved : bool
+        Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
+        Default is False.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Profiling data for different kinases (rows) and ligands (columns).
+    """
+
+    if dataset_name == "karaman":
+        return karaman(pkidb_ligands, fda_approved)
+    elif dataset_name == "davis":
+        return davis(pkidb_ligands, fda_approved)
+    else:
+        raise KeyError("Unknown dataset name. Use 'karaman' or 'davis'.")
+
+
 def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
     """
-    Load Karaman profiling dataset from KinMap.
+    Load Karaman profiling dataset [1] from KinMap [2].
     Optionally: Keep only (a) all PKIDB ligands or (b) all FDA-approved PKIDB ligands (while
     renaming all ligands to their names in PKIDB).
+
+    [1] https://www.nature.com/articles/nbt1358
+    [2] https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-016-1433-7
 
     Parameters
     ----------
@@ -44,9 +75,12 @@ def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
 
 def davis(pkidb_ligands=False, fda_approved=False, data_path=DAVIS_PATH):
     """
-    Load Davis profiling dataset from KinMap.
+    Load Davis profiling dataset [1] from KinMap [2].
     Optionally: Keep only (a) all PKIDB ligands or (b) all FDA-approved PKIDB ligands (while
     renaming all ligands to their names in PKIDB).
+
+    [1] https://www.nature.com/articles/nbt.1990
+    [2] https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-016-1433-7
 
     Parameters
     ----------
