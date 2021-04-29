@@ -122,7 +122,7 @@ def kinase_ranks_by_ligand_vs_kinase_data(
     n_active_kinases_shared = ranks[ranks[f"{ligand_kinase_method}.active"]].shape[0]
     log = [n_kinases_by_kinase, n_kinases_by_ligand, n_kinases_shared, n_active_kinases_shared]
 
-    # Sort rows (by profiling data)
+    # Sort rows by kinase-kinase method (DO NOT CHANGE!)
     ranks = ranks.sort_values(f"{kinase_kinase_method}.measure")
 
     return ranks, log
