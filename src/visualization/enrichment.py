@@ -53,8 +53,11 @@ def enrichment_plots(
             xlim=(-1, 100),
             ax=axes[i],
         )
-        # Optimal curve for ligand
-        axes[i].plot([0, optimum, 100], [0, 100, 100], "--", color="k")
+        # Optimal curve
+        axes[i].plot([0, optimum, 100], [0, 100, 100], label="Optimum", linestyle="--", color="k")
+        # Random curve
+        axes[i].plot([0, 100], [0, 100], label="Random", linestyle="--", color="grey")
+        axes[i].legend()
         # Cosmetics
         axes[i].set_aspect(1.0 / axes[i].get_data_ratio(), adjustable="box")
         axes[i].set_xlabel("% ranked kissim dataset")
