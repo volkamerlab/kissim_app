@@ -13,7 +13,7 @@ from . import kinases
 logger = logging.getLogger(__name__)
 
 RESULTS_PATH = Path(__file__).parent / "../../results"
-KISSIM_PATH = RESULTS_PATH / "fingerprint_distances.json"
+KISSIM_PATH = RESULTS_PATH / "fingerprint_distances.csv"
 
 
 def kissim(
@@ -29,10 +29,10 @@ def kissim(
     kinmap_kinases : bool
         Map kinase names to KinMap kinase names (default: False).
     distances_path : str or pathlib.Path
-        Path to fingerprint distances JSON `kissim` file.
+        Path to fingerprint distances CSV `kissim` file.
     """
 
-    fingerprint_distance_generator = FingerprintDistanceGenerator.from_json(distances_path)
+    fingerprint_distance_generator = FingerprintDistanceGenerator.from_csv(distances_path)
     kissim_df = fingerprint_distance_generator.kinase_distance_matrix(structure_kinase_mapping_by)
 
     if kinmap_kinases:
