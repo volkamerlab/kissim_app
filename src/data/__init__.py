@@ -1,1 +1,1 @@
-from . import distances, kinases, ligands, profiling, targets
+from . import distances, kinases, ligands, profiling, targets, structures
