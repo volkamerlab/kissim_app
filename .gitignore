@@ -83,12 +83,9 @@ target/
 
 # exclude results from source control
 /results/*
-!/results/fingerprints.zip
-!/results/fingerprints_clean.zip
 
-# exclude figures from source control
-/notebooks/figures/*
-!/notebooks/figures/.gitkeep 
+# exclude KinMap PNG files
+/notebooks/evaluation/results/kinmap/*.png
 
 # Mac OS-specific storage files
 .DS_Store
