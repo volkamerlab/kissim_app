@@ -13,7 +13,42 @@ from . import kinases
 logger = logging.getLogger(__name__)
 
 RESULTS_PATH = Path(__file__).parent / "../../results"
-KISSIM_PATH = RESULTS_PATH / "fingerprint_distances.json"
+KISSIM_PATH = RESULTS_PATH / "fingerprint_distances.csv"
+
+
+def load(
+    dataset_name,
+    structure_kinase_mapping_by="minimum",
+    kinmap_kinases=False,
+    distances_path=None,
+):
+    """
+    Utility function to load different kinase similarity datasets via the same API.
+
+
+    Parameters
+    ----------
+    dataset_name : str
+        Dataset name: 'kissim' or 'xxx'
+    structure_kinase_mapping_by : str
+        Structure-kinase mapping method (default: minimum).
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
+    distances_path : str or pathlib.Path or None
+        Path to dataset file. If None, use default path for respective dataset.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Profiling data for different kinases (rows) and ligands (columns).
+    """
+
+    if dataset_name == "kissim":
+        if distances_path is None:
+            distances_path = KISSIM_PATH
+        return kissim(structure_kinase_mapping_by, kinmap_kinases, distances_path)
+    else:
+        raise KeyError("Unknown dataset name. Use 'karaman' or 'davis'.")
 
 
 def kissim(
@@ -29,10 +64,10 @@ def kissim(
     kinmap_kinases : bool
         Map kinase names to KinMap kinase names (default: False).
     distances_path : str or pathlib.Path
-        Path to fingerprint distances JSON `kissim` file.
+        Path to fingerprint distances CSV `kissim` file.
     """
 
-    fingerprint_distance_generator = FingerprintDistanceGenerator.from_json(distances_path)
+    fingerprint_distance_generator = FingerprintDistanceGenerator.from_csv(distances_path)
     kissim_df = fingerprint_distance_generator.kinase_distance_matrix(structure_kinase_mapping_by)
 
     if kinmap_kinases:
