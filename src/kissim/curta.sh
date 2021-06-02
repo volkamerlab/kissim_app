@@ -32,7 +32,7 @@
 #  git clone https://github.com/volkamerlab/kissim_app.git
 
 # # Rsync KLIFS dataset from local computer to cluster using (from local computer terminal):
-# rsync -a /home/dominique/Documents/GitHub/kissim_app/data/external/20210114_KLIFS_HUMAN -e ssh sydowd@curta.zedat.fu-berlin.de:/home/sydowd/kissim_app/data/external
+# rsync -a /home/dominique/Documents/GitHub/kissim_app/data/external/structures/20210114_KLIFS_HUMAN -e ssh sydowd@curta.zedat.fu-berlin.de:/home/sydowd/kissim_app/data/external/structures/
 
 
 ##################
@@ -44,7 +44,7 @@ RESULTS=$KISSIM_APP/results
 NCORES=8
 
 # Encode structures
-kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/20210114_KLIFS_HUMAN
+kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/20210114_KLIFS_HUMAN
 
 # Remove structural outliers
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json

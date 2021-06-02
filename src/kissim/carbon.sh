@@ -9,7 +9,7 @@ RESULTS=$KISSIM_APP/results/test1/
 NCORES=7
 
 # Encode structures
-kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids_test.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/20210114_KLIFS_HUMAN
+kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids_test.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/20210114_KLIFS_HUMAN
 # Zip fingerprints
 
 # Remove structural outliers
