@@ -1,2 +1,1 @@
-from . import data
-from . import evaluation
+from . import data, evaluation  # noqa: F401
