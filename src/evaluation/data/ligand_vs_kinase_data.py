@@ -58,11 +58,11 @@ class LigandVsKinaseData(BaseData):
         kinase_kinase_matrix : TODO
             TODO
         kinase_activity_cutoff : float
-            Cutoff value to be used to determine activity. By default this cutoff is the maximum value.
-            Set `kinase_activity_max=False` if cutoff is the minimum value.
+            Cutoff value to be used to determine activity. By default this cutoff is the maximum
+            value. Set `kinase_activity_max=False` if cutoff is the minimum value.
         kinase_activity_max : bool
-            If `True` (default), the `kinase_activity_cutoff` is used as the maximum cutoff, else as
-            the minimum cutoff.
+            If `True` (default), the `kinase_activity_cutoff` is used as the maximum cutoff, else
+            as the minimum cutoff.
         """
 
         self.ligand_query = ligand_query
@@ -96,9 +96,9 @@ class LigandVsKinaseData(BaseData):
     ):
         """
         Compare kinase ranks between a ligand profiling dataset and a kinase distances dataset.
-        The profiling dataset contains kinases for the query ligand extracted from the ligand-kinase
-        matrix. The distances dataset contains kinases for the query kinase extracted from the
-        kinase-kinase matrix.
+        The profiling dataset contains kinases for the query ligand extracted from the
+        ligand-kinase matrix. The distances dataset contains kinases for the query kinase extracted
+        from the kinase-kinase matrix.
 
         Returns
         -------
@@ -139,11 +139,11 @@ class LigandVsKinaseData(BaseData):
         )
         if kinase_activity_max:
             ranks_by_ligand[f"active_{self.ligand_kinase_method}"] = (
-                ranks_by_ligand[f"measure"] <= kinase_activity_cutoff
+                ranks_by_ligand["measure"] <= kinase_activity_cutoff
             )
         else:
             ranks_by_ligand[f"active_{self.ligand_kinase_method}"] = (
-                ranks_by_ligand[f"measure"] >= kinase_activity_cutoff
+                ranks_by_ligand["measure"] >= kinase_activity_cutoff
             )
 
         # Merge two datasets while keeping only common kinases

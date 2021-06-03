@@ -28,8 +28,8 @@ def pkidb(ligand_names, fda_approved=False):
     Returns
     -------
     pandas.DataFrame
-        For each input ligand (row) that is reported in PKIDB, get reported PKIDB kinase targets and
-        their KinMap name (columns). Kinases that have no name in KinMap will be discarded
+        For each input ligand (row) that is reported in PKIDB, get reported PKIDB kinase targets
+        and their KinMap name (columns). Kinases that have no name in KinMap will be discarded.
     """
 
     if isinstance(ligand_names, str):

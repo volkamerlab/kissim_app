@@ -86,10 +86,9 @@ def _kinmap_kinase_name(kinase_name, kinmap_df):
     if kinmap_df["xName"].isin([kinase_name]).any():
         return kinase_name
     else:
-        kinase_name_kinmap = kinmap_df[
-            (kinmap_df["Manning\xa0Name"] == kinase_name)
-            | (kinmap_df["HGNC\xa0Name"] == kinase_name)
-        ]
+        manning_condition = kinmap_df["Manning\xa0Name"] == kinase_name
+        hgnc_condition = kinmap_df["HGNC\xa0Name"] == kinase_name
+        kinase_name_kinmap = kinmap_df[manning_condition | hgnc_condition]
         if len(kinase_name_kinmap) == 0:
             return "unknown (not in KinMap)"
         elif len(kinase_name_kinmap) == 1:

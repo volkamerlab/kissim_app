@@ -1,1 +1,1 @@
-from .ligand_vs_kinase_evaluator import LigandVsKinaseEvaluator
+from .ligand_vs_kinase_evaluator import LigandVsKinaseEvaluator  # noqa: F401

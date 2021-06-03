@@ -64,7 +64,7 @@ def plot_resolution_vs_qualityscore(structures):
         s=2,
         alpha=0.2,
     )
-    ax.set_xlabel("Resolution in $\AA$")
+    ax.set_xlabel("Resolution in $\AA$")  # noqa: W605
     ax.set_ylabel("KLIFS quality score")
     return ax
 

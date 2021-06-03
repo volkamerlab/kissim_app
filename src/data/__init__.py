@@ -1,1 +1,1 @@
-from . import distances, kinases, ligands, profiling, targets, structures
+from . import distances, kinases, ligands, profiling, targets, structures  # noqa: F401

@@ -5,7 +5,6 @@ Load kinase distances matrices.
 import logging
 from pathlib import Path
 
-import pandas as pd
 from kissim.comparison import FingerprintDistanceGenerator
 
 from . import kinases

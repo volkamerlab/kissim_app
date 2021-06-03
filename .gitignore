@@ -88,11 +88,11 @@ target/
 # exclude data from source control
 /data/*
 !/data/processed
-!/data/external/structures
+!/data/external
 /data/external/structures/20210114_KLIFS_HUMAN/*
 
 # exclude results from source control
 /results/*
 
-# exclude notebook results from source control
+# exclude KinMap PNG files
 /notebooks/evaluation/results/kinmap/*png
