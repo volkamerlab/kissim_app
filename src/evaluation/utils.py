@@ -21,8 +21,8 @@ def roc_fpr_tpr_auc(ligand_vs_kinase_data):
 
     References
     ----------
-    - [ROC AUC](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score)
-    - [ROC curve](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve)
+    - ROC AUC: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_auc_score.html#sklearn.metrics.roc_auc_score  # noqa: E501
+    - ROC curve: https://scikit-learn.org/stable/modules/generated/sklearn.metrics.roc_curve.html#sklearn.metrics.roc_curve)  # noqa: E501
     """
 
     data = ligand_vs_kinase_data.data
@@ -206,3 +206,47 @@ def enrichment_factor_top_x(ligand_vs_kinase_data, top_x):
         ef = 0
 
     return ef
+
+
+def calculate_tanimoto(int_list1, int_list2):
+    """
+    Calculate Tanimoto coefficient for two binary integer lists with values [0, 1].
+    If all integers in both lists are set to 0, return 0.
+
+    Parameters
+    ----------
+    int_list1: list of int
+        List of integers [0, 1]. Must have same length as int_list2.
+    int_list2: list of int
+        List of integers [0, 1]. Must have same length as int_list1.
+
+    Returns
+    -------
+    float
+        Tanimoto coefficient (similarity between input).
+
+    Notes
+    -----
+    For binary values [0, 1], the Tanimoto coefficient is defined as follows:
+
+    $$T_{c}(A,B) = \frac{c}{a+b-c}$$
+
+    a: Number of features present (i.e. being 1) in A <br>
+    b: Number of features present (i.e. being 1) in B <br>
+    c: Number of features present in both A and B (i.e. both being 1)
+    """
+
+    # Input must have same length
+    if len(int_list1) != len(int_list2):
+        raise ValueError("Input is not of same length.")
+
+    a = sum(int_list1)
+    b = sum(int_list2)
+    c = sum([1 for i, j in zip(int_list1, int_list2) if i + j == 2])
+
+    # If all integers in both lists are set to 0, return 0
+    if a + b == 0:
+        return 0.0
+    # Else calculate Tanimoto coefficient
+    else:
+        return round(float(c) / (a + b - c), 2)

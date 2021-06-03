@@ -83,6 +83,7 @@ jobs:
       - name: Run black-nb
         run: |
           black-nb -l 99 --check notebooks
+          black -l 99 --check src
   
   lint:
 
@@ -101,3 +102,4 @@ jobs:
         shell: bash
         run: |
           flake8-nb --config tox.ini notebooks
+          flake8 --config tox.ini src
