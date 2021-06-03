@@ -65,11 +65,11 @@ class LigandVsKinaseEvaluator:
         kinase_kinase_method : str
             Name for kinase distances method to be used as identifier.
         kinase_activity_cutoff : float
-            Cutoff value to be used to determine activity. By default this cutoff is the maximum value.
-            Set `kinase_activity_max=False` if cutoff is the minimum value.
+            Cutoff value to be used to determine activity. By default this cutoff is the maximum
+            value. Set `kinase_activity_max=False` if cutoff is the minimum value.
         kinase_activity_max : bool
-            If `True` (default), the `kinase_activity_cutoff` is used as the maximum cutoff, else as
-            the minimum cutoff.
+            If `True` (default), the `kinase_activity_cutoff` is used as the maximum cutoff, else
+            as the minimum cutoff.
         pkidb_ligands : bool
             Keep only PKIDB ligands (will rename ligands to their names in PKIDB). Default is True.
         fda_approved : bool
@@ -78,7 +78,8 @@ class LigandVsKinaseEvaluator:
         kinmap_kinases : bool
             Map kinase names to KinMap kinase names. Default is False.
         kinase_kinase_path : str or pathlib.Path or None
-            Set path to user-defined dataset file. If None, use default path for respective dataset.
+            Set path to user-defined dataset file. If None, use default path for respective
+            dataset.
         """
 
         self.ligand_kinase_method = ligand_kinase_method
@@ -185,9 +186,9 @@ class LigandVsKinaseEvaluator:
 
         ligand_kinase_pairs_curated = []
         for ligand_name, ligand_dict in self.data_dict.items():
-            for kinase_name, data in ligand_dict.items():
-                if (data.n_kinases_shared >= min_n_shared_kinases) & (
-                    data.n_active_kinases_shared > min_n_shared_active_kinases
+            for kinase_name, ligand_kinase_data in ligand_dict.items():
+                if (ligand_kinase_data.n_kinases_shared >= min_n_shared_kinases) & (
+                    ligand_kinase_data.n_active_kinases_shared > min_n_shared_active_kinases
                 ):
                     ligand_kinase_pairs_curated.append([ligand_name, kinase_name])
 
