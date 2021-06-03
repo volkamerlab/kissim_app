@@ -75,18 +75,6 @@ target/
 # Jupyter NB Checkpoints
 .ipynb_checkpoints/
 
-# exclude data from source control by default
-/data/*
-!/data/processed
-!/data/external
-/data/external/structures/20210114_KLIFS_HUMAN/*
-
-# exclude results from source control
-/results/*
-
-# exclude KinMap PNG files
-/notebooks/evaluation/results/kinmap/*.png
-
 # Mac OS-specific storage files
 .DS_Store
 
@@ -96,3 +84,15 @@ target/
 
 # Mypy cache
 .mypy_cache/
+
+# exclude data from source control
+/data/*
+!/data/processed
+!/data/external
+/data/external/structures/20210114_KLIFS_HUMAN/*
+
+# exclude results from source control
+/results/*
+
+# exclude KinMap PNG files
+/notebooks/evaluation/results/kinmap/*png
