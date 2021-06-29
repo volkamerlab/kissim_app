@@ -9,7 +9,7 @@ We check the per-feature distributions (e.g. size distances or hinge region dist
 
 ### `kissim`-based kinome tree
 
-This notebook generates `kissim`-based kinome trees based on three different kinase matrices:
+We generate `kissim`-based kinome trees based on three different kinase matrices:
 
 - Kinase matrix based on all structures/fingerprints (**DFG-in and DFG-out**)
 - Kinase matrix based on structure/fingerprints in **DFG-in** conformation only
