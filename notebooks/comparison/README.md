@@ -2,6 +2,8 @@
 
 ### Feature distances
 
+We check the per-feature distributions (e.g. size distances or hinge region distances) based on all pairwise fingerprint feature distances. Which features show the most/fewest variations?
+
 
 ## `kissim_kinome_tree.ipynb`
 
@@ -18,9 +20,17 @@ Check which kinases are covered by the DFG-in *and* the DFG-out `kissim` trees.
 
 ## `structure_distances_coverage.ipynb`
 
-### Fingerprint distances between structures for the same kinase
+### Fingerprint pair bit coverages
 
-In this notebook, we investigate the ranges of fingerprint distances for each kinase pair.
+We investigate the bit coverage of the fingerprint pairs in the `kissim` dataset.
+
+List the following numbers based on (a) all distances and (b) only distances matching a given bit coverage cutoff
+- Number of structures
+- Number of structure pairs (theory)
+- Number of structure pairs (experimental)
+- Number of kinases
+- Number of kinase pairs (theory)
+- Number of kinase pairs (experimental)
 
 
 ## `structure_distances_vs_dfg.ipynb`
@@ -42,20 +52,24 @@ Let's check if this is true using DFG conformations from KLIFS. Plot distributio
 In this notebook, we investigate the ranges of fingerprint distances for different feature weighting schemes.
 Feature weighting schemes are denoted as follows: 
 
-_\<physicochemical\>\<distances\>\<moments\>_
+> physicochemical/distances/moments
 
-- $100$: Include only bits for physicochemical features (_physicochemical_)
-- $010$: Include only bits for spatial distances features (_distances_)
-- $001$: Include only bits for moments of spatial distances features (_moments_)
-- $110$: Include only bits for physicochemical and distances (1:1)
-- $101$: Include only bits for physicochemical and moments (1:1)
-- $011$: Include only bits for distances and moments (1:1)
-- $111$: Include all bits equally weighted by physicochemical, distances, and moments
-- $15$: Include all bits equally by bit
+- 100: Include only bits for physicochemical features (_physicochemical_)
+- 010: Include only bits for spatial distances features (_distances_)
+- 001: Include only bits for moments of spatial distances features (_moments_)
+- 110: Include only bits for physicochemical and distances (1:1)
+- 101: Include only bits for physicochemical and moments (1:1)
+- 011: Include only bits for distances and moments (1:1)
+- 111: Include all bits equally weighted by physicochemical, distances, and moments
+- 15: Include all bits equally by bit
 
 
 ## `structure_kinase_mapping.ipynb`
 
 ### Fingerprint distances between structures for the same kinase
 
-In this notebook, we investigate the ranges of fingerprint distances for each kinase pair.
+We investigate the ranges of fingerprint distances for each kinase pair:
+
+- Compare the fingerprint distance distribution for intra-kinase pairs and inter-kinase pairs
+- For the kinase pairs with highest structure pair coverage, show the range of fingerprint distances (consider minimum or median for structure-to-kinase mapping)
+- Generate `kissim` kinase matrix for kinase subset investigated in the paper ["Analyzing Kinase Similarity in Small Molecule and Protein Structural Space to Explore the Limits of Multi-Target Screening"](https://www.mdpi.com/1420-3049/26/3/629)

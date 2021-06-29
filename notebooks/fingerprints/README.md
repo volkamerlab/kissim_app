@@ -2,7 +2,7 @@
 
 ### Per-residue feature values
 
-In this notebook, we investigate the defined features per residue
+We investigate the defined features per residue
 
 - over all structures (boxplots/heatmaps)
 - for example structures (in 3D)
@@ -12,7 +12,7 @@ In this notebook, we investigate the defined features per residue
 
 ### Fingerprints: Feature distributions
 
-In this notebook, we look at the distribution of features values observed in almost 5000 structures in order to get an impression on the feature value ranges and frequencies.
+We look at the distribution of features values observed in almost 5000 structures in order to get an impression on the feature value ranges and frequencies.
 
 Recap - in the `kissim` fingerprint we have three feature groups:
 
@@ -25,14 +25,14 @@ Recap - in the `kissim` fingerprint we have three feature groups:
 
 ### SiteAlign features
 
-This notebook reads the SiteAlign features from the respective [paper](https://onlinelibrary.wiley.com/doi/full/10.1002/prot.21858) and [SI table](https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fprot.21858&file=prot21858-SupplementaryTable.pdf) to verify `kissim`'s implementation of the SiteAlign definitions:
+We read the SiteAlign features from the respective [paper](https://onlinelibrary.wiley.com/doi/full/10.1002/prot.21858) and [SI table](https://onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2Fprot.21858&file=prot21858-SupplementaryTable.pdf) to verify `kissim`'s implementation of the SiteAlign definitions:
 
 
 ## `fingerprint_bit_coverage_variability.ipynb`
 
 ### Fingerprint bit coverage and variability
 
-Get coverage and variability of fingerprint bit positions across all fingerprints in our dataset.
+We check the coverage and variability of fingerprint bit positions across all fingerprints in our dataset.
 
 - Investigate missing bits across fingerprints
 - Investigate bit variability across fingerprints (standard deviation)
@@ -43,7 +43,7 @@ Get coverage and variability of fingerprint bit positions across all fingerprint
 
 ### Investigate and remove spatial outliers
 
-Let's take a look at all structures that contain residues (CA atoms) with a distance to the `kissim` subpocket centers below/above a certain minimum/maximum cutoff. 
+We take a look at all structures that contain residues (CA atoms) with a distance to the `kissim` subpocket centers below/above a certain minimum/maximum cutoff. 
 
 This allows us to identify outlier structures that we want to exclude from our dataset.
 
@@ -52,4 +52,4 @@ This allows us to identify outlier structures that we want to exclude from our d
 
 ### Min-max cutoffs for continuous (=spatial) features
 
-Define the min-max cutoffs for the min-max normalization of continuous features such as the distances and moments features: Use the floor/ceiling values of the minimum/maximum values of the distances w.r.t. to each subpocket center.
+We define the min-max cutoffs for the min-max normalization of continuous features such as the distances and moments features: Use the floor/ceiling values of the minimum/maximum values of the distances w.r.t. to each subpocket center.
