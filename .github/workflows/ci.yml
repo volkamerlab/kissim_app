@@ -14,7 +14,6 @@ on:
 jobs:
 
   test:
-
     name: Pytest
     runs-on: ${{ matrix.cfg.os }}
     strategy:
@@ -33,9 +32,7 @@ jobs:
             python-version: "3.6"
           #- os: windows-latest
           #  python-version: "3.6"
-
     steps:
-
       - uses: actions/checkout@v2
       - uses: conda-incubator/setup-miniconda@v2
         with:
@@ -70,12 +67,9 @@ jobs:
           pytest $PYTEST_ARGS notebooks/ 
   
   format:
-    
     name: Black
     runs-on: ubuntu-latest
-
     steps:
-    
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install format dependencies
@@ -86,12 +80,9 @@ jobs:
           black -l 99 --check src
   
   lint:
-
     name: Lint
     runs-on: ubuntu-latest
-
     steps:
-
       - uses: actions/checkout@v2
       - uses: actions/setup-python@v2
       - name: Install lint dependencies
@@ -103,3 +94,19 @@ jobs:
         run: |
           flake8-nb --config tox.ini notebooks
           flake8 --config tox.ini src
+
+  readmes:
+    name: READMEs
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - name: Install nbformat
+        run: python -m pip install nbformat shyaml
+      - name: Check READMEs are up-to-date
+        run: |
+          for path in notebooks/[^.]*/; do
+            python devtools/regenerate_readmes.py --output README.md $path
+          done
+          # If the script above introduced changes (it shouldn't!), git diff will have output and an error code
+          git diff --exit-code
