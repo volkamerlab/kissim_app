@@ -16,6 +16,7 @@ dependencies:
   - scipy
   - matplotlib
   - seaborn
+  - matplotlib-venn
   - jupyter
   - jupyterlab>=3
   - ipywidgets>=7.5
