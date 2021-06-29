@@ -14,23 +14,27 @@ from src.evaluation import utils
 from src.evaluation.data.ligand_vs_kinase_data import LigandVsKinaseData
 
 logger = logging.getLogger(__name__)
+plt.style.use("seaborn")
 
 
 class LigandVsKinaseEvaluator:
     """
-    TODO
+    Evaluator for performance for profiling vs. kinase similarity datasets.
 
     Attributes
     ----------
-    ligand_query : str
-        Ligand name (kinases are extracted from `ligand_kinase_matrix` by this ligand).
-    kinase_query : str
-        Kinase name (kinases are extracted from `kinase_kinase_matrix` by this kinase).
     ligand_kinase_method : str
         Name for ligand profiling method to be used as identifier.
     kinase_kinase_method : str
         Name for kinase distances method to be used as identifier.
-    TODO
+    ligand_kinase_pairs : list of list of str
+        List of ligand-kinase pairs (input).
+    ligand_kinase_pairs_curated : list of list of str
+        List of ligand-kinase pairs (curated); potentially less than input because some pairs do
+        not have enough coverage (see class arguments e.g. `min_n_shared_kinases` and
+        `min_n_shared_active_kinases`).
+    data_dict : dict of dict of LigandVsKinaseData
+        For each ligand (key 1) and each kinase (key 2) store respective dataset.
     """
 
     def __init__(
@@ -48,7 +52,7 @@ class LigandVsKinaseEvaluator:
         kinase_kinase_path=None,
     ):
         """
-        TODO
+        Initialize LigandVsKinaseEvaluator.
 
         Parameters
         ----------
@@ -128,7 +132,18 @@ class LigandVsKinaseEvaluator:
         kinase_kinase_path,
     ):
         """
-        TODO
+        Load ligand-kinase and kinase-kinase dataset.
+
+        Parameters
+        ----------
+        Check `__init__` docstring.
+
+        Returns
+        -------
+        ligand_kinase_matrix : pd.DataFrame
+            Ligand-kinase data.
+        kinase_kinase_matrix : pd.DataFrame
+            Kinase-kinase data.
         """
 
         ligand_kinase_matrix = data.profiling.load(
@@ -165,7 +180,9 @@ class LigandVsKinaseEvaluator:
             Curate list of ligand and kinase name pairs.
         """
 
-        print(f"Number of ligand-kinase pairs (full dataset): {len(self.ligand_kinase_pairs)}")
+        logging.info(
+            f"Number of ligand-kinase pairs (full dataset): {len(self.ligand_kinase_pairs)}"
+        )
 
         ligand_kinase_pairs_curated = []
         for ligand_name, ligand_dict in self.data_dict.items():
@@ -175,7 +192,7 @@ class LigandVsKinaseEvaluator:
                 ):
                     ligand_kinase_pairs_curated.append([ligand_name, kinase_name])
 
-        print(
+        logging.info(
             f"Number of ligand-kinase pairs (filtered dataset): {len(ligand_kinase_pairs_curated)}"
         )
 
@@ -230,7 +247,8 @@ class LigandVsKinaseEvaluator:
 
         Returns
         -------
-            TODO
+        dict of pd.DataFrame
+            Per ligand (key) get corresponding data needed for enrichment plot.
         """
 
         experiment_dict = defaultdict(list)
@@ -340,13 +358,19 @@ class LigandVsKinaseEvaluator:
 
         return data_dict
 
-    def plot_roc_curves(self):
+    def plot_roc_curves(self, output_file=None):
         """
         Create ROC curve plots per ligand for different ligand targets (multiplot).
 
         Parameters
         ----------
-        Please check `src.evaluation.kinase_ranks.kinase_ranks_by_ligand_vs_kinase_data` docstring.
+        output_file : str
+            Path to output figure PNG file.
+
+        Returns
+        -------
+        list of float
+            List of all AUC values.
         """
 
         data_dict = self._roc_curves_data()
@@ -356,11 +380,14 @@ class LigandVsKinaseEvaluator:
         _, axes = plt.subplots(figsize=(n_cols * 5, n_rows * 5), nrows=n_rows, ncols=n_cols)
         axes = axes.reshape(-1)
 
+        auc_list = []
+
         for i, (ligand_name, kinases_data) in enumerate(data_dict.items()):
             for kinase_data in kinases_data:
                 kinase_name, fpr, tpr, auc, n_kinases, n_active_kinases = kinase_data
                 # Experimental curves
                 axes[i].plot(fpr, tpr, label=f"{kinase_name} (AUC={round(auc, 3)})")
+                auc_list.append(auc)
             # Random curve
             axes[i].plot([0, 1], [0, 1], label="Random", linestyle="--", color="grey")
             axes[i].legend()
@@ -379,13 +406,20 @@ class LigandVsKinaseEvaluator:
         for i in range(n_plots, n_axes):
             axes[i].axis("off")
 
+        if output_file:
+            plt.savefig(output_file, bbox_inches="tight", dpi=300)
+
+        return auc_list
+
     def _roc_curves_data(self):
         """
         Get data for ROC curve plots per ligand for different ligand targets (multiplot).
 
-        Parameters
-        ----------
-        Please check `src.evaluation.kinase_ranks.kinase_ranks_by_ligand_vs_kinase_data` docstring.
+
+        Returns
+        -------
+        dict of pd.DataFrame
+            Per ligand (key) get corresponding data needed for ROC plot.
         """
 
         data_dict = defaultdict(list)
