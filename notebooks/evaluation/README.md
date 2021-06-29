@@ -1,9 +1,9 @@
-## `kissim_profiling_details.ipynb`
-
-### Predict ligand profiling using `kissim` - detailed inspection
-
-
 ## `evaluation_kissim_davis.ipynb`
+
+### Predict ligand profiling using `kissim`
+
+
+## `evaluation_kissim_karaman.ipynb`
 
 ### Predict ligand profiling using `kissim`
 
@@ -33,6 +33,6 @@ Check if we can retrieve on-/off-targets for a selected ligand (as reported by K
 4. Save these top kinases in KinMap format for visualization using the KinMap website.
 
 
-## `evaluation_kissim_karaman.ipynb`
+## `kissim_profiling_details.ipynb`
 
-### Predict ligand profiling using `kissim`
+### Predict ligand profiling using `kissim` - detailed inspection

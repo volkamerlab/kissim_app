@@ -36,7 +36,9 @@ def main():
 
     # Collect notebook names and notebook's first cell contents for all notebooks in folder
     nbcontents = []
-    for notebook_file in notebook_folder.glob("*.ipynb"):
+    notebook_files = notebook_folder.glob("*.ipynb")
+    notebook_files = sorted(list(notebook_files))
+    for notebook_file in notebook_files:
         nbcontent = "\n\n\n".join(list(first_markdown_cell(notebook_file)))
         if not nbcontent.strip():  # empty results
             nbcontent = "> This talktorial is still under development"
