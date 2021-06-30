@@ -89,7 +89,7 @@ target/
 /data/*
 !/data/processed
 !/data/external
-/data/external/structures/20210114_KLIFS_HUMAN/*
+/data/external/structures/*_KLIFS_HUMAN/*
 
 # exclude results from source control
 /results/*
