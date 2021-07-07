@@ -1,4 +1,4 @@
-## `view_features.ipynb`
+## `001_view_features.ipynb`
 
 ### NGLview-based `kissim` figures
 
