@@ -41,11 +41,11 @@ We check the coverage and variability of fingerprint bit positions across all fi
 
 ## `remove_spatial_outliers.ipynb`
 
-### Investigate and remove spatial outliers
+### Investigate spatial outliers
 
 We take a look at all structures that contain residues (CA atoms) with a distance to the `kissim` subpocket centers below/above a certain minimum/maximum cutoff. 
 
-This allows us to identify outlier structures that we want to exclude from our dataset.
+This allows us to identify outlier structures that we want to exclude from our dataset (in our `kissim` pipeline this is done with the `kissim outlier` CLI).
 
 
 ## `spatial_feature_cutoffs.ipynb`

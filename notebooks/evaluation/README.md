@@ -48,7 +48,7 @@ Summarize ligand-kinase pair performances based on multiple profiling datasets:
 - `kissim` datasets: Different feature weighting schemes
 
 
-## `kinmap.ipynb`
+## `kinmap_trees.ipynb`
 
 ### Ligand-based validation
 
