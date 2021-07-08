@@ -5,7 +5,7 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --mem-per-cpu=4096
-#SBATCH --time=6:00:00
+#SBATCH --time=10:00:00
 #SBATCH --qos=standard
 
 # @dominiquesydow
