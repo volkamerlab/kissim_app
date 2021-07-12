@@ -11,14 +11,16 @@
 # @dominiquesydow
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
-DFG="all"
+DFG="in"
 ID="20210712"
 KISSIM_APP=/home/${USER}/kissim_app
 RESULTS=$KISSIM_APP/results/${ID}/dfg_${DFG}
 NCORES=8
 
+mkdir $RESULTS
+
 # Encode structures
-kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/20210630_KLIFS_HUMAN
+kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids_dfg_${DFG}.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/20210630_KLIFS_HUMAN
 
 # Remove structural outliers
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json
