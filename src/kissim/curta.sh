@@ -13,12 +13,13 @@
 
 DFG="all"
 ID="20210712"
+KLIFS_DOWNLOAD=20210630_KLIFS_HUMAN
 KISSIM_APP=/home/${USER}/kissim_app
 RESULTS=$KISSIM_APP/results/${ID}/dfg_${DFG}
 NCORES=8
 
 # Encode structures
-kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/20210630_KLIFS_HUMAN
+kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/$KLIFS_DOWNLOAD
 
 # Remove structural outliers
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json
