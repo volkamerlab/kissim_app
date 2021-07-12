@@ -222,6 +222,10 @@ def plot_missing_subpockets(structures, anchor_residues):
         {key: missing_residues[value].sum() for key, value in anchor_residues.items()}
     )
     # Plot missing subpockets
+    missing_subpockets_stats = round(
+        missing_subpockets.sort_values(ascending=False) / len(structures) * 100, 2
+    )
+    print(f"Percentage of structures with missing subpocket:\n{missing_subpockets_stats}")
     ax = missing_subpockets.sort_values().plot(
         kind="barh", title="Number of structures with missing subpocket center"
     )
