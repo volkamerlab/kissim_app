@@ -66,10 +66,23 @@ We investigate the ranges of fingerprint distances for each kinase pair:
 
 ### `kissim`-based kinome tree
 
-We generate `kissim`-based kinome trees based on three different kinase matrices:
+We generate `kissim`-based kinome matrices and trees based on three different parameters:
 
-- Kinase matrix based on all structures/fingerprints (**DFG-in and DFG-out**)
-- Kinase matrix based on structure/fingerprints in **DFG-in** conformation only
-- Kinase matrix based on structure/fingerprints in **DFG-out** conformation only
+- `kissim` runs: With/without charged-THR bug, different KLIFS datasets
+- Feature weighting schemes
+- DFG conformations
+  - Kinase matrix based on all structures/fingerprints (**DFG-in and DFG-out**)
+  - Kinase matrix based on structure/fingerprints in **DFG-in** conformation only
+  - Kinase matrix based on structure/fingerprints in **DFG-out** conformation only
+- Clustering methods
 
-Check which kinases are covered by the DFG-in *and* the DFG-out `kissim` trees. 
+
+## `007_compare_results_by_version.ipynb`
+
+### Compare the results from different `kissim` runs
+
+Compare results (kinase matrices) from different runs:
+
+- `matrix_wbug`: **Run on 20210508**; based on KLIFS dataset from 20210114; **with** charged-THR bug
+- `matrix_wobug`: **Run on 20210708**; based on KLIFS dataset from 20210114; without charged-THR bug
+- `matrix_2019`: 2019 dataset
