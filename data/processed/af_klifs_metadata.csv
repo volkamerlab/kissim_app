@@ -1,0 +1,556 @@
+kinase.uniprot,structure.af_file,kinase.klifs_id,kinase.klifs_name,kinase.full_name,kinase.gene_name,species.klifs
+Q2M2I8,AF-Q2M2I8-F1-model_v1.pdb.gz,277,AAK1,AP2 associated kinase 1,AAK1,Human
+Q6ZMQ8,AF-Q6ZMQ8-F1-model_v1.pdb.gz,443,LMR1,apoptosis-associated tyrosine kinase,AATK,Human
+P00519,AF-P00519-F1-model_v1.pdb.gz,392,ABL1,"ABL proto-oncogene 1, non-receptor tyrosine kinase",ABL1,Human
+P42684,AF-P42684-F1-model_v1.pdb.gz,393,ABL2,"ABL proto-oncogene 2, non-receptor tyrosine kinase",ABL2,Human
+Q04771,AF-Q04771-F1-model_v1.pdb.gz,516,ALK2,activin A receptor type I,ACVR1,Human
+P36896,AF-P36896-F1-model_v1.pdb.gz,517,ALK4,activin A receptor type IB,ACVR1B,Human
+Q8NER5,AF-Q8NER5-F1-model_v1.pdb.gz,522,ALK7,activin A receptor type IC,ACVR1C,Human
+P27037,AF-P27037-F1-model_v1.pdb.gz,523,ACTR2,activin A receptor type IIA,ACVR2A,Human
+Q13705,AF-Q13705-F1-model_v1.pdb.gz,524,ACTR2B,activin A receptor type IIB,ACVR2B,Human
+P37023,AF-P37023-F1-model_v1.pdb.gz,518,ALK1,activin A receptor type IL,ACVRL1,Human
+Q86TW2,AF-Q86TW2-F1-model_v1.pdb.gz,72,ADCK1,Uncharacterized aarF domain-containing protein kinase 1,ADCK1,Human
+Q7Z695,AF-Q7Z695-F1-model_v1.pdb.gz,74,ADCK2,Uncharacterized aarF domain-containing protein kinase 2,ADCK2,Human
+Q3MIX3,AF-Q3MIX3-F1-model_v1.pdb.gz,73,ADCK5,Uncharacterized aarF domain-containing protein kinase 5,ADCK5,Human
+P31749,AF-P31749-F1-model_v1.pdb.gz,1,AKT1,v-akt murine thymoma viral oncogene homolog 1,AKT1,Human
+P31751,AF-P31751-F1-model_v1.pdb.gz,2,AKT2,v-akt murine thymoma viral oncogene homolog 2,AKT2,Human
+Q9Y243,AF-Q9Y243-F1-model_v1.pdb.gz,3,AKT3,v-akt murine thymoma viral oncogene homolog 3,AKT3,Human
+Q9UM73,AF-Q9UM73-F1-model_v1.pdb.gz,396,ALK,anaplastic lymphoma receptor tyrosine kinase,ALK,Human
+Q96L96,AF-Q96L96-F1-model_v1.pdb.gz,75,AlphaK1,Alpha-protein kinase 1,ALPK1,Human
+Q86TB3,AF-Q86TB3-F1-model_v1.pdb.gz,77,AlphaK2,Alpha-protein kinase 2,ALPK2,Human
+Q96QP1,AF-Q96QP1-F1-model_v1.pdb.gz,76,AlphaK3,Alpha-protein kinase 3,ALPK3,Human
+Q16671,AF-Q16671-F1-model_v1.pdb.gz,525,MISR2,anti-Mullerian hormone receptor type II,AMHR2,Human
+Q8NFD2,AF-Q8NFD2-F1-model_v1.pdb.gz,515,SgK288,ankyrin repeat and kinase domain containing 1,ANKK1,Human
+Q9H6X2,AF-Q9H6X2-F1-model_v1.pdb.gz,96,DNAPK,Anthrax toxin receptor 1,ANTXR1,Human
+P10398,AF-P10398-F1-model_v1.pdb.gz,508,ARAF,"A-Raf proto-oncogene, serine/threonine kinase",ARAF,Human
+Q13315,AF-Q13315-F1-model_v1.pdb.gz,94,ATM,Serine-protein kinase ATM,ATM,Human
+Q13535,AF-Q13535-F1-model_v1.pdb.gz,95,ATR,Serine/threonine-protein kinase ATR,ATR,Human
+O14965,AF-O14965-F1-model_v1.pdb.gz,259,AurA,aurora kinase A,AURKA,Human
+Q96GD4,AF-Q96GD4-F1-model_v1.pdb.gz,261,AurB,aurora kinase B,AURKB,Human
+Q9UQB9,AF-Q9UQB9-F1-model_v1.pdb.gz,260,AurC,aurora kinase C,AURKC,Human
+P30530,AF-P30530-F1-model_v1.pdb.gz,398,AXL,AXL receptor tyrosine kinase,AXL,Human
+O14874,AF-O14874-F1-model_v1.pdb.gz,89,BCKDK,"[3-methyl-2-oxobutanoate dehydrogenase [lipoamide]] kinase, mitochondrial",BCKDK,Human
+P11274,AF-P11274-F1-model_v1.pdb.gz,81,BCR,Breakpoint cluster region protein,BCR,Human
+P51451,AF-P51451-F1-model_v1.pdb.gz,464,BLK,"BLK proto-oncogene, Src family tyrosine kinase",BLK,Human
+Q9NSY1,AF-Q9NSY1-F1-model_v1.pdb.gz,278,BIKE,BMP2 inducible kinase,BMP2K,Human
+P36894,AF-P36894-F1-model_v1.pdb.gz,519,BMPR1A,bone morphogenetic protein receptor type 1A,BMPR1A,Human
+O00238,AF-O00238-F1-model_v1.pdb.gz,520,BMPR1B,bone morphogenetic protein receptor type 1B,BMPR1B,Human
+Q13873,AF-Q13873-F1-model_v1.pdb.gz,526,BMPR2,bone morphogenetic protein receptor type II,BMPR2,Human
+P51813,AF-P51813-F1-model_v1.pdb.gz,472,BMX,BMX non-receptor tyrosine kinase,BMX,Human
+P15056,AF-P15056-F1-model_v1.pdb.gz,509,BRAF,"B-Raf proto-oncogene, serine/threonine kinase",BRAF,Human
+P25440,AF-P25440-F1-model_v1.pdb.gz,83,BRD2,Bromodomain-containing protein 2,BRD2,Human
+Q15059,AF-Q15059-F1-model_v1.pdb.gz,84,BRD3,Bromodomain-containing protein 3,BRD3,Human
+O60885,AF-O60885-F1-model_v1.pdb.gz,85,BRD4,Bromodomain-containing protein 4,BRD4,Human
+Q58F21,AF-Q58F21-F1-model_v1.pdb.gz,82,BRDT,Bromodomain testis-specific protein,BRDT,Human
+Q8TDC3,AF-Q8TDC3-F1-model_v1.pdb.gz,120,BRSK1,BR serine/threonine kinase 1,BRSK1,Human
+Q8IWQ3,AF-Q8IWQ3-F1-model_v1.pdb.gz,119,BRSK2,BR serine/threonine kinase 2,BRSK2,Human
+Q06187,AF-Q06187-F1-model_v1.pdb.gz,473,BTK,Bruton tyrosine kinase,BTK,Human
+O43683,AF-O43683-F1-model_v1.pdb.gz,262,BUB1,BUB1 mitotic checkpoint serine/threonine kinase,BUB1,Human
+O60566,AF-O60566-F1-model_v1.pdb.gz,263,BUBR1,BUB1 mitotic checkpoint serine/threonine kinase B,BUB1B,Human
+Q14012,AF-Q14012-F1-model_v1.pdb.gz,109,CaMK1a,calcium/calmodulin-dependent protein kinase I,CAMK1,Human
+Q8IU85,AF-Q8IU85-F1-model_v1.pdb.gz,110,CaMK1d,calcium/calmodulin dependent protein kinase ID,CAMK1D,Human
+Q96NX5,AF-Q96NX5-F1-model_v1.pdb.gz,111,CaMK1g,calcium/calmodulin dependent protein kinase IG,CAMK1G,Human
+Q9UQM7,AF-Q9UQM7-F1-model_v1.pdb.gz,113,CaMK2a,calcium/calmodulin-dependent protein kinase II alpha,CAMK2A,Human
+Q13554,AF-Q13554-F1-model_v1.pdb.gz,114,CaMK2b,calcium/calmodulin-dependent protein kinase II beta,CAMK2B,Human
+Q13557,AF-Q13557-F1-model_v1.pdb.gz,115,CaMK2d,calcium/calmodulin-dependent protein kinase II delta,CAMK2D,Human
+Q13555,AF-Q13555-F1-model_v1.pdb.gz,116,CaMK2g,calcium/calmodulin-dependent protein kinase II gamma,CAMK2G,Human
+Q16566,AF-Q16566-F1-model_v1.pdb.gz,108,CaMK4,calcium/calmodulin-dependent protein kinase IV,CAMK4,Human
+Q8N5S9,AF-Q8N5S9-F1-model_v1.pdb.gz,266,CaMKK1,"calcium/calmodulin-dependent protein kinase kinase 1, alpha",CAMKK1,Human
+Q96RR4,AF-Q96RR4-F1-model_v1.pdb.gz,265,CaMKK2,"calcium/calmodulin-dependent protein kinase kinase 2, beta",CAMKK2,Human
+Q8NCB2,AF-Q8NCB2-F1-model_v1.pdb.gz,138,VACAMKL,CaM kinase-like vesicle-associated,CAMKV,Human
+O14936,AF-O14936-F1-model_v1.pdb.gz,139,CASK,calcium/calmodulin-dependent serine protein kinase (MAGUK family),CASK,Human
+Q5VT25,AF-Q5VT25-F1-model_v1.pdb.gz,6,MRCKa,CDC42 binding protein kinase alpha,CDC42BPA,Human
+Q9Y5S2,AF-Q9Y5S2-F1-model_v1.pdb.gz,7,MRCKb,CDC42 binding protein kinase beta,CDC42BPB,Human
+Q6DT37,AF-Q6DT37-F1-model_v1.pdb.gz,8,DMPK2,CDC42 binding protein kinase gamma,CDC42BPG,Human
+O00311,AF-O00311-F1-model_v1.pdb.gz,267,CDC7,cell division cycle 7,CDC7,Human
+P06493,AF-P06493-F1-model_v1.pdb.gz,197,CDC2,cyclin-dependent kinase 1,CDK1,Human
+Q15131,AF-Q15131-F1-model_v1.pdb.gz,200,CDK10,cyclin-dependent kinase 10,CDK10,Human
+Q9UQ88,AF-Q9UQ88-F1-model_v1.pdb.gz,1103,CDK11a,cyclin dependent kinase 11A,CDK11A,Human
+P21127,AF-P21127-F1-model_v1.pdb.gz,215,PITSLRE,cyclin-dependent kinase 11B,CDK11B,Human
+Q9NYV4,AF-Q9NYV4-F1-model_v1.pdb.gz,209,CRK7,cyclin-dependent kinase 12,CDK12,Human
+Q14004,AF-Q14004-F1-model_v1.pdb.gz,208,CHED,cyclin-dependent kinase 13,CDK13,Human
+O94921,AF-O94921-F1-model_v1.pdb.gz,213,PFTAIRE1,cyclin-dependent kinase 14,CDK14,Human
+Q96Q40,AF-Q96Q40-F1-model_v1.pdb.gz,214,PFTAIRE2,cyclin-dependent kinase 15,CDK15,Human
+Q00536,AF-Q00536-F1-model_v1.pdb.gz,210,PCTAIRE1,cyclin-dependent kinase 16,CDK16,Human
+Q00537,AF-Q00537-F1-model_v1.pdb.gz,211,PCTAIRE2,cyclin-dependent kinase 17,CDK17,Human
+Q07002,AF-Q07002-F1-model_v1.pdb.gz,212,PCTAIRE3,cyclin-dependent kinase 18,CDK18,Human
+Q9BWU1,AF-Q9BWU1-F1-model_v1.pdb.gz,206,CDK11,cyclin-dependent kinase 19,CDK19,Human
+P24941,AF-P24941-F1-model_v1.pdb.gz,198,CDK2,cyclin-dependent kinase 2,CDK2,Human
+Q8IZL9,AF-Q8IZL9-F1-model_v1.pdb.gz,196,CCRK,cyclin-dependent kinase 20,CDK20,Human
+Q00526,AF-Q00526-F1-model_v1.pdb.gz,199,CDK3,cyclin-dependent kinase 3,CDK3,Human
+P11802,AF-P11802-F1-model_v1.pdb.gz,201,CDK4,cyclin-dependent kinase 4,CDK4,Human
+Q00535,AF-Q00535-F1-model_v1.pdb.gz,203,CDK5,cyclin-dependent kinase 5,CDK5,Human
+Q00534,AF-Q00534-F1-model_v1.pdb.gz,202,CDK6,cyclin-dependent kinase 6,CDK6,Human
+P50613,AF-P50613-F1-model_v1.pdb.gz,204,CDK7,cyclin-dependent kinase 7,CDK7,Human
+P49336,AF-P49336-F1-model_v1.pdb.gz,205,CDK8,cyclin-dependent kinase 8,CDK8,Human
+P50750,AF-P50750-F1-model_v1.pdb.gz,207,CDK9,cyclin-dependent kinase 9,CDK9,Human
+Q00532,AF-Q00532-F1-model_v1.pdb.gz,217,CDKL1,cyclin dependent kinase like 1,CDKL1,Human
+Q92772,AF-Q92772-F1-model_v1.pdb.gz,218,CDKL2,cyclin dependent kinase like 2,CDKL2,Human
+Q8IVW4,AF-Q8IVW4-F1-model_v1.pdb.gz,219,CDKL3,cyclin dependent kinase like 3,CDKL3,Human
+Q5MAI5,AF-Q5MAI5-F1-model_v1.pdb.gz,220,CDKL4,cyclin dependent kinase like 4,CDKL4,Human
+O76039,AF-O76039-F1-model_v1.pdb.gz,216,CDKL5,cyclin dependent kinase like 5,CDKL5,Human
+O14757,AF-O14757-F1-model_v1.pdb.gz,121,CHK1,checkpoint kinase 1,CHEK1,Human
+O96017,AF-O96017-F1-model_v1.pdb.gz,168,CHK2,checkpoint kinase 2,CHEK2,Human
+O15111,AF-O15111-F1-model_v1.pdb.gz,269,IKKa,conserved helix-loop-helix ubiquitous kinase,CHUK,Human
+O14578,AF-O14578-F1-model_v1.pdb.gz,4,CRIK,citron rho-interacting serine/threonine kinase,CIT,Human
+P49759,AF-P49759-F1-model_v1.pdb.gz,223,CLK1,CDC like kinase 1,CLK1,Human
+P49760,AF-P49760-F1-model_v1.pdb.gz,224,CLK2,CDC like kinase 2,CLK2,Human
+P49761,AF-P49761-F1-model_v1.pdb.gz,225,CLK3,CDC like kinase 3,CLK3,Human
+Q9HAZ1,AF-Q9HAZ1-F1-model_v1.pdb.gz,226,CLK4,CDC like kinase 4,CLK4,Human
+Q8NI60,AF-Q8NI60-F1-model_v1.pdb.gz,70,ADCK3,"Atypical kinase COQ8A, mitochondrial",COQ8A,Human
+Q96D53,AF-Q96D53-F1-model_v1.pdb.gz,71,ADCK4,"Atypical kinase COQ8B, mitochondrial",COQ8B,Human
+P07333,AF-P07333-F1-model_v1.pdb.gz,449,FMS,colony stimulating factor 1 receptor,CSF1R,Human
+P41240,AF-P41240-F1-model_v1.pdb.gz,402,CSK,c-src tyrosine kinase,CSK,Human
+P48729,AF-P48729-F1-model_v1.pdb.gz,184,CK1a,casein kinase 1 alpha 1,CSNK1A1,Human
+Q8N752,AF-Q8N752-F1-model_v1.pdb.gz,185,CK1a2,casein kinase 1 alpha 1 like,CSNK1A1L,Human
+P48730,AF-P48730-F1-model_v1.pdb.gz,186,CK1d,casein kinase 1 delta,CSNK1D,Human
+P49674,AF-P49674-F1-model_v1.pdb.gz,187,CK1e,casein kinase 1 epsilon,CSNK1E,Human
+Q9HCP0,AF-Q9HCP0-F1-model_v1.pdb.gz,190,CK1g1,casein kinase 1 gamma 1,CSNK1G1,Human
+P78368,AF-P78368-F1-model_v1.pdb.gz,188,CK1g2,casein kinase 1 gamma 2,CSNK1G2,Human
+Q9Y6M4,AF-Q9Y6M4-F1-model_v1.pdb.gz,189,CK1g3,casein kinase 1 gamma 3,CSNK1G3,Human
+P68400,AF-P68400-F1-model_v1.pdb.gz,221,CK2a1,casein kinase 2 alpha 1,CSNK2A1,Human
+P19784,AF-P19784-F1-model_v1.pdb.gz,222,CK2a2,casein kinase 2 alpha 2,CSNK2A2,Human
+Q8NEV1,AF-Q8NEV1-F1-model_v1.pdb.gz,1104,CSNK2A3,casein kinase 2 alpha 3,CSNK2A3,Human
+P53355,AF-P53355-F1-model_v1.pdb.gz,140,DAPK1,death-associated protein kinase 1,DAPK1,Human
+Q9UIK4,AF-Q9UIK4-F1-model_v1.pdb.gz,142,DAPK2,death-associated protein kinase 2,DAPK2,Human
+O43293,AF-O43293-F1-model_v1.pdb.gz,141,DAPK3,death-associated protein kinase 3,DAPK3,Human
+O15075,AF-O15075-F1-model_v1.pdb.gz,145,DCLK1,doublecortin like kinase 1,DCLK1,Human
+Q8N568,AF-Q8N568-F1-model_v1.pdb.gz,147,DCLK2,doublecortin like kinase 2,DCLK2,Human
+Q9C098,AF-Q9C098-F1-model_v1.pdb.gz,146,DCLK3,doublecortin like kinase 3,DCLK3,Human
+Q08345,AF-Q08345-F1-model_v1.pdb.gz,404,DDR1,discoidin domain receptor tyrosine kinase 1,DDR1,Human
+Q16832,AF-Q16832-F1-model_v1.pdb.gz,405,DDR2,discoidin domain receptor tyrosine kinase 2,DDR2,Human
+Q09013,AF-Q09013-F1-model_v1.pdb.gz,5,DMPK1,dystrophia myotonica protein kinase,DMPK,Human
+Q6XUX3,AF-Q6XUX3-F1-model_v1.pdb.gz,320,SgK496,dual serine/threonine and tyrosine protein kinase,DSTYK,Human
+Q13627,AF-Q13627-F1-model_v1.pdb.gz,227,DYRK1A,dual specificity tyrosine phosphorylation regulated kinase 1A,DYRK1A,Human
+Q9Y463,AF-Q9Y463-F1-model_v1.pdb.gz,228,DYRK1B,dual specificity tyrosine phosphorylation regulated kinase 1B,DYRK1B,Human
+Q92630,AF-Q92630-F1-model_v1.pdb.gz,230,DYRK2,dual specificity tyrosine phosphorylation regulated kinase 2,DYRK2,Human
+O43781,AF-O43781-F1-model_v1.pdb.gz,229,DYRK3,dual specificity tyrosine phosphorylation regulated kinase 3,DYRK3,Human
+Q9NR20,AF-Q9NR20-F1-model_v1.pdb.gz,231,DYRK4,dual specificity tyrosine phosphorylation regulated kinase 4,DYRK4,Human
+O00418,AF-O00418-F1-model_v1.pdb.gz,80,eEF2K,Eukaryotic elongation factor 2 kinase,EEF2K,Human
+O43921,AF-O43921-F1-model_v1.pdb.gz,1110,EFNA2,ephrin A2,EFNA2,Human
+P00533,AF-P00533-F1-model_v1.pdb.gz,406,EGFR,epidermal growth factor receptor,EGFR,Human
+Q9BQI3,AF-Q9BQI3-F1-model_v1.pdb.gz,308,HRI,eukaryotic translation initiation factor 2 alpha kinase 1,EIF2AK1,Human
+P19525,AF-P19525-F1-model_v1.pdb.gz,310,PKR,eukaryotic translation initiation factor 2 alpha kinase 2,EIF2AK2,Human
+Q9NZJ5,AF-Q9NZJ5-F1-model_v1.pdb.gz,309,PEK,eukaryotic translation initiation factor 2 alpha kinase 3,EIF2AK3,Human
+Q9P2K8,AF-Q9P2K8-F1-model_v1.pdb.gz,306,GCN2,eukaryotic translation initiation factor 2 alpha kinase 4,EIF2AK4,Human
+Q9P2K8,AF-Q9P2K8-F1-model_v1.pdb.gz,307,GCN2-b,eukaryotic translation initiation factor 2 alpha kinase 4 (2nd domain),EIF2AK4-b,Human
+P21709,AF-P21709-F1-model_v1.pdb.gz,411,EphA1,EPH receptor A1,EPHA1,Human
+Q5JZY3,AF-Q5JZY3-F1-model_v1.pdb.gz,422,EphA10,EPH receptor A10,EPHA10,Human
+P29317,AF-P29317-F1-model_v1.pdb.gz,410,EphA2,EPH receptor A2,EPHA2,Human
+P29320,AF-P29320-F1-model_v1.pdb.gz,412,EphA3,EPH receptor A3,EPHA3,Human
+P54764,AF-P54764-F1-model_v1.pdb.gz,413,EphA4,EPH receptor A4,EPHA4,Human
+P54756,AF-P54756-F1-model_v1.pdb.gz,414,EphA5,EPH receptor A5,EPHA5,Human
+Q9UF33,AF-Q9UF33-F1-model_v1.pdb.gz,423,EphA6,EPH receptor A6,EPHA6,Human
+Q15375,AF-Q15375-F1-model_v1.pdb.gz,415,EphA7,EPH receptor A7,EPHA7,Human
+P29322,AF-P29322-F1-model_v1.pdb.gz,416,EphA8,EPH receptor A8,EPHA8,Human
+P54762,AF-P54762-F1-model_v1.pdb.gz,417,EphB1,EPH receptor B1,EPHB1,Human
+P29323,AF-P29323-F1-model_v1.pdb.gz,418,EphB2,EPH receptor B2,EPHB2,Human
+P54753,AF-P54753-F1-model_v1.pdb.gz,419,EphB3,EPH receptor B3,EPHB3,Human
+P54760,AF-P54760-F1-model_v1.pdb.gz,420,EphB4,EPH receptor B4,EPHB4,Human
+O15197,AF-O15197-F1-model_v1.pdb.gz,421,EphB6,EPH receptor B6,EPHB6,Human
+P04626,AF-P04626-F1-model_v1.pdb.gz,407,ErbB2,erb-b2 receptor tyrosine kinase 2,ERBB2,Human
+P21860,AF-P21860-F1-model_v1.pdb.gz,408,ErbB3,erb-b2 receptor tyrosine kinase 3,ERBB3,Human
+Q15303,AF-Q15303-F1-model_v1.pdb.gz,409,ErbB4,erb-b2 receptor tyrosine kinase 4,ERBB4,Human
+O75460,AF-O75460-F1-model_v1.pdb.gz,273,IRE1,endoplasmic reticulum to nucleus signaling 1,ERN1,Human
+Q76MJ5,AF-Q76MJ5-F1-model_v1.pdb.gz,274,IRE2,endoplasmic reticulum to nucleus signaling 2,ERN2,Human
+Q14296,AF-Q14296-F1-model_v1.pdb.gz,86,FASTK,Fas-activated serine/threonine kinase,FASTK,Human
+P16591,AF-P16591-F1-model_v1.pdb.gz,426,FER,FER tyrosine kinase,FER,Human
+P07332,AF-P07332-F1-model_v1.pdb.gz,427,FES,"FES proto-oncogene, tyrosine kinase",FES,Human
+P11362,AF-P11362-F1-model_v1.pdb.gz,428,FGFR1,fibroblast growth factor receptor 1,FGFR1,Human
+P21802,AF-P21802-F1-model_v1.pdb.gz,430,FGFR2,fibroblast growth factor receptor 2,FGFR2,Human
+P22607,AF-P22607-F1-model_v1.pdb.gz,429,FGFR3,fibroblast growth factor receptor 3,FGFR3,Human
+P22455,AF-P22455-F1-model_v1.pdb.gz,431,FGFR4,fibroblast growth factor receptor 4,FGFR4,Human
+P09769,AF-P09769-F1-model_v1.pdb.gz,460,FGR,"FGR proto-oncogene, Src family tyrosine kinase",FGR,Human
+P17948,AF-P17948-F1-model_v1.pdb.gz,483,FLT1,fms related tyrosine kinase 1,FLT1,Human
+P36888,AF-P36888-F1-model_v1.pdb.gz,450,FLT3,fms related tyrosine kinase 3,FLT3,Human
+P35916,AF-P35916-F1-model_v1.pdb.gz,484,FLT4,fms related tyrosine kinase 4,FLT4,Human
+P42685,AF-P42685-F1-model_v1.pdb.gz,459,FRK,fyn-related Src family tyrosine kinase,FRK,Human
+P06241,AF-P06241-F1-model_v1.pdb.gz,461,FYN,"FYN proto-oncogene, Src family tyrosine kinase",FYN,Human
+O14976,AF-O14976-F1-model_v1.pdb.gz,279,GAK,cyclin G associated kinase,GAK,Human
+P35557,AF-P35557-F1-model_v1.pdb.gz,355,GCK,glucokinase,GCK,Human
+Q15835,AF-Q15835-F1-model_v1.pdb.gz,16,RHOK,G protein-coupled receptor kinase 1,GRK1,Human
+P25098,AF-P25098-F1-model_v1.pdb.gz,11,BARK1,"adrenergic, beta, receptor kinase 1",GRK2,Human
+P35626,AF-P35626-F1-model_v1.pdb.gz,12,BARK2,"adrenergic, beta, receptor kinase 2",GRK3,Human
+P32298,AF-P32298-F1-model_v1.pdb.gz,13,GPRK4,G protein-coupled receptor kinase 4,GRK4,Human
+P34947,AF-P34947-F1-model_v1.pdb.gz,14,GPRK5,G protein-coupled receptor kinase 5,GRK5,Human
+P43250,AF-P43250-F1-model_v1.pdb.gz,15,GPRK6,G protein-coupled receptor kinase 6,GRK6,Human
+Q8WTQ7,AF-Q8WTQ7-F1-model_v1.pdb.gz,17,GPRK7,G protein-coupled receptor kinase 7,GRK7,Human
+P49840,AF-P49840-F1-model_v1.pdb.gz,237,GSK3A,glycogen synthase kinase 3 alpha,GSK3A,Human
+P49841,AF-P49841-F1-model_v1.pdb.gz,238,GSK3B,glycogen synthase kinase 3 beta,GSK3B,Human
+P25092,AF-P25092-F1-model_v1.pdb.gz,340,HSER,guanylate cyclase 2C,GUCY2C,Human
+Q02846,AF-Q02846-F1-model_v1.pdb.gz,342,CYGD,"guanylate cyclase 2D, membrane (retina-specific)",GUCY2D,Human
+P51841,AF-P51841-F1-model_v1.pdb.gz,341,CYGF,"guanylate cyclase 2F, retinal",GUCY2F,Human
+Q8TF76,AF-Q8TF76-F1-model_v1.pdb.gz,268,Haspin,germ cell associated 2 (haspin),HASPIN,Human
+P08631,AF-P08631-F1-model_v1.pdb.gz,465,HCK,"HCK proto-oncogene, Src family tyrosine kinase",HCK,Human
+Q86Z02,AF-Q86Z02-F1-model_v1.pdb.gz,235,HIPK1,homeodomain interacting protein kinase 1,HIPK1,Human
+Q9H2X6,AF-Q9H2X6-F1-model_v1.pdb.gz,233,HIPK2,homeodomain interacting protein kinase 2,HIPK2,Human
+Q9H422,AF-Q9H422-F1-model_v1.pdb.gz,232,HIPK3,homeodomain interacting protein kinase 3,HIPK3,Human
+Q8NE63,AF-Q8NE63-F1-model_v1.pdb.gz,234,HIPK4,homeodomain interacting protein kinase 4,HIPK4,Human
+Q9UJY1,AF-Q9UJY1-F1-model_v1.pdb.gz,88,H11,Heat shock protein beta-8,HSPB8,Human
+P57058,AF-P57058-F1-model_v1.pdb.gz,122,HUNK,hormonally up-regulated Neu-associated kinase,HUNK,Human
+Q9UPZ9,AF-Q9UPZ9-F1-model_v1.pdb.gz,255,ICK,intestinal cell (MAK-like) kinase,ICK,Human
+P08069,AF-P08069-F1-model_v1.pdb.gz,432,IGF1R,insulin like growth factor 1 receptor,IGF1R,Human
+O14920,AF-O14920-F1-model_v1.pdb.gz,270,IKKb,"inhibitor of kappa light polypeptide gene enhancer in B-cells, kinase beta",IKBKB,Human
+Q14164,AF-Q14164-F1-model_v1.pdb.gz,271,IKKe,"inhibitor of kappa light polypeptide gene enhancer in B-cells, kinase epsilon",IKBKE,Human
+Q13418,AF-Q13418-F1-model_v1.pdb.gz,497,ILK,integrin linked kinase,ILK,Human
+P06213,AF-P06213-F1-model_v1.pdb.gz,433,INSR,insulin receptor,INSR,Human
+P14616,AF-P14616-F1-model_v1.pdb.gz,434,IRR,insulin receptor-related receptor,INSRR,Human
+P51617,AF-P51617-F1-model_v1.pdb.gz,486,IRAK1,interleukin 1 receptor associated kinase 1,IRAK1,Human
+O43187,AF-O43187-F1-model_v1.pdb.gz,487,IRAK2,interleukin 1 receptor associated kinase 2,IRAK2,Human
+Q9Y616,AF-Q9Y616-F1-model_v1.pdb.gz,488,IRAK3,interleukin 1 receptor associated kinase 3,IRAK3,Human
+Q9NWZ3,AF-Q9NWZ3-F1-model_v1.pdb.gz,489,IRAK4,interleukin 1 receptor associated kinase 4,IRAK4,Human
+Q08881,AF-Q08881-F1-model_v1.pdb.gz,474,ITK,IL2 inducible T-cell kinase,ITK,Human
+P23458,AF-P23458-F1-model_v1.pdb.gz,435,JAK1,Janus kinase 1,JAK1,Human
+P23458,AF-P23458-F1-model_v1.pdb.gz,438,JAK1-b,Janus kinase 1 (2nd domain),JAK1-b,Human
+O60674,AF-O60674-F1-model_v1.pdb.gz,436,JAK2,Janus kinase 2,JAK2,Human
+O60674,AF-O60674-F1-model_v1.pdb.gz,439,JAK2-b,Janus kinase 2 (2nd domain),JAK2-b,Human
+P52333,AF-P52333-F1-model_v1.pdb.gz,437,JAK3,Janus kinase 3,JAK3,Human
+P52333,AF-P52333-F1-model_v1.pdb.gz,440,JAK3-b,Janus kinase 3 (2nd domain),JAK3-b,Human
+O60229,AF-O60229-F1-model_v1.pdb.gz,178,Trad,"kalirin, RhoGEF kinase",KALRN,Human
+P35968,AF-P35968-F1-model_v1.pdb.gz,485,KDR,kinase insert domain receptor,KDR,Human
+P10721,AF-P10721-F1-model_v1.pdb.gz,451,KIT,KIT proto-oncogene receptor tyrosine kinase,KIT,Human
+Q8IVT5,AF-Q8IVT5-F1-model_v1.pdb.gz,506,KSR1,Kinase suppressor of ras 1,KSR1,Human
+Q6VAB6,AF-Q6VAB6-F1-model_v1.pdb.gz,507,KSR2,kinase suppressor of ras 2,KSR2,Human
+O95835,AF-O95835-F1-model_v1.pdb.gz,23,LATS1,large tumor suppressor kinase 1,LATS1,Human
+Q9NRM7,AF-Q9NRM7-F1-model_v1.pdb.gz,26,LATS2,large tumor suppressor kinase 2,LATS2,Human
+P06239,AF-P06239-F1-model_v1.pdb.gz,466,LCK,"LCK proto-oncogene, Src family tyrosine kinase",LCK,Human
+P53667,AF-P53667-F1-model_v1.pdb.gz,490,LIMK1,LIM domain kinase 1,LIMK1,Human
+P53671,AF-P53671-F1-model_v1.pdb.gz,491,LIMK2,LIM domain kinase 2,LIMK2,Human
+Q8IWU2,AF-Q8IWU2-F1-model_v1.pdb.gz,444,LMR2,lemur tyrosine kinase 2,LMTK2,Human
+Q96Q04,AF-Q96Q04-F1-model_v1.pdb.gz,445,LMR3,lemur tyrosine kinase 3,LMTK3,Human
+Q38SD2,AF-Q38SD2-F1-model_v1.pdb.gz,494,LRRK1,leucine-rich repeat kinase 1,LRRK1,Human
+Q5S007,AF-Q5S007-F1-model_v1.pdb.gz,495,LRRK2,leucine-rich repeat kinase 2,LRRK2,Human
+P29376,AF-P29376-F1-model_v1.pdb.gz,397,LTK,leukocyte receptor tyrosine kinase,LTK,Human
+P07948,AF-P07948-F1-model_v1.pdb.gz,467,LYN,"LYN proto-oncogene, Src family tyrosine kinase",LYN,Human
+P20794,AF-P20794-F1-model_v1.pdb.gz,253,MAK,male germ cell associated kinase,MAK,Human
+Q02750,AF-Q02750-F1-model_v1.pdb.gz,383,MAP2K1,mitogen-activated protein kinase kinase 1,MAP2K1,Human
+P36507,AF-P36507-F1-model_v1.pdb.gz,384,MAP2K2,mitogen-activated protein kinase kinase 2,MAP2K2,Human
+P46734,AF-P46734-F1-model_v1.pdb.gz,385,MAP2K3,mitogen-activated protein kinase kinase 3,MAP2K3,Human
+P45985,AF-P45985-F1-model_v1.pdb.gz,387,MAP2K4,mitogen-activated protein kinase kinase 4,MAP2K4,Human
+Q13163,AF-Q13163-F1-model_v1.pdb.gz,388,MAP2K5,mitogen-activated protein kinase kinase 5,MAP2K5,Human
+P52564,AF-P52564-F1-model_v1.pdb.gz,386,MAP2K6,mitogen-activated protein kinase kinase 6,MAP2K6,Human
+O14733,AF-O14733-F1-model_v1.pdb.gz,389,MAP2K7,mitogen-activated protein kinase kinase 7,MAP2K7,Human
+Q13233,AF-Q13233-F1-model_v1.pdb.gz,348,MAP3K1,"mitogen-activated protein kinase kinase kinase 1, E3 ubiquitin protein ligase",MAP3K1,Human
+Q02779,AF-Q02779-F1-model_v1.pdb.gz,501,MLK2,mitogen-activated protein kinase kinase kinase 10,MAP3K10,Human
+Q16584,AF-Q16584-F1-model_v1.pdb.gz,502,MLK3,mitogen-activated protein kinase kinase kinase 11,MAP3K11,Human
+Q12852,AF-Q12852-F1-model_v1.pdb.gz,498,DLK,mitogen-activated protein kinase kinase kinase 12,MAP3K12,Human
+O43283,AF-O43283-F1-model_v1.pdb.gz,499,LZK,mitogen-activated protein kinase kinase kinase 13,MAP3K13,Human
+Q99558,AF-Q99558-F1-model_v1.pdb.gz,391,NIK,mitogen-activated protein kinase kinase kinase 14,MAP3K14,Human
+Q6ZN16,AF-Q6ZN16-F1-model_v1.pdb.gz,347,MAP3K7,Mitogen-activated protein kinase kinase kinase 15,MAP3K15,Human
+Q56UN5,AF-Q56UN5-F1-model_v1.pdb.gz,349,MAP3K8,mitogen-activated protein kinase kinase kinase 19,MAP3K19,Human
+Q9Y2U5,AF-Q9Y2U5-F1-model_v1.pdb.gz,351,MAP3K2,mitogen-activated protein kinase kinase kinase 2,MAP3K2,Human
+Q9NYL2,AF-Q9NYL2-F1-model_v1.pdb.gz,505,ZAK,Mitogen-activated protein kinase kinase kinase MLT,MAP3K20,Human
+Q5TCX8,AF-Q5TCX8-F1-model_v1.pdb.gz,503,MLK4,Mixed lineage kinase domain-like protein,MAP3K21,Human
+Q99759,AF-Q99759-F1-model_v1.pdb.gz,350,MAP3K3,mitogen-activated protein kinase kinase kinase 3,MAP3K3,Human
+Q9Y6R4,AF-Q9Y6R4-F1-model_v1.pdb.gz,352,MAP3K4,mitogen-activated protein kinase kinase kinase 4,MAP3K4,Human
+Q99683,AF-Q99683-F1-model_v1.pdb.gz,345,MAP3K5,mitogen-activated protein kinase kinase kinase 5,MAP3K5,Human
+O95382,AF-O95382-F1-model_v1.pdb.gz,346,MAP3K6,mitogen-activated protein kinase kinase kinase 6,MAP3K6,Human
+O43318,AF-O43318-F1-model_v1.pdb.gz,504,TAK1,mitogen-activated protein kinase kinase kinase 7,MAP3K7,Human
+P41279,AF-P41279-F1-model_v1.pdb.gz,390,COT,mitogen-activated protein kinase kinase kinase 8,MAP3K8,Human
+P80192,AF-P80192-F1-model_v1.pdb.gz,500,MLK1,mitogen-activated protein kinase kinase kinase 9,MAP3K9,Human
+Q92918,AF-Q92918-F1-model_v1.pdb.gz,358,HPK1,mitogen-activated protein kinase kinase kinase kinase 1,MAP4K1,Human
+Q12851,AF-Q12851-F1-model_v1.pdb.gz,1105,Map4k2,mitogen-activated protein kinase kinase kinase kinase 2,MAP4K2,Human
+Q8IVH8,AF-Q8IVH8-F1-model_v1.pdb.gz,356,KHS2,mitogen-activated protein kinase kinase kinase kinase 3,MAP4K3,Human
+O95819,AF-O95819-F1-model_v1.pdb.gz,359,HGK,mitogen-activated protein kinase kinase kinase kinase 4,MAP4K4,Human
+Q9Y4K4,AF-Q9Y4K4-F1-model_v1.pdb.gz,357,KHS1,mitogen-activated protein kinase kinase kinase kinase 5,MAP4K5,Human
+P28482,AF-P28482-F1-model_v1.pdb.gz,239,Erk2,mitogen-activated protein kinase 1,MAPK1,Human
+P53779,AF-P53779-F1-model_v1.pdb.gz,247,JNK3,mitogen-activated protein kinase 10,MAPK10,Human
+Q15759,AF-Q15759-F1-model_v1.pdb.gz,250,p38b,mitogen-activated protein kinase 11,MAPK11,Human
+P53778,AF-P53778-F1-model_v1.pdb.gz,252,p38g,mitogen-activated protein kinase 12,MAPK12,Human
+O15264,AF-O15264-F1-model_v1.pdb.gz,251,p38d,mitogen-activated protein kinase 13,MAPK13,Human
+Q16539,AF-Q16539-F1-model_v1.pdb.gz,249,p38a,mitogen-activated protein kinase 14,MAPK14,Human
+Q8TD08,AF-Q8TD08-F1-model_v1.pdb.gz,244,Erk7,mitogen-activated protein kinase 15,MAPK15,Human
+P27361,AF-P27361-F1-model_v1.pdb.gz,240,Erk1,mitogen-activated protein kinase 3,MAPK3,Human
+P31152,AF-P31152-F1-model_v1.pdb.gz,241,Erk4,mitogen-activated protein kinase 4,MAPK4,Human
+Q16659,AF-Q16659-F1-model_v1.pdb.gz,242,Erk3,mitogen-activated protein kinase 6,MAPK6,Human
+Q13164,AF-Q13164-F1-model_v1.pdb.gz,243,Erk5,mitogen-activated protein kinase 7,MAPK7,Human
+P45983,AF-P45983-F1-model_v1.pdb.gz,245,JNK1,mitogen-activated protein kinase 8,MAPK8,Human
+P45984,AF-P45984-F1-model_v1.pdb.gz,246,JNK2,mitogen-activated protein kinase 9,MAPK9,Human
+P49137,AF-P49137-F1-model_v1.pdb.gz,150,MAPKAPK2,mitogen-activated protein kinase-activated protein kinase 2,MAPKAPK2,Human
+Q16644,AF-Q16644-F1-model_v1.pdb.gz,148,MAPKAPK3,mitogen-activated protein kinase-activated protein kinase 3,MAPKAPK3,Human
+Q8IW41,AF-Q8IW41-F1-model_v1.pdb.gz,149,MAPKAPK5,mitogen-activated protein kinase-activated protein kinase 5,MAPKAPK5,Human
+Q9P0L2,AF-Q9P0L2-F1-model_v1.pdb.gz,125,MARK1,microtubule affinity regulating kinase 1,MARK1,Human
+Q7KZI7,AF-Q7KZI7-F1-model_v1.pdb.gz,124,MARK2,microtubule affinity regulating kinase 2,MARK2,Human
+P27448,AF-P27448-F1-model_v1.pdb.gz,126,MARK3,microtubule affinity regulating kinase 3,MARK3,Human
+Q96L34,AF-Q96L34-F1-model_v1.pdb.gz,127,MARK4,microtubule affinity regulating kinase 4,MARK4,Human
+Q9Y2H9,AF-Q9Y2H9-F1-model_v1.pdb.gz,18,MAST1,microtubule associated serine/threonine kinase 1,MAST1,Human
+Q6P0Q8,AF-Q6P0Q8-F1-model_v1.pdb.gz,20,MAST2,microtubule associated serine/threonine kinase 2,MAST2,Human
+O60307,AF-O60307-F1-model_v1.pdb.gz,19,MAST3,microtubule associated serine/threonine kinase 3,MAST3,Human
+O15021,AF-O15021-F1-model_v1.pdb.gz,21,MAST4,microtubule associated serine/threonine kinase family member 4,MAST4,Human
+Q96GX5,AF-Q96GX5-F1-model_v1.pdb.gz,22,MASTL,microtubule associated serine/threonine kinase like,MASTL,Human
+P42679,AF-P42679-F1-model_v1.pdb.gz,403,CTK,megakaryocyte-associated tyrosine kinase,MATK,Human
+Q14680,AF-Q14680-F1-model_v1.pdb.gz,128,MELK,maternal embryonic leucine zipper kinase,MELK,Human
+Q12866,AF-Q12866-F1-model_v1.pdb.gz,400,MER,"MER proto-oncogene, tyrosine kinase",MERTK,Human
+P08581,AF-P08581-F1-model_v1.pdb.gz,446,MET,"MET proto-oncogene, receptor tyrosine kinase",MET,Human
+Q8N4C8,AF-Q8N4C8-F1-model_v1.pdb.gz,362,MINK,misshapen-like kinase 1,MINK1,Human
+Q9BUB5,AF-Q9BUB5-F1-model_v1.pdb.gz,152,MNK1,MAP kinase interacting serine/threonine kinase 1,MKNK1,Human
+Q9HBH9,AF-Q9HBH9-F1-model_v1.pdb.gz,151,MNK2,MAP kinase interacting serine/threonine kinase 2,MKNK2,Human
+Q8NB16,AF-Q8NB16-F1-model_v1.pdb.gz,528,MLKL,mixed lineage kinase domain-like,MLKL,Human
+Q9UQ07,AF-Q9UQ07-F1-model_v1.pdb.gz,254,MOK,MOK protein kinase,MOK,Human
+P00540,AF-P00540-F1-model_v1.pdb.gz,276,MOS,v-mos Moloney murine sarcoma viral oncogene homolog,MOS,Human
+Q04912,AF-Q04912-F1-model_v1.pdb.gz,447,RON,macrophage stimulating 1 receptor,MST1R,Human
+P42345,AF-P42345-F1-model_v1.pdb.gz,97,FRAP,Serine/threonine-protein kinase mTOR,MTOR,Human
+O15146,AF-O15146-F1-model_v1.pdb.gz,448,MUSK,"muscle, skeletal, receptor tyrosine kinase",MUSK,Human
+Q15746,AF-Q15746-F1-model_v1.pdb.gz,153,smMLCK,myosin light chain kinase,MYLK,Human
+Q9H1R3,AF-Q9H1R3-F1-model_v1.pdb.gz,155,skMLCK,myosin light chain kinase 2,MYLK2,Human
+Q32MK0,AF-Q32MK0-F1-model_v1.pdb.gz,156,caMLCK,myosin light chain kinase 3,MYLK3,Human
+Q86YV6,AF-Q86YV6-F1-model_v1.pdb.gz,157,SgK085,myosin light chain kinase family member 4,MYLK4,Human
+Q8NEV4,AF-Q8NEV4-F1-model_v1.pdb.gz,365,MYO3A,myosin IIIA,MYO3A,Human
+Q8WXR4,AF-Q8WXR4-F1-model_v1.pdb.gz,366,MYO3B,myosin IIIB,MYO3B,Human
+Q96PY6,AF-Q96PY6-F1-model_v1.pdb.gz,281,NEK1,NIMA related kinase 1,NEK1,Human
+Q6ZWH5,AF-Q6ZWH5-F1-model_v1.pdb.gz,284,NEK10,NIMA related kinase 10,NEK10,Human
+Q8NG66,AF-Q8NG66-F1-model_v1.pdb.gz,285,NEK11,NIMA related kinase 11,NEK11,Human
+P51955,AF-P51955-F1-model_v1.pdb.gz,286,NEK2,NIMA related kinase 2,NEK2,Human
+P51956,AF-P51956-F1-model_v1.pdb.gz,282,NEK3,NIMA related kinase 3,NEK3,Human
+P51957,AF-P51957-F1-model_v1.pdb.gz,287,NEK4,NIMA related kinase 4,NEK4,Human
+Q6P3R8,AF-Q6P3R8-F1-model_v1.pdb.gz,283,NEK5,NIMA related kinase 5,NEK5,Human
+Q9HC98,AF-Q9HC98-F1-model_v1.pdb.gz,288,NEK6,NIMA related kinase 6,NEK6,Human
+Q8TDX7,AF-Q8TDX7-F1-model_v1.pdb.gz,289,NEK7,NIMA related kinase 7,NEK7,Human
+Q86SG6,AF-Q86SG6-F1-model_v1.pdb.gz,291,NEK8,NIMA related kinase 8,NEK8,Human
+Q8TD19,AF-Q8TD19-F1-model_v1.pdb.gz,290,NEK9,NIMA related kinase 9,NEK9,Human
+Q8IY84,AF-Q8IY84-F1-model_v1.pdb.gz,129,NIM1,NIM1 serine/threonine protein kinase,NIM1K,Human
+Q9UBE8,AF-Q9UBE8-F1-model_v1.pdb.gz,248,NLK,nemo-like kinase,NLK,Human
+P16066,AF-P16066-F1-model_v1.pdb.gz,343,ANPa,natriuretic peptide receptor 1,NPR1,Human
+P20594,AF-P20594-F1-model_v1.pdb.gz,344,ANPb,natriuretic peptide receptor 2,NPR2,Human
+Q9UHY1,AF-Q9UHY1-F1-model_v1.pdb.gz,301,NRBP1,nuclear receptor binding protein 1,NRBP1,Human
+Q9NSY0,AF-Q9NSY0-F1-model_v1.pdb.gz,302,NRBP2,nuclear receptor binding protein 2,NRBP2,Human
+Q7Z2Y5,AF-Q7Z2Y5-F1-model_v1.pdb.gz,361,NRK,Nik related kinase,NRK,Human
+P04629,AF-P04629-F1-model_v1.pdb.gz,480,TRKA,"neurotrophic tyrosine kinase, receptor, type 1",NTRK1,Human
+Q16620,AF-Q16620-F1-model_v1.pdb.gz,481,TRKB,"neurotrophic tyrosine kinase, receptor, type 2",NTRK2,Human
+Q16288,AF-Q16288-F1-model_v1.pdb.gz,482,TRKC,"neurotrophic tyrosine kinase, receptor, type 3",NTRK3,Human
+O60285,AF-O60285-F1-model_v1.pdb.gz,130,NuaK1,"NUAK family, SNF1-like kinase, 1",NUAK1,Human
+Q9H093,AF-Q9H093-F1-model_v1.pdb.gz,131,NuaK2,"NUAK family, SNF1-like kinase, 2",NUAK2,Human
+Q5VST9,AF-Q5VST9-F1-model_v1.pdb.gz,173,Obscn,"obscurin, cytoskeletal calmodulin and titin-interacting RhoGEF",OBSCN,Human
+Q5VST9,AF-Q5VST9-F1-model_v1.pdb.gz,174,Obscn-b,"obscurin, cytoskeletal calmodulin and titin-interacting RhoGEF (2nd domain)",OBSCN-b,Human
+O95747,AF-O95747-F1-model_v1.pdb.gz,353,OSR1,oxidative stress responsive 1,OXSR1,Human
+Q13153,AF-Q13153-F1-model_v1.pdb.gz,367,PAK1,p21 protein (Cdc42/Rac)-activated kinase 1,PAK1,Human
+Q13177,AF-Q13177-F1-model_v1.pdb.gz,368,PAK2,p21 protein (Cdc42/Rac)-activated kinase 2,PAK2,Human
+O75914,AF-O75914-F1-model_v1.pdb.gz,369,PAK3,p21 protein (Cdc42/Rac)-activated kinase 3,PAK3,Human
+O96013,AF-O96013-F1-model_v1.pdb.gz,370,PAK4,p21 protein (Cdc42/Rac)-activated kinase 4,PAK4,Human
+Q9P286,AF-Q9P286-F1-model_v1.pdb.gz,372,PAK5,p21 protein (Cdc42/Rac)-activated kinase 7,PAK5,Human
+Q9NQU5,AF-Q9NQU5-F1-model_v1.pdb.gz,371,PAK6,p21 protein (Cdc42/Rac)-activated kinase 6,PAK6,Human
+Q58A45,AF-Q58A45-F1-model_v1.pdb.gz,1106,PAN3,PAN3 poly(A) specific ribonuclease subunit,PAN3,Human
+Q96RG2,AF-Q96RG2-F1-model_v1.pdb.gz,132,PASK,PAS domain containing serine/threonine kinase,PASK,Human
+Q96KB5,AF-Q96KB5-F1-model_v1.pdb.gz,325,PBK,PDZ binding kinase,PBK,Human
+P16234,AF-P16234-F1-model_v1.pdb.gz,452,PDGFRa,platelet derived growth factor receptor alpha,PDGFRA,Human
+P09619,AF-P09619-F1-model_v1.pdb.gz,453,PDGFRb,platelet derived growth factor receptor beta,PDGFRB,Human
+Q8N165,AF-Q8N165-F1-model_v1.pdb.gz,299,CLIK1L,PDLIM1 interacting kinase 1 like,PDIK1L,Human
+Q15118,AF-Q15118-F1-model_v1.pdb.gz,90,PDHK1,"[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 1, mitochondrial",PDK1,Human
+Q15119,AF-Q15119-F1-model_v1.pdb.gz,91,PDHK2,"[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 2, mitochondrial",PDK2,Human
+Q15120,AF-Q15120-F1-model_v1.pdb.gz,92,PDHK3,"[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 3, mitochondrial",PDK3,Human
+Q16654,AF-Q16654-F1-model_v1.pdb.gz,93,PDHK4,"[Pyruvate dehydrogenase (acetyl-transferring)] kinase isozyme 4, mitochondrial",PDK4,Human
+O15530,AF-O15530-F1-model_v1.pdb.gz,27,PDK1,3-phosphoinositide dependent protein kinase 1,PDPK1,Human
+Q6A1A2,AF-Q6A1A2-F1-model_v1.pdb.gz,1107,PDPK2P,"3-phosphoinositide dependent protein kinase 2, pseudogene",PDPK2P,Human
+Q9H792,AF-Q9H792-F1-model_v1.pdb.gz,296,SgK269,pseudopodium enriched atypical kinase 1,PEAK1,Human
+Q16816,AF-Q16816-F1-model_v1.pdb.gz,158,PHKg1,"phosphorylase kinase, gamma 1 (muscle)",PHKG1,Human
+P15735,AF-P15735-F1-model_v1.pdb.gz,159,PHKg2,"phosphorylase kinase, gamma 2 (testis)",PHKG2,Human
+Q9BTU6,AF-Q9BTU6-F1-model_v1.pdb.gz,1089,PI4K2A,phosphatidylinositol 4-kinase type 2 alpha,PI4K2A,Human
+Q8TCG2,AF-Q8TCG2-F1-model_v1.pdb.gz,1091,PI4K2B,phosphatidylinositol 4-kinase type 2 beta,PI4K2B,Human
+P42356,AF-P42356-F1-model_v1.pdb.gz,1096,PI4KA,phosphatidylinositol 4-kinase alpha,PI4KA,Human
+Q8N8J0,AF-Q8N8J0-F1-model_v1.pdb.gz,1109,PI4KAP1,phosphatidylinositol 4-kinase alpha pseudogene 1,PI4KAP1,Human
+A4QPH2,AF-A4QPH2-F1-model_v1.pdb.gz,1094,PI4KAP2,phosphatidylinositol 4-kinase alpha pseudogene 2,PI4KAP2,Human
+Q9UBF8,AF-Q9UBF8-F1-model_v1.pdb.gz,1090,PI4KB,phosphatidylinositol 4-kinase beta,PI4KB,Human
+O00443,AF-O00443-F1-model_v1.pdb.gz,1093,PIK3C2A,phosphatidylinositol-4-phosphate 3-kinase catalytic subunit type 2 alpha,PIK3C2A,Human
+O00750,AF-O00750-F1-model_v1.pdb.gz,1095,PIK3C2B,phosphatidylinositol-4-phosphate 3-kinase catalytic subunit type 2 beta,PIK3C2B,Human
+O75747,AF-O75747-F1-model_v1.pdb.gz,1092,PIK3C2G,phosphatidylinositol-4-phosphate 3-kinase catalytic subunit type 2 gamma,PIK3C2G,Human
+Q8NEB9,AF-Q8NEB9-F1-model_v1.pdb.gz,1088,PIK3C3,phosphatidylinositol 3-kinase catalytic subunit type 3,PIK3C3,Human
+P42336,AF-P42336-F1-model_v1.pdb.gz,1087,p110a,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit alpha isoform",PIK3CA,Human
+P42338,AF-P42338-F1-model_v1.pdb.gz,1080,p110b,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit beta isoform",PIK3CB,Human
+O00329,AF-O00329-F1-model_v1.pdb.gz,1082,p110d,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit delta isoform",PIK3CD,Human
+P48736,AF-P48736-F1-model_v1.pdb.gz,1081,p110g,"Phosphatidylinositol 4,5-bisphosphate 3-kinase catalytic subunit gamma isoform",PIK3CG,Human
+Q99570,AF-Q99570-F1-model_v1.pdb.gz,332,PIK3R4,phosphoinositide-3-kinase regulatory subunit 4,PIK3R4,Human
+P11309,AF-P11309-F1-model_v1.pdb.gz,160,PIM1,"Pim-1 proto-oncogene, serine/threonine kinase",PIM1,Human
+Q9P1W9,AF-Q9P1W9-F1-model_v1.pdb.gz,161,PIM2,"Pim-2 proto-oncogene, serine/threonine kinase",PIM2,Human
+Q86V86,AF-Q86V86-F1-model_v1.pdb.gz,162,PIM3,"Pim-3 proto-oncogene, serine/threonine kinase",PIM3,Human
+Q9BXM7,AF-Q9BXM7-F1-model_v1.pdb.gz,295,PINK1,PTEN induced putative kinase 1,PINK1,Human
+P48426,AF-P48426-F1-model_v1.pdb.gz,1097,PIP4K2A,phosphatidylinositol-5-phosphate 4-kinase type 2 alpha,PIP4K2A,Human
+P78356,AF-P78356-F1-model_v1.pdb.gz,1099,PIP4K2B,phosphatidylinositol-5-phosphate 4-kinase type 2 beta,PIP4K2B,Human
+Q8TBX8,AF-Q8TBX8-F1-model_v1.pdb.gz,1100,PIP4K2C,phosphatidylinositol-5-phosphate 4-kinase type 2 gamma,PIP4K2C,Human
+Q99755,AF-Q99755-F1-model_v1.pdb.gz,1101,PIP5K1A,phosphatidylinositol-4-phosphate 5-kinase type 1 alpha,PIP5K1A,Human
+O14986,AF-O14986-F1-model_v1.pdb.gz,1102,PIP5K1B,phosphatidylinositol-4-phosphate 5-kinase type 1 beta,PIP5K1B,Human
+O60331,AF-O60331-F1-model_v1.pdb.gz,1098,PIP5K1C,phosphatidylinositol-4-phosphate 5-kinase type 1 gamma,PIP5K1C,Human
+Q504Y2,AF-Q504Y2-F1-model_v1.pdb.gz,319,SgK493,"protein kinase domain containing, cytoplasmic",PKDCC,Human
+Q99640,AF-Q99640-F1-model_v1.pdb.gz,334,MYT1,"protein kinase, membrane associated tyrosine/threonine 1",PKMYT1,Human
+Q16512,AF-Q16512-F1-model_v1.pdb.gz,44,PKN1,protein kinase N1,PKN1,Human
+Q16513,AF-Q16513-F1-model_v1.pdb.gz,45,PKN2,protein kinase N2,PKN2,Human
+Q6P5Z2,AF-Q6P5Z2-F1-model_v1.pdb.gz,46,PKN3,protein kinase N3,PKN3,Human
+P53350,AF-P53350-F1-model_v1.pdb.gz,311,PLK1,polo like kinase 1,PLK1,Human
+Q9NYY3,AF-Q9NYY3-F1-model_v1.pdb.gz,313,PLK2,polo like kinase 2,PLK2,Human
+Q9H4B4,AF-Q9H4B4-F1-model_v1.pdb.gz,312,PLK3,polo like kinase 3,PLK3,Human
+O00444,AF-O00444-F1-model_v1.pdb.gz,314,PLK4,polo like kinase 4,PLK4,Human
+Q496M5,AF-Q496M5-F1-model_v1.pdb.gz,1108,PLK5,polo like kinase 5,PLK5,Human
+Q6P2M8,AF-Q6P2M8-F1-model_v1.pdb.gz,112,CaMK1b,pregnancy up-regulated nonubiquitous CaM kinase,PNCK,Human
+Q9H5K3,AF-Q9H5K3-F1-model_v1.pdb.gz,305,SgK196,protein-O-mannose kinase,POMK,Human
+Q86YV5,AF-Q86YV5-F1-model_v1.pdb.gz,297,SgK223,Tyrosine-protein kinase SgK223,PRAG1,Human
+Q13131,AF-Q13131-F1-model_v1.pdb.gz,117,AMPKa1,protein kinase AMP-activated catalytic subunit alpha 1,PRKAA1,Human
+P54646,AF-P54646-F1-model_v1.pdb.gz,118,AMPKa2,protein kinase AMP-activated catalytic subunit alpha 2,PRKAA2,Human
+P17612,AF-P17612-F1-model_v1.pdb.gz,28,PKACa,protein kinase cAMP-activated catalytic subunit alpha,PRKACA,Human
+P22694,AF-P22694-F1-model_v1.pdb.gz,29,PKACb,protein kinase cAMP-activated catalytic subunit beta,PRKACB,Human
+P22612,AF-P22612-F1-model_v1.pdb.gz,30,PKACg,protein kinase cAMP-activated catalytic subunit gamma,PRKACG,Human
+P17252,AF-P17252-F1-model_v1.pdb.gz,33,PKCa,protein kinase C alpha,PRKCA,Human
+P05771,AF-P05771-F1-model_v1.pdb.gz,34,PKCb,protein kinase C beta,PRKCB,Human
+Q05655,AF-Q05655-F1-model_v1.pdb.gz,36,PKCd,protein kinase C delta,PRKCD,Human
+Q02156,AF-Q02156-F1-model_v1.pdb.gz,38,PKCe,protein kinase C epsilon,PRKCE,Human
+P05129,AF-P05129-F1-model_v1.pdb.gz,35,PKCg,protein kinase C gamma,PRKCG,Human
+P24723,AF-P24723-F1-model_v1.pdb.gz,39,PKCh,protein kinase C eta,PRKCH,Human
+P41743,AF-P41743-F1-model_v1.pdb.gz,40,PKCi,protein kinase C iota,PRKCI,Human
+Q04759,AF-Q04759-F1-model_v1.pdb.gz,37,PKCt,protein kinase C theta,PRKCQ,Human
+Q05513,AF-Q05513-F1-model_v1.pdb.gz,41,PKCz,protein kinase C zeta,PRKCZ,Human
+Q15139,AF-Q15139-F1-model_v1.pdb.gz,163,PKD1,protein kinase D1,PRKD1,Human
+Q9BZL6,AF-Q9BZL6-F1-model_v1.pdb.gz,165,PKD2,protein kinase D2,PRKD2,Human
+O94806,AF-O94806-F1-model_v1.pdb.gz,164,PKD3,protein kinase D3,PRKD3,Human
+Q13976,AF-Q13976-F1-model_v1.pdb.gz,42,PKG1,"protein kinase, cGMP-dependent, type I",PRKG1,Human
+Q13237,AF-Q13237-F1-model_v1.pdb.gz,43,PKG2,"protein kinase, cGMP-dependent, type II",PRKG2,Human
+P51817,AF-P51817-F1-model_v1.pdb.gz,31,PRKX,"protein kinase, X-linked",PRKX,Human
+O43930,AF-O43930-F1-model_v1.pdb.gz,32,PRKY,"protein kinase, Y-linked, pseudogene",PRKY,Human
+Q13523,AF-Q13523-F1-model_v1.pdb.gz,236,PRP4,pre-mRNA processing factor 4B,PRPF4B,Human
+P11801,AF-P11801-F1-model_v1.pdb.gz,166,PSKH1,protein serine kinase H1,PSKH1,Human
+Q96QS6,AF-Q96QS6-F1-model_v1.pdb.gz,167,PSKH2,protein serine kinase H2,PSKH2,Human
+Q05397,AF-Q05397-F1-model_v1.pdb.gz,425,FAK,protein tyrosine kinase 2,PTK2,Human
+Q14289,AF-Q14289-F1-model_v1.pdb.gz,424,PYK2,protein tyrosine kinase 2 beta,PTK2B,Human
+Q13882,AF-Q13882-F1-model_v1.pdb.gz,468,BRK,protein tyrosine kinase 6,PTK6,Human
+Q13308,AF-Q13308-F1-model_v1.pdb.gz,401,CCK4,protein tyrosine kinase 7 (inactive),PTK7,Human
+Q7Z7A4,AF-Q7Z7A4-F1-model_v1.pdb.gz,321,Slob,PX domain containing serine/threonine kinase like,PXK,Human
+P04049,AF-P04049-F1-model_v1.pdb.gz,510,RAF1,"Raf-1 proto-oncogene, serine/threonine kinase",RAF1,Human
+P07949,AF-P07949-F1-model_v1.pdb.gz,454,RET,ret proto-oncogene,RET,Human
+Q9BRS2,AF-Q9BRS2-F1-model_v1.pdb.gz,100,RIOK1,Serine/threonine-protein kinase RIO1,RIOK1,Human
+Q9BVS4,AF-Q9BVS4-F1-model_v1.pdb.gz,101,RIOK2,Serine/threonine-protein kinase RIO2,RIOK2,Human
+O14730,AF-O14730-F1-model_v1.pdb.gz,102,RIOK3,Serine/threonine-protein kinase RIO3,RIOK3,Human
+Q13546,AF-Q13546-F1-model_v1.pdb.gz,511,RIPK1,receptor interacting serine/threonine kinase 1,RIPK1,Human
+O43353,AF-O43353-F1-model_v1.pdb.gz,512,RIPK2,receptor interacting serine/threonine kinase 2,RIPK2,Human
+Q9Y572,AF-Q9Y572-F1-model_v1.pdb.gz,513,RIPK3,receptor interacting serine/threonine kinase 3,RIPK3,Human
+P57078,AF-P57078-F1-model_v1.pdb.gz,514,ANKRD3,receptor interacting serine/threonine kinase 4,RIPK4,Human
+Q05823,AF-Q05823-F1-model_v1.pdb.gz,303,RNAseL,ribonuclease L,RNASEL,Human
+Q13464,AF-Q13464-F1-model_v1.pdb.gz,9,ROCK1,Rho associated coiled-coil containing protein kinase 1,ROCK1,Human
+O75116,AF-O75116-F1-model_v1.pdb.gz,10,ROCK2,Rho associated coiled-coil containing protein kinase 2,ROCK2,Human
+Q01973,AF-Q01973-F1-model_v1.pdb.gz,455,ROR1,receptor tyrosine kinase-like orphan receptor 1,ROR1,Human
+Q01974,AF-Q01974-F1-model_v1.pdb.gz,456,ROR2,receptor tyrosine kinase-like orphan receptor 2,ROR2,Human
+P08922,AF-P08922-F1-model_v1.pdb.gz,458,ROS,"ROS proto-oncogene 1 , receptor tyrosine kinase",ROS1,Human
+Q15418,AF-Q15418-F1-model_v1.pdb.gz,53,RSK3,ribosomal protein S6 kinase A1,RPS6KA1,Human
+Q15418,AF-Q15418-F1-model_v1.pdb.gz,57,RSK3-b,ribosomal protein S6 kinase A1 (2nd domain),RPS6KA1-b,Human
+Q15349,AF-Q15349-F1-model_v1.pdb.gz,54,RSK1,ribosomal protein S6 kinase A2,RPS6KA2,Human
+Q15349,AF-Q15349-F1-model_v1.pdb.gz,58,RSK1-b,ribosomal protein S6 kinase A2 (2nd domain),RPS6KA2-b,Human
+P51812,AF-P51812-F1-model_v1.pdb.gz,55,RSK2,ribosomal protein S6 kinase A3,RPS6KA3,Human
+P51812,AF-P51812-F1-model_v1.pdb.gz,59,RSK2-b,ribosomal protein S6 kinase A3 (2nd domain),RPS6KA3-b,Human
+O75676,AF-O75676-F1-model_v1.pdb.gz,47,MSK2,ribosomal protein S6 kinase A4,RPS6KA4,Human
+O75676,AF-O75676-F1-model_v1.pdb.gz,48,MSK2-b,ribosomal protein S6 kinase A4 (2nd domain),RPS6KA4-b,Human
+O75582,AF-O75582-F1-model_v1.pdb.gz,49,MSK1,ribosomal protein S6 kinase A5,RPS6KA5,Human
+O75582,AF-O75582-F1-model_v1.pdb.gz,50,MSK1-b,ribosomal protein S6 kinase A5 (2nd domain),RPS6KA5-b,Human
+Q9UK32,AF-Q9UK32-F1-model_v1.pdb.gz,56,RSK4,ribosomal protein S6 kinase A6,RPS6KA6,Human
+Q9UK32,AF-Q9UK32-F1-model_v1.pdb.gz,60,RSK4-b,ribosomal protein S6 kinase A6 (2nd domain),RPS6KA6-b,Human
+P23443,AF-P23443-F1-model_v1.pdb.gz,51,p70S6K,ribosomal protein S6 kinase B1,RPS6KB1,Human
+Q9UBS0,AF-Q9UBS0-F1-model_v1.pdb.gz,52,p70S6Kb,ribosomal protein S6 kinase B2,RPS6KB2,Human
+Q96S38,AF-Q96S38-F1-model_v1.pdb.gz,61,RSKL1,ribosomal protein S6 kinase C1,RPS6KC1,Human
+Q9Y6S9,AF-Q9Y6S9-F1-model_v1.pdb.gz,62,RSKL2,ribosomal protein S6 kinase like 1,RPS6KL1,Human
+P34925,AF-P34925-F1-model_v1.pdb.gz,457,RYK,receptor-like tyrosine kinase,RYK,Human
+Q52WX2,AF-Q52WX2-F1-model_v1.pdb.gz,292,SBK,SH3 domain binding kinase 1,SBK1,Human
+P0C263,AF-P0C263-F1-model_v1.pdb.gz,293,SgK069,SH3 domain binding kinase family member 2,SBK2,Human
+P0C264,AF-P0C264-F1-model_v1.pdb.gz,294,SgK110,SH3 domain binding kinase family member 3,SBK3,Human
+Q96KG9,AF-Q96KG9-F1-model_v1.pdb.gz,317,SCYL1,SCY1 like pseudokinase 1,SCYL1,Human
+Q6P3W7,AF-Q6P3W7-F1-model_v1.pdb.gz,315,SCYL2,SCY1 like pseudokinase 2,SCYL2,Human
+Q8IZE3,AF-Q8IZE3-F1-model_v1.pdb.gz,316,SCYL3,SCY1 like pseudokinase 3,SCYL3,Human
+O00141,AF-O00141-F1-model_v1.pdb.gz,64,SGK1,serum/glucocorticoid regulated kinase 1,SGK1,Human
+Q9HBY8,AF-Q9HBY8-F1-model_v1.pdb.gz,65,SGK2,serum/glucocorticoid regulated kinase 2,SGK2,Human
+Q96BR1,AF-Q96BR1-F1-model_v1.pdb.gz,66,SGK3,serum/glucocorticoid regulated kinase family member 3,SGK3,Human
+Q96LW2,AF-Q96LW2-F1-model_v1.pdb.gz,63,SgK494,Uncharacterized serine/threonine-protein kinase SgK494,SGK494,Human
+P57059,AF-P57059-F1-model_v1.pdb.gz,135,SIK,salt inducible kinase 1,SIK1,Human
+Q9H0K1,AF-Q9H0K1-F1-model_v1.pdb.gz,133,QIK,salt inducible kinase 2,SIK2,Human
+Q9Y2K2,AF-Q9Y2K2-F1-model_v1.pdb.gz,134,QSK,SIK family kinase 3,SIK3,Human
+Q9H2G2,AF-Q9H2G2-F1-model_v1.pdb.gz,374,SLK,STE20 like kinase,SLK,Human
+Q96Q15,AF-Q96Q15-F1-model_v1.pdb.gz,98,SMG1,Serine/threonine-protein kinase SMG1,SMG1,Human
+Q9NRH2,AF-Q9NRH2-F1-model_v1.pdb.gz,136,SNRK,SNF related kinase,SNRK,Human
+Q15772,AF-Q15772-F1-model_v1.pdb.gz,175,SPEG,SPEG complex locus,SPEG,Human
+Q15772,AF-Q15772-F1-model_v1.pdb.gz,176,SPEG-b,SPEG complex locus (2nd domain),SPEG-b,Human
+P12931,AF-P12931-F1-model_v1.pdb.gz,462,SRC,"SRC proto-oncogene, non-receptor tyrosine kinase",SRC,Human
+Q9H3Y6,AF-Q9H3Y6-F1-model_v1.pdb.gz,469,SRM,src-related kinase lacking C-terminal regulatory tyrosine and N-terminal myristylation sites,SRMS,Human
+Q96SB4,AF-Q96SB4-F1-model_v1.pdb.gz,256,SRPK1,SRSF protein kinase 1,SRPK1,Human
+P78362,AF-P78362-F1-model_v1.pdb.gz,257,SRPK2,SRSF protein kinase 2,SRPK2,Human
+Q9UPE1,AF-Q9UPE1-F1-model_v1.pdb.gz,258,MSSK1,SRSF protein kinase 3,SRPK3,Human
+O94804,AF-O94804-F1-model_v1.pdb.gz,373,LOK,serine/threonine kinase 10,STK10,Human
+Q15831,AF-Q15831-F1-model_v1.pdb.gz,123,LKB1,serine/threonine kinase 11,STK11,Human
+O75716,AF-O75716-F1-model_v1.pdb.gz,280,MPSK1,serine/threonine kinase 16,STK16,Human
+Q9UEE5,AF-Q9UEE5-F1-model_v1.pdb.gz,144,DRAK1,serine/threonine kinase 17a,STK17A,Human
+O94768,AF-O94768-F1-model_v1.pdb.gz,143,DRAK2,serine/threonine kinase 17b,STK17B,Human
+P49842,AF-P49842-F1-model_v1.pdb.gz,87,G11,Serine/threonine-protein kinase 19,STK19,Human
+Q9Y6E0,AF-Q9Y6E0-F1-model_v1.pdb.gz,380,MST3,serine/threonine kinase 24,STK24,Human
+O00506,AF-O00506-F1-model_v1.pdb.gz,381,YSK1,serine/threonine kinase 25,STK25,Human
+Q9P289,AF-Q9P289-F1-model_v1.pdb.gz,382,MST4,serine/threonine protein kinase 26,STK26,Human
+Q13188,AF-Q13188-F1-model_v1.pdb.gz,363,MST2,serine/threonine kinase 3,STK3,Human
+Q9BXU1,AF-Q9BXU1-F1-model_v1.pdb.gz,304,SgK396,serine/threonine kinase 31,STK31,Human
+Q8WU08,AF-Q8WU08-F1-model_v1.pdb.gz,68,YANK1,serine/threonine kinase 32A,STK32A,Human
+Q9NY57,AF-Q9NY57-F1-model_v1.pdb.gz,67,YANK2,serine/threonine kinase 32B,STK32B,Human
+Q86UX6,AF-Q86UX6-F1-model_v1.pdb.gz,69,YANK3,serine/threonine kinase 32C,STK32C,Human
+Q9BYT3,AF-Q9BYT3-F1-model_v1.pdb.gz,137,STK33,serine/threonine kinase 33,STK33,Human
+Q8TDR2,AF-Q8TDR2-F1-model_v1.pdb.gz,298,CLIK1,serine/threonine kinase 35,STK35,Human
+Q9NRP7,AF-Q9NRP7-F1-model_v1.pdb.gz,327,Fused,serine/threonine kinase 36,STK36,Human
+Q15208,AF-Q15208-F1-model_v1.pdb.gz,24,NDR1,serine/threonine kinase 38,STK38,Human
+Q9Y2H1,AF-Q9Y2H1-F1-model_v1.pdb.gz,25,NDR2,serine/threonine kinase 38 like,STK38L,Human
+Q9UEW8,AF-Q9UEW8-F1-model_v1.pdb.gz,354,STLK3,serine/threonine kinase 39,STK39,Human
+Q13043,AF-Q13043-F1-model_v1.pdb.gz,364,MST1,serine/threonine kinase 4,STK4,Human
+Q8N2I9,AF-Q8N2I9-F1-model_v1.pdb.gz,169,SgK495,serine/threonine kinase 40,STK40,Human
+Q8NE28,AF-Q8NE28-F1-model_v1.pdb.gz,318,SgK071,serine/threonine kinase-like domain containing 1,STKLD1,Human
+Q7RTN6,AF-Q7RTN6-F1-model_v1.pdb.gz,376,STLK5,STE20-related kinase adaptor alpha,STRADA,Human
+Q9C0K7,AF-Q9C0K7-F1-model_v1.pdb.gz,375,STLK6,STE20-related kinase adaptor beta,STRADB,Human
+Q6J9G0,AF-Q6J9G0-F1-model_v1.pdb.gz,479,SuRTK106,serine/threonine/tyrosine kinase 1,STYK1,Human
+P43405,AF-P43405-F1-model_v1.pdb.gz,470,SYK,spleen tyrosine kinase,SYK,Human
+P21675,AF-P21675-F1-model_v1.pdb.gz,103,TAF1,Transcription initiation factor TFIID subunit 1,TAF1,Human
+Q8IZX4,AF-Q8IZX4-F1-model_v1.pdb.gz,104,TAF1L,Transcription initiation factor TFIID subunit 1-like,TAF1L,Human
+Q7L7X3,AF-Q7L7X3-F1-model_v1.pdb.gz,379,TAO1,TAO kinase 1,TAOK1,Human
+Q9UL54,AF-Q9UL54-F1-model_v1.pdb.gz,377,TAO2,TAO kinase 2,TAOK2,Human
+Q9H2K8,AF-Q9H2K8-F1-model_v1.pdb.gz,378,TAO3,TAO kinase 3,TAOK3,Human
+Q8TEA7,AF-Q8TEA7-F1-model_v1.pdb.gz,322,TBCK,TBC1 domain containing kinase,TBCK,Human
+Q9UHD2,AF-Q9UHD2-F1-model_v1.pdb.gz,272,TBK1,TANK-binding kinase 1,TBK1,Human
+P42680,AF-P42680-F1-model_v1.pdb.gz,475,TEC,tec protein tyrosine kinase,TEC,Human
+Q02763,AF-Q02763-F1-model_v1.pdb.gz,477,TIE2,TEK receptor tyrosine kinase,TEK,Human
+Q15569,AF-Q15569-F1-model_v1.pdb.gz,492,TESK1,testis-specific kinase 1,TESK1,Human
+Q96S53,AF-Q96S53-F1-model_v1.pdb.gz,493,TESK2,testis-specific kinase 2,TESK2,Human
+Q8IWB6,AF-Q8IWB6-F1-model_v1.pdb.gz,300,SgK307,testis expressed 14,TEX14,Human
+P36897,AF-P36897-F1-model_v1.pdb.gz,521,TGFbR1,transforming growth factor beta receptor I,TGFBR1,Human
+P37173,AF-P37173-F1-model_v1.pdb.gz,527,TGFbR2,transforming growth factor beta receptor II,TGFBR2,Human
+P35590,AF-P35590-F1-model_v1.pdb.gz,478,TIE1,tyrosine kinase with immunoglobulin like and EGF like domains 1,TIE1,Human
+Q9UKI8,AF-Q9UKI8-F1-model_v1.pdb.gz,323,TLK1,tousled like kinase 1,TLK1,Human
+Q86UE8,AF-Q86UE8-F1-model_v1.pdb.gz,324,TLK2,tousled like kinase 2,TLK2,Human
+Q9UKE5,AF-Q9UKE5-F1-model_v1.pdb.gz,360,TNIK,TRAF2 and NCK interacting kinase,TNIK,Human
+Q13470,AF-Q13470-F1-model_v1.pdb.gz,395,TNK1,"tyrosine kinase, non-receptor, 1",TNK1,Human
+Q07912,AF-Q07912-F1-model_v1.pdb.gz,394,ACK,"tyrosine kinase, non-receptor, 2",TNK2,Human
+Q59H18,AF-Q59H18-F1-model_v1.pdb.gz,496,HH498,TNNI3 interacting kinase,TNNI3K,Human
+Q96S44,AF-Q96S44-F1-model_v1.pdb.gz,264,PRPK,TP53 regulating kinase,TP53RK,Human
+Q96RU8,AF-Q96RU8-F1-model_v1.pdb.gz,170,Trb1,tribbles pseudokinase 1,TRIB1,Human
+Q92519,AF-Q92519-F1-model_v1.pdb.gz,171,Trb2,tribbles pseudokinase 2,TRIB2,Human
+Q96RU7,AF-Q96RU7-F1-model_v1.pdb.gz,172,Trb3,tribbles pseudokinase 3,TRIB3,Human
+O15164,AF-O15164-F1-model_v1.pdb.gz,105,TIF1a,Transcription intermediary factor 1-alpha,TRIM24,Human
+Q13263,AF-Q13263-F1-model_v1.pdb.gz,106,TIF1b,Transcription intermediary factor 1-beta,TRIM28,Human
+Q9UPN9,AF-Q9UPN9-F1-model_v1.pdb.gz,107,TIF1g,E3 ubiquitin-protein ligase TRIM33,TRIM33,Human
+O75962,AF-O75962-F1-model_v1.pdb.gz,177,Trio,trio Rho guanine nucleotide exchange factor,TRIO,Human
+Q9BX84,AF-Q9BX84-F1-model_v1.pdb.gz,79,ChaK2,Transient receptor potential cation channel subfamily M member 6,TRPM6,Human
+Q96QT4,AF-Q96QT4-F1-model_v1.pdb.gz,78,ChaK1,Transient receptor potential cation channel subfamily M member 7,TRPM7,Human
+Q9Y4A5,AF-Q9Y4A5-F1-model_v1.pdb.gz,99,TRRAP,Transformation/transcription domain-associated protein,TRRAP,Human
+Q9BXA7,AF-Q9BXA7-F1-model_v1.pdb.gz,181,TSSK1,testis specific serine kinase 1B,TSSK1B,Human
+Q96PF2,AF-Q96PF2-F1-model_v1.pdb.gz,179,TSSK2,testis specific serine kinase 2,TSSK2,Human
+Q96PN8,AF-Q96PN8-F1-model_v1.pdb.gz,180,TSSK3,testis specific serine kinase 3,TSSK3,Human
+Q6SA08,AF-Q6SA08-F1-model_v1.pdb.gz,183,TSSK4,testis specific serine kinase 4,TSSK4,Human
+Q9BXA6,AF-Q9BXA6-F1-model_v1.pdb.gz,182,SSTK,testis specific serine kinase 6,TSSK6,Human
+Q5TCY1,AF-Q5TCY1-F1-model_v1.pdb.gz,191,TTBK1,tau tubulin kinase 1,TTBK1,Human
+Q6IQ55,AF-Q6IQ55-F1-model_v1.pdb.gz,192,TTBK2,tau tubulin kinase 2,TTBK2,Human
+P33981,AF-P33981-F1-model_v1.pdb.gz,326,TTK,TTK protein kinase,TTK,Human
+Q8WZ42,AF-Q8WZ42-F1-model_v1.pdb.gz,154,TTN,titin,TTN,Human
+P42681,AF-P42681-F1-model_v1.pdb.gz,476,TXK,TXK tyrosine kinase,TXK,Human
+P29597,AF-P29597-F1-model_v1.pdb.gz,441,TYK2,tyrosine kinase 2,TYK2,Human
+P29597,AF-P29597-F1-model_v1.pdb.gz,442,TYK2-b,tyrosine kinase 2 (2nd domain),TYK2-b,Human
+Q06418,AF-Q06418-F1-model_v1.pdb.gz,399,TYRO3,TYRO3 protein tyrosine kinase,TYRO3,Human
+Q8TAS1,AF-Q8TAS1-F1-model_v1.pdb.gz,275,KIS,U2AF homology motif (UHM) kinase 1,UHMK1,Human
+O75385,AF-O75385-F1-model_v1.pdb.gz,328,ULK1,unc-51 like autophagy activating kinase 1,ULK1,Human
+Q8IYT8,AF-Q8IYT8-F1-model_v1.pdb.gz,329,ULK2,unc-51 like autophagy activating kinase 2,ULK2,Human
+Q6PHR2,AF-Q6PHR2-F1-model_v1.pdb.gz,330,ULK3,unc-51 like kinase 3,ULK3,Human
+Q96C45,AF-Q96C45-F1-model_v1.pdb.gz,331,ULK4,unc-51 like kinase 4,ULK4,Human
+Q99986,AF-Q99986-F1-model_v1.pdb.gz,193,VRK1,vaccinia related kinase 1,VRK1,Human
+Q86Y07,AF-Q86Y07-F1-model_v1.pdb.gz,194,VRK2,vaccinia related kinase 2,VRK2,Human
+Q8IV63,AF-Q8IV63-F1-model_v1.pdb.gz,195,VRK3,vaccinia related kinase 3,VRK3,Human
+P30291,AF-P30291-F1-model_v1.pdb.gz,333,Wee1,WEE1 G2 checkpoint kinase,WEE1,Human
+P0C1S8,AF-P0C1S8-F1-model_v1.pdb.gz,335,Wee1B,WEE1 homolog 2 (S. pombe),WEE2,Human
+Q9H4A3,AF-Q9H4A3-F1-model_v1.pdb.gz,336,Wnk1,WNK lysine deficient protein kinase 1,WNK1,Human
+Q9Y3S1,AF-Q9Y3S1-F1-model_v1.pdb.gz,339,Wnk2,WNK lysine deficient protein kinase 2,WNK2,Human
+Q9BYP7,AF-Q9BYP7-F1-model_v1.pdb.gz,338,Wnk3,WNK lysine deficient protein kinase 3,WNK3,Human
+Q96J92,AF-Q96J92-F1-model_v1.pdb.gz,337,Wnk4,WNK lysine deficient protein kinase 4,WNK4,Human
+P07947,AF-P07947-F1-model_v1.pdb.gz,463,YES,"YES proto-oncogene 1, Src family tyrosine kinase",YES1,Human
+P43403,AF-P43403-F1-model_v1.pdb.gz,471,ZAP70,zeta chain of T cell receptor associated protein kinase 70kDa,ZAP70,Human
