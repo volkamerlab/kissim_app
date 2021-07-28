@@ -90,6 +90,7 @@ target/
 !/data/processed
 !/data/external
 /data/external/structures/*_KLIFS_HUMAN/*
+/data/external/structures/AlphaFoldDB
 
 # exclude results from source control
 /results/*
