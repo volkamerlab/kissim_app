@@ -5,18 +5,23 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --mem-per-cpu=4096
-#SBATCH --time=6:00:00
+#SBATCH --time=10:00:00
 #SBATCH --qos=standard
 
 # @dominiquesydow
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
+DFG="all"
+ID="20210712"
+KLIFS_DOWNLOAD=20210630_KLIFS_HUMAN
 KISSIM_APP=/home/${USER}/kissim_app
-RESULTS=$KISSIM_APP/results
+RESULTS=$KISSIM_APP/results/${ID}/dfg_${DFG}
 NCORES=8
 
+mkdir -p $RESULTS
+
 # Encode structures
-kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/20210630_KLIFS_HUMAN
+kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/$KLIFS_DOWNLOAD
 
 # Remove structural outliers
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json
@@ -35,4 +40,4 @@ kissim weights -i $RESULTS/feature_distances.csv -o $RESULTS/fingerprint_distanc
 
 # Zip results
 cd $KISSIM_APP
-zip -r results.zip results
+zip -r ${RESULTS}.zip $RESULTS
