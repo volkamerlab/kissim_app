@@ -43,3 +43,12 @@ So `kissim` can only reach the structurally covered kinome? Well, we are in luck
 Let's use the predicted kinase structures provided in the AlphaFold DB (AF) and use these structures to generate a AF-based `kissim` tree.
 
 In this notebook we prepare a kinase subset of the AF human dataset.
+
+
+## `005_explore_alphafold.ipynb`
+
+#### Explore AF kinases with multiple models
+
+Some kinases have multiple models in the human proteome download archive (F1, F2, ... instead of only F1).
+
+Turns out these kinases have a length above the AF cutoff described in the AlphaFold DB paper.
