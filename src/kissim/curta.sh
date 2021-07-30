@@ -26,8 +26,11 @@ kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/
 # Remove structural outliers
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json
 
+# Subset fingerprints
+kissim subset -i $RESULTS/fingerprints_clean.json -s dfg_${DFG} -o $RESULTS/fingerprints_subset.json
+
 # Compare fingerprints
-kissim compare -i $RESULTS/fingerprints_clean.json -o $RESULTS -c $NCORES
+kissim compare -i $RESULTS/fingerprints_subset.json -o $RESULTS -c $NCORES
 
 # Weight features
 kissim weights -i $RESULTS/feature_distances.csv -o $RESULTS/fingerprint_distances_100.csv -w 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0 0 0 0 0 0 0 
