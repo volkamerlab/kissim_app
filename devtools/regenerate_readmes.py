@@ -1,11 +1,11 @@
 r"""
 This script takes all notebooks and renders the first markdown cell
 of the notebook to the corresponding README.md in the containing folder.
+
 Usage
 -----
 .. code-block::
-    % python devtools/regenerate_readmes.py --output README.md \
-        notebooks/comparison/
+    % python devtools/regenerate_readmes.py --output README.md notebooks
 """
 
 
