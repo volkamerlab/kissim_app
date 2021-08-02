@@ -12,7 +12,7 @@
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
 DFG="in"
-ID="20210712"
+ID="20210730"
 KLIFS_DOWNLOAD=20210630_KLIFS_HUMAN
 KISSIM_APP=/home/${USER}/kissim_app
 RESULTS=$KISSIM_APP/results/${ID}/dfg_${DFG}
