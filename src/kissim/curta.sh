@@ -11,9 +11,9 @@
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
 # Usage
-# sbatch --time=10:00:00 curta.sh <run ID = output folder name> <Structure subset [dfg_all, dfg_in , dfg_out, test]> <KLIFS download folder name>
+# sbatch --time=10:00:00 curta.sh <run ID = output folder name> <Structure subset [all, dfg_in , dfg_out, test]> <KLIFS download folder name>
 # Example
-# sbatch --time=10:00:00 curta.sh 20210804 dfg_all 20210630_KLIFS_HUMAN
+# sbatch --time=10:00:00 curta.sh 20210804 all 20210630_KLIFS_HUMAN
 
 ID=$1
 STRUCTURE_SUBSET=$2
