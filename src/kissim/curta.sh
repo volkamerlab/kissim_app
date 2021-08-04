@@ -5,16 +5,15 @@
 #SBATCH --nodes=1
 #SBATCH --ntasks=8
 #SBATCH --mem-per-cpu=4096
-#SBATCH --time=10:00:00
 #SBATCH --qos=standard
 
 # @dominiquesydow
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
 # Usage
-# curta.sh <run ID = output folder name> <DFG conformations [all, in , out]> <KLIFS download folder name>
+# sbatch --time=10:00:00 curta.sh <run ID = output folder name> <DFG conformations [all, in , out]> <KLIFS download folder name>
 # Example
-# curta.sh 20210804 all 20210630_KLIFS_HUMAN
+# sbatch --time=10:00:00 curta.sh 20210804 all 20210630_KLIFS_HUMAN
 
 ID=$1
 DFG=$2
