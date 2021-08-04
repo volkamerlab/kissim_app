@@ -11,12 +11,23 @@
 # @dominiquesydow
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
-DFG="all"
-ID="20210712"
-KLIFS_DOWNLOAD=20210630_KLIFS_HUMAN
+# Usage
+# curta.sh <run ID = output folder name> <DFG conformations [all, in , out]> <KLIFS download folder name>
+# Example
+# curta.sh 20210804 all 20210630_KLIFS_HUMAN
+
+ID=$1
+DFG=$2
+KLIFS_DOWNLOAD=$3
 KISSIM_APP=/home/${USER}/kissim_app
 RESULTS=$KISSIM_APP/results/${ID}/dfg_${DFG}
+# If you change this number, make sure to change it also in the SBATCH comments
 NCORES=8
+
+echo "Job settings:" 
+echo "Run ID:" $1 
+echo "DFG conformation:" $2 
+echo "KLIFS download folder" $3 
 
 mkdir -p $RESULTS
 
@@ -26,8 +37,11 @@ kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids.txt -o $RESULTS/
 # Remove structural outliers
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json
 
+# Normalize fingerprints
+python normalize_fp.py $RESULTS/fingerprints.json $RESULTS/fingerprints_normalized.json
+
 # Compare fingerprints
-kissim compare -i $RESULTS/fingerprints_clean.json -o $RESULTS -c $NCORES
+kissim compare -i $RESULTS/fingerprints_normalized.json -o $RESULTS -c $NCORES
 
 # Weight features
 kissim weights -i $RESULTS/feature_distances.csv -o $RESULTS/fingerprint_distances_100.csv -w 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0 0 0 0 0 0 0 
@@ -39,5 +53,5 @@ kissim weights -i $RESULTS/feature_distances.csv -o $RESULTS/fingerprint_distanc
 kissim weights -i $RESULTS/feature_distances.csv -o $RESULTS/fingerprint_distances_111.csv -w 0.041 0.041 0.041 0.041 0.041 0.041 0.041 0.041 0.083 0.083 0.083 0.083 0.111 0.111 0.111 
 
 # Zip results
-cd $KISSIM_APP
-zip -r ${RESULTS}.zip $RESULTS
+cd $RESULTS/..
+zip -r dfg_${DFG}.zip dfg_${DFG}
