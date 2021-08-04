@@ -11,27 +11,27 @@
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
 # Usage
-# sbatch --time=10:00:00 curta.sh <run ID = output folder name> <DFG conformations [all, in , out]> <KLIFS download folder name>
+# sbatch --time=10:00:00 curta.sh <run ID = output folder name> <Structure subset [dfg_all, dfg_in , dfg_out, test]> <KLIFS download folder name>
 # Example
-# sbatch --time=10:00:00 curta.sh 20210804 all 20210630_KLIFS_HUMAN
+# sbatch --time=10:00:00 curta.sh 20210804 dfg_all 20210630_KLIFS_HUMAN
 
 ID=$1
-DFG=$2
+STRUCTURE_SUBSET=$2
 KLIFS_DOWNLOAD=$3
 KISSIM_APP=/home/${USER}/kissim_app
-RESULTS=$KISSIM_APP/results/${ID}/dfg_${DFG}
+RESULTS=$KISSIM_APP/results/${ID}/${STRUCTURE_SUBSET}
 # If you change this number, make sure to change it also in the SBATCH comments
 NCORES=8
 
 echo "Job settings:" 
 echo "Run ID:" $1 
-echo "DFG conformation:" $2 
+echo "Structure subset:" $2 
 echo "KLIFS download folder" $3 
 
 mkdir -p $RESULTS
 
 # Encode structures
-kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids_${DFG}.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/$KLIFS_DOWNLOAD
+kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids_${STRUCTURE_SUBSET}.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/$KLIFS_DOWNLOAD
 
 # Remove structural outliers
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json
@@ -53,4 +53,4 @@ kissim weights -i $RESULTS/feature_distances.csv -o $RESULTS/fingerprint_distanc
 
 # Zip results
 cd $RESULTS/..
-zip -r dfg_${DFG}.zip dfg_${DFG}
+zip -r ${STRUCTURE_SUBSET}.zip ${STRUCTURE_SUBSET}
