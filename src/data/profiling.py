@@ -7,6 +7,7 @@ from pathlib import Path
 import json
 
 import pandas as pd
+import numpy as np
 
 from . import ligands, kinases
 
@@ -42,8 +43,10 @@ def load(dataset_name, pkidb_ligands=False, fda_approved=False):
         return karaman(pkidb_ligands, fda_approved)
     elif dataset_name == "davis":
         return davis(pkidb_ligands, fda_approved)
+    elif dataset_name == "karaman-davis":
+        return karaman_davis(pkidb_ligands, fda_approved)
     else:
-        raise KeyError("Unknown dataset name. Use 'karaman' or 'davis'.")
+        raise KeyError("Unknown dataset name. Use 'karaman', 'davis', or 'karaman-davis'.")
 
 
 def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
@@ -98,6 +101,69 @@ def davis(pkidb_ligands=False, fda_approved=False, data_path=DAVIS_PATH):
         Davis profiling data for different kinases (rows) and ligands (columns).
     """
     return _kinmap_profiling(data_path, "davis", pkidb_ligands, fda_approved)
+
+
+def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100):
+    """
+    Combine profiling data from Karaman and Davis datasets.
+
+    Parameters
+    ----------
+    pkidb_ligands : bool
+        Keep only PKIDB ligands (will rename ligands to their names in PKIDB). Default is False.
+    fda_approved : bool
+        Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
+        Default is False.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Combined profiling data from Karaman and Davis datasets.
+    """
+
+    def _choose_from_multiple_activities(x, activity_max=100):
+        """
+        Choose an activity from zero, one, or two activities.
+        """
+
+        if len(x) == 0:
+            return None
+        elif len(x) == 1:
+            return x[0]
+        else:
+            if x[0] == x[1]:
+                return x[0]
+            else:
+                # If both measurements are below or above cutoff, keep lower value
+                if (x[0] > activity_max and x[0] > activity_max) or (
+                    x[0] <= activity_max and x[0] <= activity_max
+                ):
+                    return min(x)
+                # If one is below and one above
+                else:
+                    # Keep lower value if difference between values is <100
+                    if abs(x[0] - x[1]) <= 100:
+                        return min(x)
+                    # Else keep higher values
+                    else:
+                        return max(x)
+
+    df_karaman = karaman(pkidb_ligands, fda_approved)
+    df_davis = davis(pkidb_ligands, fda_approved)
+
+    df_combined = pd.concat([df_karaman, df_davis])
+    df_combined = (
+        df_combined.reset_index()
+        .groupby("index")
+        .agg(lambda x: [i for i in x.tolist() if not np.isnan(i)])
+    )
+
+    df_combined_selected = df_combined.applymap(
+        lambda x: _choose_from_multiple_activities(x, activity_max)
+    )
+    df_combined_selected.index.name = None
+
+    return df_combined_selected
 
 
 def _kinmap_profiling(data_path, data_name, pkidb_ligands=False, fda_approved=False):
