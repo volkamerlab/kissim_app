@@ -113,8 +113,8 @@ class LigandVsKinaseEvaluator:
                     kinase_activity_max,
                 )
                 data_dict[ligand_name][kinase_name] = data
-            except KeyError:
-                pass
+            except KeyError as e:
+                logging.error(e)
         self.data_dict = data_dict
 
         # Curate input ligand kinase pairs
