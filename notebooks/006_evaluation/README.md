@@ -70,3 +70,29 @@ Check if we can retrieve on-/off-targets for a selected ligand (as reported by K
 2. Get target of Erlotinib and Imatinib: EGFR and ABL1 (target kinases).
 3. Find top20 and top30 similar kinases to target kinase.
 4. Save these top kinases in KinMap format for visualization using the KinMap website.
+
+
+## `007_pooled_profiling_dataset.ipynb`
+
+### Pooled profiling (Karaman + Davis)
+
+We pool activity data from the Karaman and Davis dataset by taking the union of ligand-kinase measurements. If two non-equal measurements per ligand-kinase pair are available 
+- if both are below or above a cutoff choosen to split active/inactive kinases, we keep the lowest
+- else
+  - if both values are $<100$ apart, we keep the lowest 
+  - else, we keep the highest
+
+
+## `008_kissim_karaman_davis.ipynb`
+
+### Predict ligand profiling using `kissim` using the pooled Karaman and Davis dataset
+
+In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
+We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves

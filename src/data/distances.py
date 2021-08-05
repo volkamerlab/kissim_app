@@ -12,7 +12,7 @@ from . import kinases
 logger = logging.getLogger(__name__)
 
 RESULTS_PATH = Path(__file__).parent / "../../results"
-KISSIM_PATH = RESULTS_PATH / "fingerprint_distances.csv"
+KISSIM_PATH = RESULTS_PATH / "dfg_in/fingerprint_distances.csv"
 
 
 def load(

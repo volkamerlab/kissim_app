@@ -1,5 +1,5 @@
 """
-TODO
+Basic data container; parent class for kinase-kinase and ligand-kinase data.
 """
 
 
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 class BaseData:
     """
-    TODO
+    Handles basic data properties.
     """
 
     def __init__(self):
@@ -51,7 +51,7 @@ class BaseData:
     @staticmethod
     def _add_rank(kinase_data):
         """
-        TODO
+        Add ranks to kinase data.
         """
 
         kinase_data = kinase_data.reset_index()
