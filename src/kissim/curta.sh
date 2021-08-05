@@ -11,22 +11,35 @@
 # Encode structures and compare fingerprints on the curta cluster using the kissim package
 
 # Usage
-# sbatch --time=10:00:00 curta.sh <run ID = output folder name> <Structure subset [all, dfg_in , dfg_out, test]> <KLIFS download folder name>
+# -----
+# sbatch --time=10:00:00 
+#   curta.sh 
+#       <run ID = output folder name> 
+#       <Structure subset [all, dfg_in , dfg_out, test]> 
+#       <KLIFS download folder name>
+#       <Normalize? [normalized - or leave black]>
+#
 # Example
-# sbatch --time=10:00:00 curta.sh 20210804 all 20210630_KLIFS_HUMAN
+# -------
+# Use normalization:
+# sbatch --time=10:00:00 curta.sh 20210804 dfg_in 20210630_KLIFS_HUMAN normalized
+# Do not use normalization:
+# sbatch --time=10:00:00 curta.sh 20210804 dfg_in 20210630_KLIFS_HUMAN
 
 ID=$1
 STRUCTURE_SUBSET=$2
 KLIFS_DOWNLOAD=$3
-KISSIM_APP=/home/${USER}/kissim_app
+NORMALIZE=${4:-unnormalized}
 RESULTS=$KISSIM_APP/results/${ID}/${STRUCTURE_SUBSET}
 # If you change this number, make sure to change it also in the SBATCH comments
 NCORES=8
 
-echo "Job settings:" 
+echo "Job settings"
+echo "------------" 
 echo "Run ID:" $1 
 echo "Structure subset:" $2 
-echo "KLIFS download folder" $3 
+echo "KLIFS download folder:" $3 
+echo "Normalized?" $4
 
 mkdir -p $RESULTS
 
@@ -37,10 +50,18 @@ kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids_${STRUCTURE_SUBS
 kissim outliers -i $RESULTS/fingerprints.json -d 34 -o $RESULTS/fingerprints_clean.json
 
 # Normalize fingerprints
-python normalize_fp.py $RESULTS/fingerprints.json $RESULTS/fingerprints_normalized.json
+if [ $NORMALIZE == "normalized" ]
+then
+    echo "Normalize fingerprints..."
+    python normalize_fp.py $RESULTS/fingerprints.json $RESULTS/fingerprints_normalized.json
+    FILENAME_FINGERPRINT=fingerprints_normalized.json
+else
+    FILENAME_FINGERPRINT=fingerprints_clean.json
+fi
+echo $FILENAME_FINGERPRINT
 
 # Compare fingerprints
-kissim compare -i $RESULTS/fingerprints_normalized.json -o $RESULTS -c $NCORES
+kissim compare -i $RESULTS/$FILENAME_FINGERPRINT -o $RESULTS -c $NCORES
 
 # Weight features
 kissim weights -i $RESULTS/feature_distances.csv -o $RESULTS/fingerprint_distances_100.csv -w 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0.125 0 0 0 0 0 0 0 
