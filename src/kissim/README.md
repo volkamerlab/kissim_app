@@ -38,7 +38,13 @@ The `kissim` workflow is run on Curta, the central HPC cluster of Freie Universi
 
 ```bash
 cd kissim_app/src/kissim
-sbatch curta.sh
+sbatch --time=10:00:00 \
+  curta.sh \
+      <run ID = output folder name> \
+      <Structure subset [all, dfg_in , dfg_out, test]> \
+      <KLIFS download folder name> \
+      <Normalize fingerprint? [normalized, unnormalized]> \
+      <Subset fingerprint? [subset, full]>
 # Check if job is running
 squeue -u sydowd
 ```
