@@ -96,3 +96,24 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 - Rank kinases by distances
 - Calculuate enrichment factors and enrichment plots
 - Calculate ROC curves
+
+
+## `009_vectorize_pairwise_similarities.ipynb`
+
+### Demo: Vectorize pairwise similarities
+
+Demo on "How to vectorize pairwise (dis)similarity metrics"
+
+> A straightforward pattern for vectorizing metrics like L1 distance and Intersection over Union for all pairs of points.
+
+Taken from: https://towardsdatascience.com/how-to-vectorize-pairwise-dis-similarity-metrics-5d522715fb4e
+
+
+## `010_comparative_analyses.ipynb`
+
+### Compare different similarity methods
+
+- Pocket structure similarity (`kissim`)
+- Pocket sequence similarity (KLIFS seq)
+- Interaction similarity (KLIFS IFP)
+- Compare matrices!
