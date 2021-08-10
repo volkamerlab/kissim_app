@@ -6,6 +6,8 @@ from functools import wraps
 import datetime
 import logging
 
+import pandas as pd
+
 logger = logging.getLogger(__name__)
 
 
@@ -122,6 +124,68 @@ def select_qualityscore(structures, qualityscore_min):
         Filtered DataFrame.
     """
     return structures[structures["structure.qualityscore"] >= qualityscore_min]
+
+
+@log_step
+def select_without_mutations(structures):
+    """
+    Filter structures for structures without mutations in the KLIFS pocket.
+
+    Parameters
+    ----------
+    structures : pandas.DataFrame
+        Structures DataFrame from opencadd.databases.klifs module; must include "structure.pocket"
+        and "kinase.pocket" columns.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Filtered DataFrame.
+    """
+
+    def has_mutations(structure_seq, kinase_seq):
+        """
+        Check if input KLIFS structures has a mutation by comparing the KLIFS structure pocket
+        sequence to the KLIFS kinase pocket sequence. "_" and "-" residues are omitted, any other
+        positional mismatches are reported as mutation.
+
+        Parameters
+        ----------
+        structure_seq : str
+            KLIFS structure pocket sequence. Same length as `kinase_seq`.
+        kinase_seq : str
+            KLIFS kinase pocket sequence. Same length as `structure_seq`.
+
+        Returns
+        -------
+        bool
+            Structure has a mutation (True) or not (False).
+        """
+
+        sequences = pd.DataFrame(
+            [list(structure_seq), list(kinase_seq)], index=["structure", "kinase"]
+        ).transpose()
+        sequences.index = sequences.index + 1
+        # Remove gaps in KLIFS structure, which are denoted with "_"
+        sequences = sequences[sequences.apply(lambda x: x["structure"] != "_", axis=1)]
+        # Remove gaps in KLIFS kinase, which are denoted with "-"
+        sequences = sequences[sequences.apply(lambda x: x["kinase"] != "-", axis=1)]
+
+        # Get mutations by detecting positional mismatches
+        mutations = sequences[sequences.apply(lambda x: x["structure"] != x["kinase"], axis=1)]
+
+        if mutations.shape[0] > 0:
+            return True
+        else:
+            return False
+
+    # Keep only structures without any mutations
+    structures = structures[
+        structures.apply(
+            lambda x: not has_mutations(x["structure.pocket"], x["kinase.pocket"]), axis=1
+        )
+    ]
+    return structures
 
 
 @log_step
