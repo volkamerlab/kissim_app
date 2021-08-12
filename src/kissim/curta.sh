@@ -42,7 +42,7 @@ echo "Run ID:" $1
 echo "Structure subset:" $2 
 echo "KLIFS download folder:" $3 
 echo "Normalized?" $4
-echo "Subset?" $5
+echo "Residue subset?" $5
 
 if [[ $4 != normalized ]] && [[ $4 != unnormalized ]]
 then
