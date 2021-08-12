@@ -127,9 +127,9 @@ def select_qualityscore(structures, qualityscore_min):
 
 
 @log_step
-def select_without_more_than_n_mutations(structures, n_mutations):
+def select_maximum_n_mutations(structures, n_mutations):
     """
-    Filter structures for structures without mutations in the KLIFS pocket.
+    Filter structures for structures with a maximum of N mutations in the KLIFS pocket.
 
     Parameters
     ----------
@@ -145,7 +145,7 @@ def select_without_more_than_n_mutations(structures, n_mutations):
         Filtered DataFrame.
     """
 
-    def has_n_mutations(structure_seq, kinase_seq, n_mutations):
+    def has_more_than_n_mutations(structure_seq, kinase_seq, n_mutations):
         """
         Check if input KLIFS structures has a mutation by comparing the KLIFS structure pocket
         sequence to the KLIFS kinase pocket sequence. "_" and "-" residues are omitted, any other
@@ -186,7 +186,9 @@ def select_without_more_than_n_mutations(structures, n_mutations):
     # Keep only structures without any mutations
     structures = structures[
         structures.apply(
-            lambda x: not has_n_mutations(x["structure.pocket"], x["kinase.pocket"], n_mutations),
+            lambda x: not has_more_than_n_mutations(
+                x["structure.pocket"], x["kinase.pocket"], n_mutations
+            ),
             axis=1,
         )
     ]
