@@ -127,7 +127,7 @@ def select_qualityscore(structures, qualityscore_min):
 
 
 @log_step
-def select_without_mutations(structures):
+def select_without_more_than_n_mutations(structures, n_mutations):
     """
     Filter structures for structures without mutations in the KLIFS pocket.
 
@@ -136,6 +136,8 @@ def select_without_mutations(structures):
     structures : pandas.DataFrame
         Structures DataFrame from opencadd.databases.klifs module; must include "structure.pocket"
         and "kinase.pocket" columns.
+    n_mutations : int
+        Number of mutations allowed.
 
     Returns
     -------
@@ -143,7 +145,7 @@ def select_without_mutations(structures):
         Filtered DataFrame.
     """
 
-    def has_mutations(structure_seq, kinase_seq):
+    def has_n_mutations(structure_seq, kinase_seq, n_mutations):
         """
         Check if input KLIFS structures has a mutation by comparing the KLIFS structure pocket
         sequence to the KLIFS kinase pocket sequence. "_" and "-" residues are omitted, any other
@@ -155,6 +157,8 @@ def select_without_mutations(structures):
             KLIFS structure pocket sequence. Same length as `kinase_seq`.
         kinase_seq : str
             KLIFS kinase pocket sequence. Same length as `structure_seq`.
+        n_mutations : int
+            Number of mutations allowed.
 
         Returns
         -------
@@ -174,7 +178,7 @@ def select_without_mutations(structures):
         # Get mutations by detecting positional mismatches
         mutations = sequences[sequences.apply(lambda x: x["structure"] != x["kinase"], axis=1)]
 
-        if mutations.shape[0] > 0:
+        if mutations.shape[0] > n_mutations:
             return True
         else:
             return False
@@ -182,7 +186,8 @@ def select_without_mutations(structures):
     # Keep only structures without any mutations
     structures = structures[
         structures.apply(
-            lambda x: not has_mutations(x["structure.pocket"], x["kinase.pocket"]), axis=1
+            lambda x: not has_n_mutations(x["structure.pocket"], x["kinase.pocket"], n_mutations),
+            axis=1,
         )
     ]
     return structures
