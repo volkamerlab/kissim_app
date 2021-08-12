@@ -24,6 +24,8 @@
 # -------
 # sbatch --time=10:00:00 curta.sh 20210804 dfg_in 20210630_KLIFS_HUMAN normalized full
 
+conda list kissim
+
 ID=$1
 STRUCTURE_SUBSET=$2
 KLIFS_DOWNLOAD=$3
