@@ -24,6 +24,8 @@
 # -------
 # sbatch --time=10:00:00 curta.sh 20210804 dfg_in 20210630_KLIFS_HUMAN normalized full
 
+conda list kissim
+
 ID=$1
 STRUCTURE_SUBSET=$2
 KLIFS_DOWNLOAD=$3
@@ -42,7 +44,7 @@ echo "Run ID:" $1
 echo "Structure subset:" $2 
 echo "KLIFS download folder:" $3 
 echo "Normalized?" $4
-echo "Subset?" $5
+echo "Residue subset?" $5
 
 if [[ $4 != normalized ]] && [[ $4 != unnormalized ]]
 then
