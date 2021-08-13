@@ -196,6 +196,26 @@ def select_maximum_n_mutations(structures, n_mutations):
 
 
 @log_step
+def select_maximum_n_missing_residues(structures, n_missing_residues):
+    """
+    Filter structures for structures with a maximum of N missing residues in the KLIFS pocket.
+
+    Parameters
+    ----------
+    structures : pandas.DataFrame
+        Structures DataFrame from opencadd.databases.klifs module; must include "structure.pocket".
+    n_missing_residues : int
+        Number of missing residues allowed.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Filtered DataFrame.
+    """
+    return structures[structures["structure.pocket"].str.count("_") <= n_missing_residues]
+
+
+@log_step
 def select_best_pdb_kinase_pairs(structures):
     """
     Pick only the best structure (based on the quality score) among all structures per kinase-PDB
