@@ -390,7 +390,7 @@ class LigandVsKinaseEvaluator:
                 auc_list.append(auc)
             # Random curve
             axes[i].plot([0, 1], [0, 1], label="Random", linestyle="--", color="grey")
-            axes[i].legend()
+            axes[i].legend(title="On-targets")
             # Cosmetics
             axes[i].set_aspect(1.0 / axes[i].get_data_ratio(), adjustable="box")
             axes[i].set_xlabel("FPR")
@@ -407,7 +407,7 @@ class LigandVsKinaseEvaluator:
             axes[i].axis("off")
 
         if output_file:
-            plt.savefig(output_file, bbox_inches="tight", dpi=300)
+            plt.savefig(output_file, bbox_inches="tight")
 
         return auc_list
 
