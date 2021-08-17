@@ -1,10 +1,17 @@
 """
 Load kinase distances matrices.
+- KiSSim
+- KLIFS pocket seq
+- KLIFS pocket IFP
 """
 
 import logging
 from pathlib import Path
 
+import numpy as np
+import pandas as pd
+from sklearn.metrics import pairwise_distances
+from opencadd.databases import klifs
 from kissim.comparison import FingerprintDistanceGenerator
 
 from . import kinases
@@ -46,12 +53,19 @@ def load(
         Profiling data for different kinases (rows) and ligands (columns).
     """
 
+    # DO NOT USE underscores in dataset name
     if dataset_name == "kissim":
         if distances_path is None:
             distances_path = KISSIM_PATH
         return kissim(structure_kinase_mapping_by, kinmap_kinases, distances_path, coverage_min)
+    elif dataset_name == "klifs-pocket-sequence":
+        return klifs_pocket_sequence(kinmap_kinases=kinmap_kinases)
+    elif dataset_name == "klifs-pocket-ifp":
+        return klifs_pocket_ifp(kinmap_kinases=kinmap_kinases)
     else:
-        raise KeyError("Unknown dataset name. Use 'karaman' or 'davis'.")
+        raise KeyError(
+            "Unknown dataset name. Use 'kissim', 'klifs-pocket-sequence' or 'klifs-pocket-ifp'."
+        )
 
 
 def kissim(
@@ -73,25 +87,159 @@ def kissim(
         Path to fingerprint distances CSV `kissim` file.
     coverage_min : float
         Minimum allowed bit coverage (default 0.8).
+
+    Returns
+    -------
+    pandas.DataFrame
+        Kinase distance matrix.
     """
 
     fingerprint_distance_generator = FingerprintDistanceGenerator.from_csv(distances_path)
-    kissim_df = fingerprint_distance_generator.kinase_distance_matrix(
+    distance_matrix = fingerprint_distance_generator.kinase_distance_matrix(
         structure_kinase_mapping_by, coverage_min=coverage_min
     )
 
     if kinmap_kinases:
-        kinase_names_new = kinases._kinmap_kinase_names(kissim_df.columns)
-        # Cast column name for all unknown kinases to "unknown" and drop these columns
-        kinase_names_new = [
-            "unknown" if column_name.startswith("unknown") else column_name
-            for column_name in kinase_names_new
-        ]
-        # Rename kinases
-        kissim_df.columns = kinase_names_new
-        kissim_df.index = kinase_names_new
-        # Remove kinases that could not be mapped to KinMap
-        kissim_df = kissim_df.drop("unknown", axis=0).drop("unknown", axis=1)
-        kissim_df
+        distance_matrix = _use_kinmap_kinase_names(distance_matrix)
 
-    return kissim_df
+    return distance_matrix
+
+
+def klifs_pocket_sequence(kinmap_kinases=False):
+    """
+    Get kinase distance matrix describing the KLIFS pocket sequence identity.
+
+    Parameters
+    ----------
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
+
+    Returns
+    -------
+    pandas.DataFrame
+        Kinase distance matrix.
+    """
+
+    logger.info("Set up KLIFS session...")
+    klifs_session = klifs.setup_remote()
+    logger.info("Fetch kinases...")
+    kinase_klifs_ids = klifs_session.kinases.all_kinases(species="Human")[
+        "kinase.klifs_id"
+    ].to_list()
+    kinases = klifs_session.kinases.by_kinase_klifs_id(kinase_klifs_ids)
+    logger.info(f"Number of kinases: {len(kinases)}")
+    kinases = kinases[kinases["kinase.pocket"].apply(len) == 85]
+    logger.info(f"Number of kinases with full pocket sequence: {len(kinases)}")
+
+    logger.info("Calculate kinase matrix...")
+    seq_matrix = kinases["kinase.pocket"].apply(list)
+    X = np.array(seq_matrix.to_list())
+    # Expand: Identical position?
+    identity = X[:, None, :] == X[None, :, :]
+    # Reduce
+    similarity_matrix = identity.sum(axis=-1) / X.shape[1]
+    # Similarity > distances
+    distance_matrix = 1 - similarity_matrix
+    kinase_names = kinases["kinase.klifs_name"].to_list()
+    distance_matrix = pd.DataFrame(distance_matrix, index=kinase_names, columns=kinase_names)
+
+    if kinmap_kinases:
+        distance_matrix = _use_kinmap_kinase_names(distance_matrix)
+
+    return distance_matrix
+
+
+def klifs_pocket_ifp(structure_klifs_ids=None, dfg="in", metric="jaccard", kinmap_kinases=False):
+    """
+    Get kinase distance matrix describing the KLIFS pocket IFP similarity.
+
+    Parameters
+    ----------
+    structure_klifs_ids : list of int or None
+        KLIFS structures to be used for the comparison.
+        If None, use all structures that have an IFP.
+    dfg : str
+        DFG conformation: in (default) or out.
+    metric : str
+        Distance metrics as allowed in sklearn.metrics.pairwise_distances.
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
+
+    Returns
+    -------
+    pandas.DataFrame
+        Kinase distance matrix.
+    """
+
+    logger.info("Set up KLIFS session...")
+    klifs_session = klifs.setup_remote()
+    logger.info("Fetch IFPs...")
+    if structure_klifs_ids is None:
+        ifps = klifs_session.interactions.all_interactions()
+    else:
+        ifps = klifs_session.interactions.by_structure_klifs_id(structure_klifs_ids)
+    ifps.dropna(subset=["interaction.fingerprint"], inplace=True)
+    structure_klifs_ids = ifps["structure.klifs_id"].to_list()
+
+    logger.info(f"Fetch structures and keep IFPs in DFG-{dfg} only...")
+    structures = klifs_session.structures.by_structure_klifs_id(structure_klifs_ids)
+    structures = structures[
+        (structures["structure.dfg"] == dfg) & (structures["species.klifs"] == "Human")
+    ]
+    ifps = ifps.merge(structures, on="structure.klifs_id", how="inner")
+    ifps = ifps.set_index(["structure.klifs_id", "kinase.klifs_name"])
+
+    logger.info("Calculate structure distance matrix...")
+    # Generate list of lists
+    ifps_list_of_lists = (
+        ifps["interaction.fingerprint"]
+        .apply(list)
+        .apply(lambda x: [True if i == "1" else False for i in x])
+        .to_list()
+    )
+    # Convert to array
+    ifps_array = np.array(ifps_list_of_lists)
+
+    # Calculate pairwise distances
+    structure_distance_matrix = pairwise_distances(ifps_array, metric=metric)
+    # Create DataFrame with structure KLIFS IDs as index/columns
+    structure_klifs_ids = ifps.index.get_level_values(0)
+    structure_distance_matrix = pd.DataFrame(
+        structure_distance_matrix, index=structure_klifs_ids, columns=structure_klifs_ids
+    )
+    logger.info(f"Structure matrix: {structure_distance_matrix.shape}")
+
+    logger.info("Calculate kinase distance matrix...")
+    # Copy distance matrix to kinase matrix
+    kinase_distance_matrix = structure_distance_matrix
+    # Replace structure KLIFS IDs with the structures' kinase names
+    kinase_names = ifps.index.get_level_values(1)
+    kinase_distance_matrix.index = kinase_names
+    kinase_distance_matrix.columns = kinase_names
+    # Select the minimum structure pair distance for each kinase pair
+    kinase_distance_matrix = (
+        kinase_distance_matrix.stack().groupby(level=[0, 1]).min().unstack(level=1)
+    )
+    logger.info(f"Kinase matrix: {kinase_distance_matrix.shape}")
+
+    if kinmap_kinases:
+        kinase_distance_matrix = _use_kinmap_kinase_names(kinase_distance_matrix)
+
+    return kinase_distance_matrix
+
+
+def _use_kinmap_kinase_names(kinase_df):
+
+    kinase_names_new = kinases._kinmap_kinase_names(kinase_df.columns)
+    # Cast column name for all unknown kinases to "unknown" and drop these columns
+    kinase_names_new = [
+        "unknown" if column_name.startswith("unknown") else column_name
+        for column_name in kinase_names_new
+    ]
+    # Rename kinases
+    kinase_df.columns = kinase_names_new
+    kinase_df.index = kinase_names_new
+    # Remove kinases that could not be mapped to KinMap
+    kinase_df = kinase_df.drop("unknown", axis=0).drop("unknown", axis=1)
+
+    return kinase_df
