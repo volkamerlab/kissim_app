@@ -6,6 +6,8 @@ from functools import wraps
 import datetime
 import logging
 
+import pandas as pd
+
 logger = logging.getLogger(__name__)
 
 
@@ -122,6 +124,95 @@ def select_qualityscore(structures, qualityscore_min):
         Filtered DataFrame.
     """
     return structures[structures["structure.qualityscore"] >= qualityscore_min]
+
+
+@log_step
+def select_maximum_n_mutations(structures, n_mutations):
+    """
+    Filter structures for structures with a maximum of N mutations in the KLIFS pocket.
+
+    Parameters
+    ----------
+    structures : pandas.DataFrame
+        Structures DataFrame from opencadd.databases.klifs module; must include "structure.pocket"
+        and "kinase.pocket" columns.
+    n_mutations : int
+        Number of mutations allowed.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Filtered DataFrame.
+    """
+
+    def has_more_than_n_mutations(structure_seq, kinase_seq, n_mutations):
+        """
+        Check if input KLIFS structures has a mutation by comparing the KLIFS structure pocket
+        sequence to the KLIFS kinase pocket sequence. "_" and "-" residues are omitted, any other
+        positional mismatches are reported as mutation.
+
+        Parameters
+        ----------
+        structure_seq : str
+            KLIFS structure pocket sequence. Same length as `kinase_seq`.
+        kinase_seq : str
+            KLIFS kinase pocket sequence. Same length as `structure_seq`.
+        n_mutations : int
+            Number of mutations allowed.
+
+        Returns
+        -------
+        bool
+            Structure has a mutation (True) or not (False).
+        """
+
+        sequences = pd.DataFrame(
+            [list(structure_seq), list(kinase_seq)], index=["structure", "kinase"]
+        ).transpose()
+        sequences.index = sequences.index + 1
+        # Remove gaps in KLIFS structure, which are denoted with "_"
+        sequences = sequences[sequences.apply(lambda x: x["structure"] != "_", axis=1)]
+        # Remove gaps in KLIFS kinase, which are denoted with "-"
+        sequences = sequences[sequences.apply(lambda x: x["kinase"] != "-", axis=1)]
+
+        # Get mutations by detecting positional mismatches
+        mutations = sequences[sequences.apply(lambda x: x["structure"] != x["kinase"], axis=1)]
+
+        if mutations.shape[0] > n_mutations:
+            return True
+        else:
+            return False
+
+    # Keep only structures without any mutations
+    structures = structures[
+        structures.apply(
+            lambda x: not has_more_than_n_mutations(
+                x["structure.pocket"], x["kinase.pocket"], n_mutations
+            ),
+            axis=1,
+        )
+    ]
+    return structures
+
+
+@log_step
+def select_maximum_n_missing_residues(structures, n_missing_residues):
+    """
+    Filter structures for structures with a maximum of N missing residues in the KLIFS pocket.
+
+    Parameters
+    ----------
+    structures : pandas.DataFrame
+        Structures DataFrame from opencadd.databases.klifs module; must include "structure.pocket".
+    n_missing_residues : int
+        Number of missing residues allowed.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Filtered DataFrame.
+    """
+    return structures[structures["structure.pocket"].str.count("_") <= n_missing_residues]
 
 
 @log_step

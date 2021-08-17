@@ -1,14 +1,4 @@
-## `001_evaluation_kissim_pooled_profiling.ipynb`
-
-### [WIP] Evaluate performace of `kissim` vs. pooled profiling data
-
-We evaluate `kissim`'s performance based on profiling data which we pool from multiple datasets.
-
-- So far only EGFR (pooled Karaman profiling data)
-- Extend to more ligands and more profiling datasets 
-
-
-## `002_evaluation_kissim_profiling.ipynb`
+## `001_profiling_summary.ipynb`
 
 ### Evaluate performace of `kissim` vs. profiling datasets
 
@@ -18,22 +8,7 @@ Summarize ligand-kinase pair performances based on multiple profiling datasets:
 - `kissim` datasets: Different feature weighting schemes
 
 
-## `003_evaluation_kissim_davis.ipynb`
-
-### Predict ligand profiling using `kissim` using the Davis dataset
-
-In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
-We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
-
-- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
-- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
-- Merge both datasets and keep only kinases that have measurements in both datasets
-- Rank kinases by distances
-- Calculuate enrichment factors and enrichment plots
-- Calculate ROC curves
-
-
-## `004_evaluation_kissim_karaman.ipynb`
+## `002_profiling_karaman.ipynb`
 
 ### Predict ligand profiling using `kissim` using the Karaman dataset
 
@@ -48,7 +23,37 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 - Calculate ROC curves
 
 
-## `005_kissim_profiling_details.ipynb`
+## `003_profiling_davis.ipynb`
+
+### Predict ligand profiling using `kissim` using the Davis dataset
+
+In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
+We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves
+
+
+## `004_profiling_karaman_davis.ipynb`
+
+### Predict ligand profiling using `kissim` using the pooled Karaman and Davis dataset
+
+In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
+We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves
+
+
+## `005_profiling_details.ipynb`
 
 ### Predict ligand profiling using `kissim` - detailed inspection
 
@@ -72,23 +77,11 @@ Check if we can retrieve on-/off-targets for a selected ligand (as reported by K
 4. Save these top kinases in KinMap format for visualization using the KinMap website.
 
 
-## `007_pooled_profiling_dataset.ipynb`
+## `007_ligands_targeting_multiple_kinase_groups.ipynb`
 
-### Pooled profiling (Karaman + Davis)
+### Ligands targeting multiple kinase groups
 
-We pool activity data from the Karaman and Davis dataset by taking the union of ligand-kinase measurements. If two non-equal measurements per ligand-kinase pair are available 
-- if both are below or above a cutoff choosen to split active/inactive kinases, we keep the lowest
-- else
-  - if both values are $<100$ apart, we keep the lowest 
-  - else, we keep the highest
-
-
-## `008_kissim_karaman_davis.ipynb`
-
-### Predict ligand profiling using `kissim` using the pooled Karaman and Davis dataset
-
-In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
-We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+Extract from the pooled Karaman-Davis profiling dataset ligands that target mulitple kinase groups. We can treat those as "unexpected off-targets".
 
 - Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
 - Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
@@ -96,7 +89,6 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 - Rank kinases by distances
 - Calculuate enrichment factors and enrichment plots
 - Calculate ROC curves
-
 
 ## `009_vectorize_pairwise_similarities.ipynb`
 

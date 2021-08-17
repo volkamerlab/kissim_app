@@ -8,6 +8,7 @@ from pathlib import Path
 from kissim.comparison import FingerprintDistanceGenerator
 
 from . import kinases
+from src.definitions import COVERAGE_CUTOFF
 
 logger = logging.getLogger(__name__)
 
@@ -20,6 +21,7 @@ def load(
     structure_kinase_mapping_by="minimum",
     kinmap_kinases=False,
     distances_path=None,
+    coverage_min=COVERAGE_CUTOFF,
 ):
     """
     Utility function to load different kinase similarity datasets via the same API.
@@ -35,6 +37,8 @@ def load(
         Map kinase names to KinMap kinase names (default: False).
     distances_path : str or pathlib.Path or None
         Path to dataset file. If None, use default path for respective dataset.
+    coverage_min : float
+        Minimum allowed bit coverage (default 0.8).
 
     Returns
     -------
@@ -45,13 +49,16 @@ def load(
     if dataset_name == "kissim":
         if distances_path is None:
             distances_path = KISSIM_PATH
-        return kissim(structure_kinase_mapping_by, kinmap_kinases, distances_path)
+        return kissim(structure_kinase_mapping_by, kinmap_kinases, distances_path, coverage_min)
     else:
         raise KeyError("Unknown dataset name. Use 'karaman' or 'davis'.")
 
 
 def kissim(
-    structure_kinase_mapping_by="minimum", kinmap_kinases=False, distances_path=KISSIM_PATH
+    structure_kinase_mapping_by="minimum",
+    kinmap_kinases=False,
+    distances_path=KISSIM_PATH,
+    coverage_min=COVERAGE_CUTOFF,
 ):
     """
     Get kinase distance matrix from `kissim` using a user-defined structure-kinase mapping method.
@@ -64,10 +71,14 @@ def kissim(
         Map kinase names to KinMap kinase names (default: False).
     distances_path : str or pathlib.Path
         Path to fingerprint distances CSV `kissim` file.
+    coverage_min : float
+        Minimum allowed bit coverage (default 0.8).
     """
 
     fingerprint_distance_generator = FingerprintDistanceGenerator.from_csv(distances_path)
-    kissim_df = fingerprint_distance_generator.kinase_distance_matrix(structure_kinase_mapping_by)
+    kissim_df = fingerprint_distance_generator.kinase_distance_matrix(
+        structure_kinase_mapping_by, coverage_min=coverage_min
+    )
 
     if kinmap_kinases:
         kinase_names_new = kinases._kinmap_kinase_names(kissim_df.columns)

@@ -149,7 +149,21 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100):
                         return max(x)
 
     df_karaman = karaman(pkidb_ligands, fda_approved)
+    logger.info(f"Karaman matrix: {df_karaman.shape}")
     df_davis = davis(pkidb_ligands, fda_approved)
+    logger.info(f"Davis matrix: {df_davis.shape}")
+
+    logger.info(
+        f"Number of shared ligands: {len(set(df_karaman.columns) & set(df_davis.columns))}"
+    )
+    logger.info(f"Number of shared kinases: {len(set(df_karaman.index) & set(df_davis.index))}")
+
+    logger.info(
+        f"Number of total ligands: {len(set(df_karaman.columns).union(set(df_davis.columns)))}"
+    )
+    logger.info(
+        f"Number of total kinases: {len(set(df_karaman.index).union(set(df_davis.index)))}"
+    )
 
     df_combined = pd.concat([df_karaman, df_davis])
     df_combined = (
@@ -157,11 +171,13 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100):
         .groupby("index")
         .agg(lambda x: [i for i in x.tolist() if not np.isnan(i)])
     )
+    logger.info(f"Karaman-Davis matrix: {df_combined.shape}")
 
     df_combined_selected = df_combined.applymap(
         lambda x: _choose_from_multiple_activities(x, activity_max)
     )
     df_combined_selected.index.name = None
+    logger.info(f"Karaman-Davis matrix: {df_combined.shape}")
 
     return df_combined_selected
 

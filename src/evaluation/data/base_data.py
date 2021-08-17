@@ -45,7 +45,6 @@ class BaseData:
             kinase_data = self._add_rank(kinase_data)
             return kinase_data
         except KeyError:
-            logging.info(f"Query kinase {kinase_query} is not part of dataset.")
             raise KeyError(f"Query kinase {kinase_query} is not part of dataset.")
 
     @staticmethod

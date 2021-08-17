@@ -10,6 +10,8 @@ We prepare the KLIFS dataset to be used for `kissim` encoding and comparison.
   - DFG conformation (optional)
   - Resolution
   - Quality score
+  - Maximum number of mutations in the pocket
+  - Maximum number of missing residues in the pocket (most will be caught by quality score already) 
   - Best struture per kinase-PDB pair
 - Save the KLIFS structure IDs for the filtered dataset.
 
@@ -32,3 +34,22 @@ We explore the KLIFS dataset used to generate `kissim` fingerprints.
 ### Extract pocket residue CA atom coordinates
 
 We extract the coordinates for all pockets' residue CA atoms to be used in other notebooks.
+
+
+## `004_mutated_structures.ipynb`
+
+### KLIFS structures with mutated pockets
+
+Explore KLIFS structures with mutations in their pocket:
+- Number of structures with mutations
+- Distribution of number of mutations per structure
+- Number of mutations per KLIFS pocket position
+- Type of mutations
+- Type of mutations per KLIFS position
+
+
+## `005_missing_pocket_residues.ipynb`
+
+### Missing residues
+
+We check the number and position of missing residues in kinase structures (fetched from KLIFS).
