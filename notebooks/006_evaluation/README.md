@@ -82,3 +82,30 @@ Check if we can retrieve on-/off-targets for a selected ligand (as reported by K
 ### Ligands targeting multiple kinase groups
 
 Extract from the pooled Karaman-Davis profiling dataset ligands that target mulitple kinase groups. We can treat those as "unexpected off-targets".
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves
+
+## `009_vectorize_pairwise_similarities.ipynb`
+
+### Demo: Vectorize pairwise similarities
+
+Demo on "How to vectorize pairwise (dis)similarity metrics"
+
+> A straightforward pattern for vectorizing metrics like L1 distance and Intersection over Union for all pairs of points.
+
+Taken from: https://towardsdatascience.com/how-to-vectorize-pairwise-dis-similarity-metrics-5d522715fb4e
+
+
+## `010_comparative_analyses.ipynb`
+
+### Compare different similarity methods
+
+- Pocket structure similarity (`kissim`)
+- Pocket sequence similarity (KLIFS seq)
+- Interaction similarity (KLIFS IFP)
+- Compare matrices!
