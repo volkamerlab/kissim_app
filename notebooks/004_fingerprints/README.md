@@ -9,9 +9,10 @@ This allows us to identify outlier structures that we want to exclude from our d
 
 ## `002_spatial_feature_cutoffs.ipynb`
 
-### Min-max cutoffs for continuous (=spatial) features
+### Normalize for continuous (=spatial) features
 
-We define the min-max cutoffs for the min-max normalization of continuous features such as the distances and moments features: Use the floor/ceiling values of the minimum/maximum values of the distances w.r.t. to each subpocket center.
+- We define the min-max cutoffs for the min-max normalization of continuous features such as the distances and moments features: Use the floor/ceiling values of the minimum/maximum values of the distances w.r.t. to each subpocket center.
+- Investigate other normalization schemes including min-max normalization per residue position and z-scores.
 
 
 ## `003_feature_distributions.ipynb`

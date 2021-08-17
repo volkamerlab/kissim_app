@@ -83,12 +83,19 @@ Check if we can retrieve on-/off-targets for a selected ligand (as reported by K
 
 Extract from the pooled Karaman-Davis profiling dataset ligands that target mulitple kinase groups. We can treat those as "unexpected off-targets".
 
-- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
-- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
-- Merge both datasets and keep only kinases that have measurements in both datasets
-- Rank kinases by distances
-- Calculuate enrichment factors and enrichment plots
-- Calculate ROC curves
+
+## `008_summary_auc_tree_distances.ipynb`
+
+### Performance summary over different `kissim` setups
+
+Summarize performance of different `kissim` setups:
+
+- Profiling vs. `kissim` AUCs: How well does `kissim` reflect profiling data?
+- Phylogenetic `kissim` tree: How well do selected on- and off-targets cluster together?
+- Top `kissim` ranks: How high do selected on- and off-targets rank in `kissim`?
+
+DFG-in conformations only!
+
 
 ## `009_vectorize_pairwise_similarities.ipynb`
 

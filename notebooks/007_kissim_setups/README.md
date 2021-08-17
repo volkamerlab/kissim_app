@@ -1,4 +1,26 @@
-## `001_kinome_tree_versions.ipynb`
+## `001_kissim_matrix_by_version.ipynb`
+
+### Compare the results from different `kissim` runs
+
+Compare results (kinase matrices) from different runs:
+
+- `matrix_wbug`: **Run on 20210508**; based on KLIFS dataset from 20210114; **with** charged-THR bug
+- `matrix_wobug`: **Run on 20210708**; based on KLIFS dataset from 20210114; without charged-THR bug
+- `matrix_2019`: 2019 dataset
+
+
+## `101_pooled_profiling.ipynb`
+
+### Evaluate performace of `kissim` vs. profiling datasets
+
+Summarize ligand-kinase pair performances based on multiple profiling datasets:
+
+- Profiling datasets: Karaman and Davis
+- `kissim` datasets: Different feature weighting schemes
+- Saves AUC values per setting combination
+
+
+## `201_kinome_tree_versions.ipynb`
 
 ### `kissim`-based kinome tree
 
@@ -13,120 +35,35 @@ We generate `kissim`-based kinome matrices and trees based on three different pa
 - Clustering methods
 
 
-## `002_kinome_tree_20210804.ipynb`
+## `202_kinome_tree_20210804.ipynb`
 
 ### `kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on for the 20210804 runs.
 
 
-## `003_pooled_profiling_20210712.ipynb`
-
-### Evaluate performace of `kissim` vs. profiling datasets
-
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
-
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
-
-
-## `004_pooled_profiling_20210804-1.ipynb`
-
-### Evaluate performace of `kissim` vs. profiling datasets
-
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
-
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
-
-
-## `005_pooled_profiling_20210804-2.ipynb`
-
-### Evaluate performace of `kissim` vs. profiling datasets
-
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
-
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
-
-
-## `006_pooled_profiling_20210804-3.ipynb`
-
-### Evaluate performace of `kissim` vs. profiling datasets
-
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
-
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
-
-
-## `007_pooled_profiling_20210804-4.ipynb`
-
-### Evaluate performace of `kissim` vs. profiling datasets
-
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
-
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
-
-
-## `008_pooled_profiling_20210804-5.ipynb`
-
-### Evaluate performace of `kissim` vs. profiling datasets
-
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
-
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
-
-
-## `009_auc_tree_distances_20210804.ipynb`
-
-### Summary of AUC distributions and tree distances
-
-Based on for the 20210804 runs.
-
-
-## `010_kinome_tree_20210810.ipynb`
+## `203_kinome_tree_20210810.ipynb`
 
 ### `kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on for the 20210810 runs.
 
 
-## `011_pooled_profiling-20210810-1.ipynb`
+## `204_kinome_tree_20210812.ipynb`
 
-### Evaluate performace of `kissim` vs. profiling datasets
+### `kissim`-based kinome tree
 
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
-
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
+We generate `kissim`-based kinome matrices and trees based on for the 20210812 runs.
 
 
-## `012_pooled_profiling-20210810-2.ipynb`
+## `301_summary_auc_tree_distances.ipynb`
 
-### Evaluate performace of `kissim` vs. profiling datasets
+### Performance summary over different `kissim` setups
 
-Summarize ligand-kinase pair performances based on multiple profiling datasets:
+Summarize performance of different `kissim` setups:
 
-- Profiling datasets: Karaman and Davis
-- `kissim` datasets: Different feature weighting schemes
+- Profiling vs. `kissim` AUCs: How well does `kissim` reflect profiling data?
+- Phylogenetic `kissim` tree: How well do selected on- and off-targets cluster together?
+- Top `kissim` ranks: How high do selected on- and off-targets rank in `kissim`?
 
-
-## `013_auc_tree_distances_20210810.ipynb`
-
-### Summary of AUC distributions and tree distances
-
-Based on for the 20210810 runs.
-
-
-## `014_kissim_matrix_by_version.ipynb`
-
-### Compare the results from different `kissim` runs
-
-Compare results (kinase matrices) from different runs:
-
-- `matrix_wbug`: **Run on 20210508**; based on KLIFS dataset from 20210114; **with** charged-THR bug
-- `matrix_wobug`: **Run on 20210708**; based on KLIFS dataset from 20210114; without charged-THR bug
-- `matrix_2019`: 2019 dataset
+DFG-in conformations only!
