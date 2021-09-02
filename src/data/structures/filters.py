@@ -218,8 +218,76 @@ def select_maximum_n_missing_residues(structures, n_missing_residues):
 @log_step
 def select_best_pdb_kinase_pairs(structures):
     """
-    Pick only the best structure (based on the quality score) among all structures per kinase-PDB
-    pair.
+    Pick only the best structure among all structures per kinase-PDB pair.
+    The best structures per kinase-PDB pair is defined as having the least missing residues,
+    the least missing atoms, and the lowest alternate model identifier (in that order).
+
+    Parameters
+    ----------
+    structures : pandas.DataFrame
+        Structures DataFrame from opencadd.databases.klifs module.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Filtered DataFrame.
+
+    Notes
+    -----
+
+    Example A
+
+    | # missing residues | # missing atoms | alternate model | chain | picked |
+    ---------------------------------------------------------------------------
+    | 0                  | 0               | A               | A     | x      |
+    | 1                  | 0               | A               | A     |        |
+
+    Example B
+
+    | # missing residues | # missing atoms | alternate model | chain | picked |
+    ---------------------------------------------------------------------------
+    | 1                  | 0               | A               | A     | x      |
+    | 1                  | 9               | A               | A     |        |
+
+    Example C
+
+    | # missing residues | # missing atoms | alternate model | chain | picked |
+    ---------------------------------------------------------------------------
+    | 1                  | 0               | B               | A     |        |
+    | 1                  | 0               | A               | A     | x      |
+
+    Example D
+
+    | # missing residues | # missing atoms | alternate model | chain | picked |
+    ---------------------------------------------------------------------------
+    | 1                  | 0               | A               | B     |        |
+    | 1                  | 0               | A               | A     | x      |
+
+    """
+    # Sort structures by kinase, PDB and descending qualityscore
+    structures.sort_values(
+        by=[
+            "kinase.klifs_name",
+            "structure.pdb_id",
+            "structure.missing_residues",  # Least missing residues
+            "structure.missing_atoms",  # Least missing atoms
+            "structure.alternate_model",  # Prioritize model with lowest ID
+            "structure.chain",  # Prioritize chain with lowest ID
+        ],
+        ascending=[True, True, True, True, True, True],
+        inplace=True,
+    )
+    # Drop duplicate kinase-PDB pairs, keep only the first entry (sorting done before!)
+    structures.drop_duplicates(
+        subset=["kinase.klifs_name", "structure.pdb_id"], keep="first", inplace=True
+    )
+    return structures
+
+
+@log_step
+def select_unflagged_structures_only(structures):
+    """
+    Remove structures that are flagged in KLIFS.
 
     Parameters
     ----------
@@ -231,14 +299,27 @@ def select_best_pdb_kinase_pairs(structures):
     pandas.DataFrame
         Filtered DataFrame.
     """
-    # Sort structures by kinase, PDB and descending qualityscore
-    structures.sort_values(
-        by=["kinase.klifs_name", "structure.pdb_id", "structure.qualityscore"],
-        ascending=[True, True, False],
-        inplace=True,
+    # TODO: This bit will be part of opencadd at some point
+    from bravado.client import SwaggerClient
+
+    KLIFS_API_DEFINITIONS = "https://klifs.net/swagger_v2/swagger.json"
+    KLIFS_CLIENT = SwaggerClient.from_url(
+        KLIFS_API_DEFINITIONS, config={"validate_responses": False}
     )
-    # Drop duplicate kinase-PDB pairs, keep only the pair with best quality score
-    structures.drop_duplicates(
-        subset=["kinase.klifs_name", "structure.pdb_id"], keep="first", inplace=True
+    structures_list = (
+        KLIFS_CLIENT.Structures.get_structure_list(
+            structure_ID=structures["structure.klifs_id"].to_list()
+        )
+        .response()
+        .result
     )
+
+    flagged_structure_klifs_ids = []
+    for structure in structures_list:
+        if structure.curation_flag:
+            flagged_structure_klifs_ids.append(structure.structure_ID)
+
+    # Remove flagged structures from kissim dataset
+    structures = structures[~structures["structure.klifs_id"].isin(flagged_structure_klifs_ids)]
+
     return structures
