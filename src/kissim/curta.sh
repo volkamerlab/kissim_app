@@ -85,7 +85,7 @@ echo "Fingerprints used for next step: "$FILENAME_FINGERPRINT
 if [ $SUBSET == "subset" ]
 then
     echo "Subset fingerprints..."
-    python normalize_fp.py $RESULTS/$FILENAME_FINGERPRINT $RESULTS/fingerprints_subset.json
+    kissim subset -i $RESULTS/$FILENAME_FINGERPRINT -o $RESULTS/fingerprints_subset.json -s $2
     FILENAME_FINGERPRINT=fingerprints_subset.json
 else
     echo "Do not subset fingerprints - carry on..."
