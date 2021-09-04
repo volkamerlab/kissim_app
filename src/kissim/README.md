@@ -29,7 +29,7 @@ The `kissim` workflow is run on Curta, the central HPC cluster of Freie Universi
 - Rsync KLIFS dataset from local computer to cluster
     ```bash
     # Execute from local computer terminal
-    rsync -a /home/dominique/Documents/GitHub/kissim_app/data/external/structures/20210630_KLIFS_HUMAN -e ssh sydowd@curta.zedat.fu-berlin.de:/home/sydowd/kissim_app/data/external/structures/
+    rsync -a /home/dominique/Documents/GitHub/kissim_app/data/external/structures/xxx.zip -e ssh sydowd@curta.zedat.fu-berlin.de:/home/sydowd/kissim_app/data/external/structures/  -v --stats --progress
     # If transferred data contains zip file, unzip it
     unzip xxx.zip
     ```
