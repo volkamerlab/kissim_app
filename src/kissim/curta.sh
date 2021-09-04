@@ -74,7 +74,7 @@ echo "Fingerprints used for next step: "$FILENAME_FINGERPRINT
 if [ $NORMALIZE == "normalized" ]
 then
     echo "Normalize fingerprints..."
-    python normalize_fp.py $RESULTS/$FILENAME_FINGERPRINT $RESULTS/fingerprints_normalized.json
+    kissim normalize -i $RESULTS/$FILENAME_FINGERPRINT -o $RESULTS/fingerprints_normalized.json -f
     FILENAME_FINGERPRINT=fingerprints_normalized.json
 else
     echo "Do not normalize fingerprints - carry on..."
