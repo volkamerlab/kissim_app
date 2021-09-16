@@ -9,18 +9,8 @@ dependencies:
   - openpyxl
   - tabulate
   - scikit-learn
-    # Remove when kissim is conda-installable?
-  - biopandas
-  - biopython=1.77
-  - numpy
-  - scipy
-  - matplotlib
-  - seaborn
-  - matplotlib-venn
-  - jupyter
-  - jupyterlab>=3
-  - ipywidgets>=7.5
-  - nglview>=3
+  - opencadd
+  - kissim
   # Testing
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
@@ -35,16 +25,10 @@ dependencies:
   - nbsphinx
   # Developement
   - black
-  - pylint  
-  # Remove when opencadd is conda-installable
-  - rdkit
-  - bravado
-  - tqdm
+  - pylint
   - pip:
     - black-nb
     - flake8-nb
-    - https://github.com/volkamerlab/opencadd/archive/master.zip
-    - https://github.com/volkamerlab/kissim/archive/master.zip
-## For Jupyter lab extensions, run:
-# jupyter labextension install @jupyter-widgets/jupyterlab-manager nglview-js-widgets @ijmbarr/jupyterlab_spellchecker
+    # the package itself (teachopencadd)
+    - https://github.com/volkamerlab/kissim_app/archive/master.tar.gz
 
