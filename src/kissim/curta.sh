@@ -22,7 +22,9 @@
 #
 # Example
 # -------
-# sbatch --time=10:00:00 curta.sh 20210804 dfg_in 20210630_KLIFS_HUMAN normalized full
+# sbatch --time=10:00:00 curta.sh 20210804 dfg_in 20210902_KLIFS_HUMAN normalized full
+
+conda list kissim
 
 ID=$1
 STRUCTURE_SUBSET=$2
@@ -42,7 +44,7 @@ echo "Run ID:" $1
 echo "Structure subset:" $2 
 echo "KLIFS download folder:" $3 
 echo "Normalized?" $4
-echo "Subset?" $5
+echo "Residue subset?" $5
 
 if [[ $4 != normalized ]] && [[ $4 != unnormalized ]]
 then
@@ -72,7 +74,7 @@ echo "Fingerprints used for next step: "$FILENAME_FINGERPRINT
 if [ $NORMALIZE == "normalized" ]
 then
     echo "Normalize fingerprints..."
-    python normalize_fp.py $RESULTS/$FILENAME_FINGERPRINT $RESULTS/fingerprints_normalized.json
+    kissim normalize -i $RESULTS/$FILENAME_FINGERPRINT -o $RESULTS/fingerprints_normalized.json -f
     FILENAME_FINGERPRINT=fingerprints_normalized.json
 else
     echo "Do not normalize fingerprints - carry on..."
@@ -83,7 +85,7 @@ echo "Fingerprints used for next step: "$FILENAME_FINGERPRINT
 if [ $SUBSET == "subset" ]
 then
     echo "Subset fingerprints..."
-    python normalize_fp.py $RESULTS/$FILENAME_FINGERPRINT $RESULTS/fingerprints_subset.json
+    kissim subset -i $RESULTS/$FILENAME_FINGERPRINT -o $RESULTS/fingerprints_subset.json -s $2
     FILENAME_FINGERPRINT=fingerprints_subset.json
 else
     echo "Do not subset fingerprints - carry on..."

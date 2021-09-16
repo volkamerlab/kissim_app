@@ -198,6 +198,26 @@ class LigandVsKinaseData(BaseData):
         # Sort rows by kinase-kinase method (DO NOT CHANGE!)
         kinase_data = kinase_data.sort_values(f"{self.kinase_kinase_method}.measure")
 
+        # Throw error if...
+
+        try:
+            # ... query kinase is not part of the ligand dataset
+            kinase_data.loc[self.kinase_query]
+        except KeyError:
+            raise KeyError(
+                f"{self.kinase_query} is not part of the ligand profiling dataset "
+                f"for {self.ligand_query}"
+            )
+
+        try:
+            # ... query kinase is not measured as an active kinase in ligand dataset
+            kinase_data[kinase_data[f"{self.ligand_kinase_method}.active"]].loc[self.kinase_query]
+        except KeyError:
+            raise KeyError(
+                f"{self.kinase_query} is not an active kinase in the ligand profiling dataset "
+                f"for {self.ligand_query}"
+            )
+
         return (
             kinase_data,
             n_kinases_by_kinase,
@@ -233,5 +253,4 @@ class LigandVsKinaseData(BaseData):
             kinase_data = self._add_rank(kinase_data)
             return kinase_data
         except KeyError:
-            logging.info(f"Query ligand {ligand_query} is not part of dataset.")
             raise KeyError(f"Query ligand {ligand_query} is not part of dataset.")
