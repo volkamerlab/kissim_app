@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
     # Base depends
-  - python>=3.6
+  - python>=3.7
   - pip
   - openpyxl
   - tabulate
@@ -28,6 +28,6 @@ dependencies:
   - pip:
     - black-nb
     - flake8-nb
-    # the package itself (teachopencadd)
-    - https://github.com/volkamerlab/kissim_app/archive/master.tar.gz
+      # The package itself
+      - ../
 

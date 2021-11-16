@@ -35,7 +35,7 @@ jobs:
           python-version: ${{ matrix.cfg.python-version }}
           activate-environment: kissim
           channel-priority: true
-          environment-file: devtools/environment.yaml
+          environment-file: devtools/test_env.yaml
           auto-activate-base: false
       - name: Additional info about the build
         shell: bash
