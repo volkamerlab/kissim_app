@@ -20,7 +20,7 @@ from src.definitions import COVERAGE_CUTOFF
 logger = logging.getLogger(__name__)
 
 RESULTS_PATH = Path(__file__).parent / "../../results"
-KISSIM_PATH = RESULTS_PATH / "dfg_in/fingerprint_distances.csv"
+KISSIM_PATH = RESULTS_PATH / "dfg_in/fingerprint_distances.csv.bz2"
 
 
 def load(
