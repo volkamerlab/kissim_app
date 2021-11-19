@@ -28,6 +28,6 @@ dependencies:
   - pip:
     - black-nb
     - flake8-nb
-      # The package itself
-      - ../
+    # The package itself
+    - ../
 
