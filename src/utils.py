@@ -39,7 +39,7 @@ def _check_dimensionality(matrix):
     if len(matrix.shape) != 2:
         raise ValueError(f"The input is not a matrix, but an array of shape {matrix.shape}.")
     elif matrix.shape[0] != matrix.shape[1]:
-        raise ValueError(f"The input is not a square matrix. Failing.")
+        raise ValueError("The input is not a square matrix. Failing.")
     else:
         return True
 
