@@ -1,6 +1,6 @@
 ## `001_profiling_summary.ipynb`
 
-### Evaluate performace of `kissim` vs. profiling datasets
+Evaluate performace of `kissim` vs. profiling datasets
 
 Summarize ligand-kinase pair performances based on multiple profiling datasets:
 
@@ -10,7 +10,7 @@ Summarize ligand-kinase pair performances based on multiple profiling datasets:
 
 ## `002_profiling_karaman.ipynb`
 
-### Predict ligand profiling using `kissim` using the Karaman dataset
+Predict ligand profiling using `kissim` using the Karaman dataset
 
 In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
 We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
@@ -25,7 +25,7 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 
 ## `003_profiling_davis.ipynb`
 
-### Predict ligand profiling using `kissim` using the Davis dataset
+Predict ligand profiling using `kissim` using the Davis dataset
 
 In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
 We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
@@ -40,7 +40,7 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 
 ## `004_profiling_karaman_davis.ipynb`
 
-### Predict ligand profiling using `kissim` using the pooled Karaman and Davis dataset
+Predict ligand profiling using `kissim` (pooled Karaman and Davis dataset)
 
 In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
 We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
@@ -55,7 +55,7 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 
 ## `005_profiling_details.ipynb`
 
-### Predict ligand profiling using `kissim` - detailed inspection
+Predict ligand profiling using `kissim` - detailed inspection
 
 Let's take a closer look at an example kinase-ligand pair. 
 
@@ -67,7 +67,7 @@ Let's take a closer look at an example kinase-ligand pair.
 
 ## `006_kinmap_trees.ipynb`
 
-### Ligand-based validation
+Ligand-based validation
 
 Check if we can retrieve on-/off-targets for a selected ligand (as reported by Karaman et al.) solely based on the structurally most similar kinases to respective main target of that ligand.
 
@@ -79,14 +79,14 @@ Check if we can retrieve on-/off-targets for a selected ligand (as reported by K
 
 ## `007_ligands_targeting_multiple_kinase_groups.ipynb`
 
-### Ligands targeting multiple kinase groups
+Ligands targeting multiple kinase groups
 
 Extract from the pooled Karaman-Davis profiling dataset ligands that target mulitple kinase groups. We can treat those as "unexpected off-targets".
 
 
 ## `008_summary_auc_tree_distances.ipynb`
 
-### Performance summary over different `kissim` setups
+Performance summary over different `kissim` setups
 
 Summarize performance of different `kissim` setups:
 
@@ -99,7 +99,7 @@ DFG-in conformations only!
 
 ## `009_vectorize_pairwise_similarities.ipynb`
 
-### Demo: Vectorize pairwise similarities
+Demo: Vectorize pairwise similarities
 
 Demo on "How to vectorize pairwise (dis)similarity metrics"
 
@@ -110,9 +110,54 @@ Taken from: https://towardsdatascience.com/how-to-vectorize-pairwise-dis-similar
 
 ## `010_comparative_analyses.ipynb`
 
-### Compare different similarity methods
+Compare different similarity methods
 
 - Pocket structure similarity (`kissim`)
-- Pocket sequence similarity (KLIFS seq)
+- Pocket sequence identity (KLIFS seq)
 - Interaction similarity (KLIFS IFP)
 - Compare matrices!
+
+
+## `011_profiling_karaman_davis__ifp.ipynb`
+
+Predict ligand profiling using IFPs (pooled Karaman and Davis dataset)
+
+In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
+We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves
+
+
+## `012_profiling_karaman_davis__seq.ipynb`
+
+Predict ligand profiling using sequence (pooled Karaman and Davis dataset)
+
+In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
+We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves
+
+
+## `013_profiling_karaman_davis__sitealign.ipynb`
+
+Predict ligand profiling using sequence (pooled Karaman and Davis dataset)
+
+In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
+We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves

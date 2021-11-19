@@ -42,7 +42,7 @@ def main():
         nbcontent = "\n\n\n".join(list(first_markdown_cell(notebook_file)))
         if not nbcontent.strip():  # empty results
             nbcontent = "> This talktorial is still under development"
-        nbcontents.append(f"## `{notebook_file.name}`\n\n##{nbcontent}")
+        nbcontents.append(f"## `{notebook_file.name}`\n\n{nbcontent[2:]}")
     nbcontents = "\n\n\n".join(nbcontents)
 
     if args.output:

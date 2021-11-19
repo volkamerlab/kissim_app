@@ -1,6 +1,6 @@
 ## `001_prepare_dataset.ipynb`
 
-### Data preparation and exploration
+Data preparation and exploration
 
 We prepare the KLIFS dataset to be used for `kissim` encoding and comparison.
 
@@ -20,7 +20,7 @@ __Note__: The KLIFS data is prepared only on the basis of the structures' metada
 
 ## `002_explore_dataset.ipynb`
 
-### Data exploration
+Data exploration
 
 We explore the KLIFS dataset used to generate `kissim` fingerprints.
 
@@ -31,14 +31,14 @@ We explore the KLIFS dataset used to generate `kissim` fingerprints.
 
 ## `003_pocket_residue_ca_atom_coordinates.ipynb`
 
-### Extract pocket residue CA atom coordinates
+Extract pocket residue CA atom coordinates
 
 We extract the coordinates for all pockets' residue CA atoms to be used in other notebooks.
 
 
 ## `004_mutated_structures.ipynb`
 
-### KLIFS structures with mutated pockets
+KLIFS structures with mutated pockets
 
 Explore KLIFS structures with mutations in their pocket:
 - Number of structures with mutations
@@ -50,6 +50,6 @@ Explore KLIFS structures with mutations in their pocket:
 
 ## `005_missing_pocket_residues.ipynb`
 
-### Missing residues
+Missing residues
 
 We check the number and position of missing residues in kinase structures (fetched from KLIFS).
