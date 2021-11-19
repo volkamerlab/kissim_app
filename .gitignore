@@ -98,5 +98,8 @@ target/
 /results_archive
 /notebooks/figures/*
 
+/results_test/
+/_results/
+
 # exclude KinMap PNG files
 /notebooks/evaluation/results/kinmap/*png

@@ -16,11 +16,11 @@ from kissim.comparison import FingerprintDistanceGenerator
 
 from . import kinases
 from src.definitions import COVERAGE_CUTOFF
+from src.paths import PATH_RESULTS
 
 logger = logging.getLogger(__name__)
 
-RESULTS_PATH = Path(__file__).parent / "../../results"
-KISSIM_PATH = RESULTS_PATH / "dfg_in/fingerprint_distances.csv"
+KISSIM_PATH = PATH_RESULTS / "dfg_in/fingerprint_distances.csv.bz2"
 
 
 def load(
@@ -239,7 +239,9 @@ def _use_kinmap_kinase_names(kinase_df):
     # Rename kinases
     kinase_df.columns = kinase_names_new
     kinase_df.index = kinase_names_new
+    print(kinase_df)
     # Remove kinases that could not be mapped to KinMap
-    kinase_df = kinase_df.drop("unknown", axis=0).drop("unknown", axis=1)
+    if "unknown" in kinase_df.columns:
+        kinase_df = kinase_df.drop("unknown", axis=0).drop("unknown", axis=1)
 
     return kinase_df
