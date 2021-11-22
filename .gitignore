@@ -94,6 +94,7 @@ target/
 
 # exclude results from source control
 /results/*
+/_results/*
 /results_archive/*
 /results_archive
 /notebooks/figures/*
