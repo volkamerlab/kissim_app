@@ -41,7 +41,6 @@ NCORES=8
 
 echo "Job settings"
 echo "------------" 
-echo "Run ID:" $ID
 echo "Structure subset:" $STRUCTURE_SUBSET
 echo "KLIFS download folder:" $KLIFS_DOWNLOAD
 echo "Normalized?" $NORMALIZE
@@ -62,7 +61,7 @@ fi
 mkdir -p $RESULTS
 
 # Encode structures
-kissim encode -i $KISSIM_APP/data/processed/structure_klifs_ids_test_${STRUCTURE_SUBSET}.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/$KLIFS_DOWNLOAD
+kissim encode -i $KISSIM_APP/data/processed/test/structure_klifs_ids_${STRUCTURE_SUBSET}.txt -o $RESULTS/fingerprints.json -c $NCORES -l $KISSIM_APP/data/external/structures/$KLIFS_DOWNLOAD
 FILENAME_FINGERPRINT=fingerprints.json
 echo "Fingerprints used for next step: "$FILENAME_FINGERPRINT
 
