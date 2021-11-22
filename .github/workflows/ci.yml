@@ -48,6 +48,12 @@ jobs:
         run: |
           conda info --all
           conda list
+      - name: Install package
+        # conda setup requires this special shell
+        shell: bash -l {0}
+        run: |
+          python -m pip install . --no-deps
+          conda list
       - name: Run tests
         shell: bash -l {0}
         run: |
