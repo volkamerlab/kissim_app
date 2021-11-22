@@ -277,7 +277,6 @@ def _use_kinmap_kinase_names(kinase_df):
     # Rename kinases
     kinase_df.columns = kinase_names_new
     kinase_df.index = kinase_names_new
-    print(kinase_df)
     # Remove kinases that could not be mapped to KinMap
     if "unknown" in kinase_df.columns:
         kinase_df = kinase_df.drop("unknown", axis=0).drop("unknown", axis=1)

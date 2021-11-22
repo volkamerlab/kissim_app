@@ -207,6 +207,7 @@ class LigandVsKinaseEvaluator:
 
         n_cols = 4
         n_rows = math.ceil(len(enrichment_plots_data_dict) / n_cols)
+        n_rows = max(n_rows, 1)
         _, axes = plt.subplots(figsize=(n_cols * 5, n_rows * 5), nrows=n_rows, ncols=n_cols)
         axes = axes.reshape(-1)
 
@@ -311,6 +312,7 @@ class LigandVsKinaseEvaluator:
 
         n_cols = 4
         n_rows = math.ceil(len(data_dict) / n_cols)
+        n_rows = max(n_rows, 1)
         _, axes = plt.subplots(figsize=(n_cols * 5, n_rows * 5), nrows=n_rows, ncols=n_cols)
         axes = axes.reshape(-1)
 
@@ -369,25 +371,27 @@ class LigandVsKinaseEvaluator:
 
         Returns
         -------
-        list of float
-            List of all AUC values.
+        dict
+            AUCs for all ligand-kinase pairs. Example:
+            {"ligand_name-kinase_name": 1.0, "ligand_name-kinase_name": 0.8}
         """
 
         data_dict = self._roc_curves_data()
 
         n_cols = 4
         n_rows = math.ceil(len(data_dict) / n_cols)
+        n_rows = max(n_rows, 1)
         _, axes = plt.subplots(figsize=(n_cols * 5, n_rows * 5), nrows=n_rows, ncols=n_cols)
         axes = axes.reshape(-1)
 
-        auc_list = []
+        auc_dict = {}
 
         for i, (ligand_name, kinases_data) in enumerate(data_dict.items()):
             for kinase_data in kinases_data:
                 kinase_name, fpr, tpr, auc, n_kinases, n_active_kinases = kinase_data
                 # Experimental curves
                 axes[i].plot(fpr, tpr, label=f"{kinase_name} (AUC={round(auc, 3)})")
-                auc_list.append(auc)
+                auc_dict[f"{ligand_name}-{kinase_name}"] = auc
             # Random curve
             axes[i].plot([0, 1], [0, 1], label="Random", linestyle="--", color="grey")
             axes[i].legend(title="On-targets")
@@ -409,7 +413,7 @@ class LigandVsKinaseEvaluator:
         if output_file:
             plt.savefig(output_file, bbox_inches="tight")
 
-        return auc_list
+        return auc_dict
 
     def _roc_curves_data(self):
         """
