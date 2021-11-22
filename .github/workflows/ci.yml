@@ -52,7 +52,7 @@ jobs:
         shell: bash -l {0}
         run: |
           PYTEST_ARGS="--nbval-lax --current-env --nbval-cell-timeout=900"
-          # pytest $PYTEST_ARGS notebooks/ --ignore=notebooks/007_kissim_setups
+          pytest $PYTEST_ARGS notebooks/ --ignore=notebooks/007_kissim_setups
   
   format:
     name: Black
