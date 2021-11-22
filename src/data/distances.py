@@ -17,13 +17,12 @@ from kissim.comparison import FingerprintDistanceGenerator
 
 from . import kinases
 from src.definitions import COVERAGE_CUTOFF
-from src.paths import PATH_RESULTS
+from src.paths import PATH_RESULTS, PATH_DATA
 
 logger = logging.getLogger(__name__)
 
-DATA_PATH = Path(__file__).parent / "../../data"
-RESULTS_PATH = Path(__file__).parent / "../../results"
-KISSIM_PATH = RESULTS_PATH / "dfg_in/fingerprint_distances.csv.bz2"
+PATH_KISSIM = PATH_RESULTS / "dfg_in/fingerprint_distances.csv.bz2"
+PATH_SITEALIGN = PATH_DATA / "external/sitealign/sitealign_kinase_distance_matrix.csv"
 
 
 def load(
@@ -66,7 +65,7 @@ def load(
     # DO NOT USE underscores in dataset name
     if dataset_name == dataset_names[0]:
         if distances_path is None:
-            distances_path = KISSIM_PATH
+            distances_path = PATH_KISSIM
         return kissim(structure_kinase_mapping_by, kinmap_kinases, distances_path, coverage_min)
     elif dataset_name == dataset_names[1]:
         return klifs_pocket_sequence(kinmap_kinases=kinmap_kinases)
@@ -81,7 +80,7 @@ def load(
 def kissim(
     structure_kinase_mapping_by="minimum",
     kinmap_kinases=False,
-    distances_path=KISSIM_PATH,
+    distances_path=PATH_KISSIM,
     coverage_min=COVERAGE_CUTOFF,
 ):
     """
@@ -259,9 +258,7 @@ def sitealign_pocket_structure(kinmap_kinases=False):
         Kinase distance matrix.
     """
 
-    kinase_distance_matrix = pd.read_csv(
-        DATA_PATH / "external/sitealign/sitealign_kinase_distance_matrix.csv", index_col=0
-    )
+    kinase_distance_matrix = pd.read_csv(PATH_SITEALIGN, index_col=0)
 
     if kinmap_kinases:
         kinase_distance_matrix = _use_kinmap_kinase_names(kinase_distance_matrix)
