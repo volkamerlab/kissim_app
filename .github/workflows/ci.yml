@@ -52,7 +52,7 @@ jobs:
         # conda setup requires this special shell
         shell: bash -l {0}
         run: |
-          python -m pip install . --no-deps
+          pip install -e ../kissim_app
           conda list
       - name: Run tests
         shell: bash -l {0}
