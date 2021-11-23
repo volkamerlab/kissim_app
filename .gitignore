@@ -89,6 +89,7 @@ target/
 /data/*
 !/data/processed
 !/data/external
+/data/external/sitealign/complete_SiteAlign.txt.gz
 /data/external/structures/*_KLIFS_HUMAN/*
 /data/external/structures/AlphaFoldDB
 
