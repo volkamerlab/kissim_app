@@ -47,6 +47,51 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
     |
     └── tox.ini            <- tox file with settings for running tox; see tox.readthedocs.io
 
+## Installation
+
+> We are assuming you have a working `mamba` installation in your computer. If this is not the case, please refer to their [official documentation](https://mamba.readthedocs.io/en/latest/installation.html#mamba). 
+
+1. Clone this repository.
+
+    ```
+    git clone git@github.com:volkamerlab/kissim_app.git
+    ```
+
+2. Create the `kissim-app` conda environment.
+
+    ```
+    # Change to kissim_app directory
+    cd /path/to/kissim_app
+
+    # Create and activate environment
+    mamba env create -f devtools/user_env.yaml
+    conda activate kissim-app
+
+    # Install the kissim_app src package (pip)
+    cd ..
+    pip install -e kissim_app
+    ```
+
+3. Download `kissim` fingerprints and distances to `results` folder.
+
+    ```
+    # Change to kissim_app directory (if you have not already)
+    cd /path/to/kissim_app
+    
+    # TBA
+    ```
+
+4. Open the notebooks, e.g. a [quick start]((https://github.com/volkamerlab/kissim_app/blob/master/notebooks/001_quick_start/001_quick_start_kissim.ipynb)) on how to load `kissim` results.
+
+    ```
+    # Change to kissim_app notebook directory
+    cd /path/to/kissim_app/notebooks
+
+    # Start JupyterLab to explore the notebooks
+    jupyter lab
+    ```
+
+
 
 ## Contact
 
