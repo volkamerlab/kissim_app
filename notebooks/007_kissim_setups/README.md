@@ -1,6 +1,6 @@
 ## `001_kissim_matrix_by_version.ipynb`
 
-### Compare the results from different `kissim` runs
+Compare the results from different `kissim` runs
 
 Compare results (kinase matrices) from different runs:
 
@@ -11,7 +11,7 @@ Compare results (kinase matrices) from different runs:
 
 ## `101_pooled_profiling.ipynb`
 
-### Evaluate performace of `kissim` vs. profiling datasets
+Evaluate performace of `kissim` vs. profiling datasets
 
 Summarize ligand-kinase pair performances based on multiple profiling datasets:
 
@@ -22,7 +22,7 @@ Summarize ligand-kinase pair performances based on multiple profiling datasets:
 
 ## `201_kinome_tree_versions.ipynb`
 
-### `kissim`-based kinome tree
+`kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on three different parameters:
 
@@ -37,28 +37,28 @@ We generate `kissim`-based kinome matrices and trees based on three different pa
 
 ## `202_kinome_tree_20210804.ipynb`
 
-### `kissim`-based kinome tree
+`kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on for the 20210804 runs.
 
 
 ## `203_kinome_tree_20210810.ipynb`
 
-### `kissim`-based kinome tree
+`kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on for the 20210810 runs.
 
 
 ## `204_kinome_tree_20210812.ipynb`
 
-### `kissim`-based kinome tree
+`kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on for the 20210812 runs.
 
 
 ## `301_summary_auc_tree_distances.ipynb`
 
-### Performance summary over different `kissim` setups
+Performance summary over different `kissim` setups
 
 Summarize performance of different `kissim` setups:
 

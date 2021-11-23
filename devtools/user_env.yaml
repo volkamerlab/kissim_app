@@ -1,0 +1,32 @@
+name: kissim-app
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+    # Base depends
+  - python>=3.7
+  - pip
+  - openpyxl
+  - tabulate
+  - scikit-learn
+  - kissim
+  # Testing
+  # Workaround for https://github.com/computationalmodelling/nbval/issues/153
+  - pytest 5.*
+  - pytest-xdist
+  - nbval
+  - shyaml
+  - pytest-cov
+  - codecov
+  # Docs
+  - sphinx
+  - sphinx_rtd_theme
+  - nbsphinx
+  # Developement
+  - black
+  - pylint
+  - pip:
+    - black-nb
+    - flake8-nb
+    # The package itself
+    - https://github.com/volkamerlab/kissim_app/archive/master.tar.gz

@@ -1,13 +1,13 @@
 ## `001_feature_distances.ipynb`
 
-### Feature distances
+Feature distances
 
 We check the per-feature distributions (e.g. size distances or hinge region distances) based on all pairwise fingerprint feature distances. Which features show the most/fewest variations?
 
 
 ## `002_fingerprint_distances_vs_feature_weights.ipynb`
 
-### Fingerprint distances distribution
+Fingerprint distances distribution
 
 In this notebook, we investigate the ranges of fingerprint distances for different feature weighting schemes.
 Feature weighting schemes are denoted as follows: 
@@ -26,7 +26,7 @@ Feature weighting schemes are denoted as follows:
 
 ## `003_fingerprint_distances_coverage.ipynb`
 
-### Fingerprint pair bit coverages
+Fingerprint pair bit coverages
 
 We investigate the bit coverage of the fingerprint pairs in the `kissim` dataset.
 
@@ -41,7 +41,7 @@ List the following numbers based on (a) all distances and (b) only distances mat
 
 ## `004_fingerprint_distances_vs_dfg.ipynb`
 
-### Can fingerprint distances discriminate DFG conformations?
+Can fingerprint distances discriminate DFG conformations?
 
 The `kissim` fingerprint encodes the pocket residues' spatial distance to four centers&mdash;the pocket centroid, hinge region, DFG region and front pocket&mdash;and should therefore discriminate between two structures in different conformations; when we compare two structures in *different* conformations the fingerprint distance should be higher than for two structures in *similar* conformations.
 
@@ -53,7 +53,7 @@ Let's check if this is true using DFG conformations from KLIFS. Plot distributio
 
 ## `005_structure_kinase_mapping.ipynb`
 
-### Fingerprint distances between structures for the same kinase
+Fingerprint distances between structures for the same kinase
 
 We investigate the ranges of fingerprint distances for each kinase pair:
 
@@ -64,7 +64,7 @@ We investigate the ranges of fingerprint distances for each kinase pair:
 
 ## `006_kissim_kinome_tree.ipynb`
 
-### `kissim`-based kinome tree
+`kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on three different parameters:
 

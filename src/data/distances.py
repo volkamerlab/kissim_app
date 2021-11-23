@@ -3,10 +3,10 @@ Load kinase distances matrices.
 - KiSSim
 - KLIFS pocket seq
 - KLIFS pocket IFP
+- SiteAlign pocket structure
 """
 
 import logging
-from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -16,11 +16,12 @@ from kissim.comparison import FingerprintDistanceGenerator
 
 from . import kinases
 from src.definitions import COVERAGE_CUTOFF
+from src.paths import PATH_RESULTS, PATH_DATA
 
 logger = logging.getLogger(__name__)
 
-RESULTS_PATH = Path(__file__).parent / "../../results"
-KISSIM_PATH = RESULTS_PATH / "dfg_in/fingerprint_distances.csv"
+PATH_KISSIM = PATH_RESULTS / "dfg_in/fingerprint_distances.csv.bz2"
+PATH_SITEALIGN = PATH_DATA / "external/sitealign/sitealign_kinase_distance_matrix.csv"
 
 
 def load(
@@ -53,25 +54,32 @@ def load(
         Profiling data for different kinases (rows) and ligands (columns).
     """
 
+    dataset_names = [
+        "kissim",
+        "klifs-pocket-sequence",
+        "klifs-pocket-ifp",
+        "sitealign-pocket-structure",
+    ]
+
     # DO NOT USE underscores in dataset name
-    if dataset_name == "kissim":
+    if dataset_name == dataset_names[0]:
         if distances_path is None:
-            distances_path = KISSIM_PATH
+            distances_path = PATH_KISSIM
         return kissim(structure_kinase_mapping_by, kinmap_kinases, distances_path, coverage_min)
-    elif dataset_name == "klifs-pocket-sequence":
+    elif dataset_name == dataset_names[1]:
         return klifs_pocket_sequence(kinmap_kinases=kinmap_kinases)
-    elif dataset_name == "klifs-pocket-ifp":
+    elif dataset_name == dataset_names[2]:
         return klifs_pocket_ifp(kinmap_kinases=kinmap_kinases)
+    elif dataset_name == dataset_names[3]:
+        return sitealign_pocket_structure(kinmap_kinases=kinmap_kinases)
     else:
-        raise KeyError(
-            "Unknown dataset name. Use 'kissim', 'klifs-pocket-sequence' or 'klifs-pocket-ifp'."
-        )
+        raise KeyError(f"Unknown dataset name. Use one of these: {', '.join(dataset_names)}.")
 
 
 def kissim(
     structure_kinase_mapping_by="minimum",
     kinmap_kinases=False,
-    distances_path=KISSIM_PATH,
+    distances_path=PATH_KISSIM,
     coverage_min=COVERAGE_CUTOFF,
 ):
     """
@@ -178,6 +186,7 @@ def klifs_pocket_ifp(structure_klifs_ids=None, dfg="in", metric="jaccard", kinma
         ifps = klifs_session.interactions.all_interactions()
     else:
         ifps = klifs_session.interactions.by_structure_klifs_id(structure_klifs_ids)
+    # Drop structures without IFPs
     ifps.dropna(subset=["interaction.fingerprint"], inplace=True)
     structure_klifs_ids = ifps["structure.klifs_id"].to_list()
 
@@ -186,6 +195,11 @@ def klifs_pocket_ifp(structure_klifs_ids=None, dfg="in", metric="jaccard", kinma
     structures = structures[
         (structures["structure.dfg"] == dfg) & (structures["species.klifs"] == "Human")
     ]
+    # Drop IFP columns in `structures` (is empty when fetched from remote KLIFS session);
+    # We will use the IFP column in `ifps` instead
+    structures = structures.drop("interaction.fingerprint", axis=1)
+
+    # Merge IFP and structure data
     ifps = ifps.merge(structures, on="structure.klifs_id", how="inner")
     ifps = ifps.set_index(["structure.klifs_id", "kinase.klifs_name"])
 
@@ -228,6 +242,29 @@ def klifs_pocket_ifp(structure_klifs_ids=None, dfg="in", metric="jaccard", kinma
     return kinase_distance_matrix
 
 
+def sitealign_pocket_structure(kinmap_kinases=False):
+    """
+    Get kinase distance matrix describing the KLIFS pocket IFP similarity.
+
+    Parameters
+    ----------
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
+
+    Returns
+    -------
+    pandas.DataFrame
+        Kinase distance matrix.
+    """
+
+    kinase_distance_matrix = pd.read_csv(PATH_SITEALIGN, index_col=0)
+
+    if kinmap_kinases:
+        kinase_distance_matrix = _use_kinmap_kinase_names(kinase_distance_matrix)
+
+    return kinase_distance_matrix
+
+
 def _use_kinmap_kinase_names(kinase_df):
 
     kinase_names_new = kinases._kinmap_kinase_names(kinase_df.columns)
@@ -240,6 +277,7 @@ def _use_kinmap_kinase_names(kinase_df):
     kinase_df.columns = kinase_names_new
     kinase_df.index = kinase_names_new
     # Remove kinases that could not be mapped to KinMap
-    kinase_df = kinase_df.drop("unknown", axis=0).drop("unknown", axis=1)
+    if "unknown" in kinase_df.columns:
+        kinase_df = kinase_df.drop("unknown", axis=0).drop("unknown", axis=1)
 
     return kinase_df
