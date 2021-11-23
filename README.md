@@ -72,7 +72,7 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
     pip install -e kissim_app
     ```
 
-3. Download `kissim` fingerprints and distances to `results` folder.
+3. Download `kissim` fingerprints and distances to `results/` folder.
 
     ```
     # Change to kissim_app directory (if you have not already)
@@ -81,7 +81,7 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
     # TBA
     ```
 
-4. Open the notebooks, e.g. a [quick start]((https://github.com/volkamerlab/kissim_app/blob/master/notebooks/001_quick_start/001_quick_start_kissim.ipynb)) on how to load `kissim` results.
+4. Open the notebooks, e.g. a [quick start](https://github.com/volkamerlab/kissim_app/blob/master/notebooks/001_quick_start/001_quick_start_kissim.ipynb) on how to load `kissim` results.
 
     ```
     # Change to kissim_app notebook directory
@@ -90,8 +90,6 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
     # Start JupyterLab to explore the notebooks
     jupyter lab
     ```
-
-
 
 ## Contact
 
@@ -137,4 +135,4 @@ See Python packages listed in the [`kissim` repository README](https://github.co
 
 #### Repository
 
-<p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
+Project based on the [cookiecutter data science project template](https://drivendata.github.io/cookiecutter-data-science/). #cookiecutterdatascience
