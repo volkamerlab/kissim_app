@@ -57,7 +57,7 @@ We check the number and position of missing residues in kinase structures (fetch
 
 ## `006_alphafold.ipynb`
 
-### AlphaFold DB kinase dataset
+AlphaFold DB kinase dataset
 
 So `kissim` can only reach the structurally covered kinome? Well, we are in luck! 
 
