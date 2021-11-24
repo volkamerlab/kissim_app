@@ -103,9 +103,16 @@ def davis(pkidb_ligands=False, fda_approved=False, data_path=DAVIS_PATH):
     return _kinmap_profiling(data_path, "davis", pkidb_ligands, fda_approved)
 
 
-def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100):
+def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100, activity_diff=100):
     """
     Combine profiling data from Karaman and Davis datasets.
+    - (1) If no measurement, return None.
+    - (2) If one measurement, return that value.
+    - (3) If two identical measurements, return that value.
+    - (4) If both measurements are <= or > cutoff, keep lower value.
+    - If one is below and one above,
+      - (5) keep lower value if difference between values is <= cutoff,
+      - (6) else remove measurements.
 
     Parameters
     ----------
@@ -114,6 +121,10 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100):
     fda_approved : bool
         Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
         Default is False.
+    activity_max : int
+        Maximum cutoff for activity definition.
+    activity_diff : int
+        Allowed activity difference for case (5).
 
     Returns
     -------
@@ -121,32 +132,47 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100):
         Combined profiling data from Karaman and Davis datasets.
     """
 
-    def _choose_from_multiple_activities(x, activity_max=100):
+    cases = {
+        1: "No measurements",
+        2: "One measurement",
+        3: "Two identical measurements",
+        4: f"Two measurements <= or > cutoff {activity_max}; keep lower value",
+        5: (
+            f"One measurement <=, one > cutoff {activity_max} "
+            f"but difference <= {activity_diff}; keep lower value"
+        ),
+        6: (
+            f"One measurement <=, one > cutoff {activity_max} "
+            f"but difference > {activity_diff}; remove values"
+        ),
+    }
+
+    def _choose_from_multiple_activities(x, activity_max=100, _stats=False):
         """
         Choose an activity from zero, one, or two activities.
         """
 
         if len(x) == 0:
-            return None
+            return None if not _stats else 1
         elif len(x) == 1:
-            return x[0]
+            return x[0] if not _stats else 2
         else:
             if x[0] == x[1]:
-                return x[0]
+                return x[0] if not _stats else 3
             else:
                 # If both measurements are below or above cutoff, keep lower value
-                if (x[0] > activity_max and x[0] > activity_max) or (
-                    x[0] <= activity_max and x[0] <= activity_max
+                if (x[0] > activity_max and x[1] > activity_max) or (
+                    x[0] <= activity_max and x[1] <= activity_max
                 ):
-                    return min(x)
+                    return min(x) if not _stats else 4
                 # If one is below and one above
                 else:
                     # Keep lower value if difference between values is <100
-                    if abs(x[0] - x[1]) <= 100:
-                        return min(x)
-                    # Else keep higher values
+                    if abs(x[0] - x[1]) <= activity_diff:
+                        return min(x) if not _stats else 5
+                    # Else remove measurements completely (unreliable)
                     else:
-                        return max(x)
+                        return None if not _stats else 6
 
     df_karaman = karaman(pkidb_ligands, fda_approved)
     logger.info(f"Karaman matrix: {df_karaman.shape}")
@@ -178,6 +204,12 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100):
     )
     df_combined_selected.index.name = None
     logger.info(f"Karaman-Davis matrix: {df_combined.shape}")
+
+    # Print statistics on different cases
+    stats = df_combined.applymap(
+        lambda x: _choose_from_multiple_activities(x, activity_max, _stats=True)
+    )
+    print(stats.unstack().value_counts().sort_index().rename(cases))
 
     return df_combined_selected
 
