@@ -1,13 +1,13 @@
 ## `001_feature_distances.ipynb`
 
-### Feature distances
+Feature distances
 
 We check the per-feature distributions (e.g. size distances or hinge region distances) based on all pairwise fingerprint feature distances. Which features show the most/fewest variations?
 
 
 ## `002_fingerprint_distances_vs_feature_weights.ipynb`
 
-### Fingerprint distances distribution
+Fingerprint distances distribution
 
 In this notebook, we investigate the ranges of fingerprint distances for different feature weighting schemes.
 Feature weighting schemes are denoted as follows: 
@@ -26,7 +26,7 @@ Feature weighting schemes are denoted as follows:
 
 ## `003_fingerprint_distances_coverage.ipynb`
 
-### Fingerprint pair bit coverages
+Fingerprint pair bit coverages
 
 We investigate the bit coverage of the fingerprint pairs in the `kissim` dataset.
 
@@ -41,7 +41,7 @@ List the following numbers based on (a) all distances and (b) only distances mat
 
 ## `004_fingerprint_distances_vs_dfg.ipynb`
 
-### Can fingerprint distances discriminate DFG conformations?
+Can fingerprint distances discriminate DFG conformations?
 
 The `kissim` fingerprint encodes the pocket residues' spatial distance to four centers&mdash;the pocket centroid, hinge region, DFG region and front pocket&mdash;and should therefore discriminate between two structures in different conformations; when we compare two structures in *different* conformations the fingerprint distance should be higher than for two structures in *similar* conformations.
 
@@ -53,7 +53,7 @@ Let's check if this is true using DFG conformations from KLIFS. Plot distributio
 
 ## `005_structure_kinase_mapping.ipynb`
 
-### Fingerprint distances between structures for the same kinase
+Fingerprint distances between structures for the same kinase
 
 We investigate the ranges of fingerprint distances for each kinase pair:
 
@@ -64,25 +64,13 @@ We investigate the ranges of fingerprint distances for each kinase pair:
 
 ## `006_kissim_kinome_tree.ipynb`
 
-### `kissim`-based kinome tree
+`kissim`-based kinome tree
 
 We generate `kissim`-based kinome matrices and trees based on three different parameters:
 
-- `kissim` runs: With/without charged-THR bug, different KLIFS datasets
 - Feature weighting schemes
 - DFG conformations
   - Kinase matrix based on all structures/fingerprints (**DFG-in and DFG-out**)
   - Kinase matrix based on structure/fingerprints in **DFG-in** conformation only
   - Kinase matrix based on structure/fingerprints in **DFG-out** conformation only
 - Clustering methods
-
-
-## `007_compare_results_by_version.ipynb`
-
-### Compare the results from different `kissim` runs
-
-Compare results (kinase matrices) from different runs:
-
-- `matrix_wbug`: **Run on 20210508**; based on KLIFS dataset from 20210114; **with** charged-THR bug
-- `matrix_wobug`: **Run on 20210708**; based on KLIFS dataset from 20210114; without charged-THR bug
-- `matrix_2019`: 2019 dataset

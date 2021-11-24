@@ -32,6 +32,7 @@ def pkidb(pkidb_path=PKIDB_PATH, fda_approved=False):
     """
 
     pkidb_df = PandasTools.LoadSDF(str(pkidb_path))
+    pkidb_df["BrandName"] = ["-" if i == "" else i for i in pkidb_df["BrandName"].to_list()]
     pkidb_df["Synonyms"] = [i.split(" | ") for i in pkidb_df["Synonyms"].to_list()]
     pkidb_df["Targets"] = [i.split("; ") for i in pkidb_df["Targets"]]
     pkidb_df["lig_pdbID"] = [i if len(i) == 0 else i[1:-1] for i in pkidb_df["lig_pdbID"]]

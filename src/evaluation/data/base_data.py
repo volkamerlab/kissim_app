@@ -1,5 +1,5 @@
 """
-TODO
+Basic data container; parent class for kinase-kinase and ligand-kinase data.
 """
 
 
@@ -10,7 +10,7 @@ logger = logging.getLogger(__name__)
 
 class BaseData:
     """
-    TODO
+    Handles basic data properties.
     """
 
     def __init__(self):
@@ -45,13 +45,12 @@ class BaseData:
             kinase_data = self._add_rank(kinase_data)
             return kinase_data
         except KeyError:
-            logging.info(f"Query kinase {kinase_query} is not part of dataset.")
             raise KeyError(f"Query kinase {kinase_query} is not part of dataset.")
 
     @staticmethod
     def _add_rank(kinase_data):
         """
-        TODO
+        Add ranks to kinase data.
         """
 
         kinase_data = kinase_data.reset_index()

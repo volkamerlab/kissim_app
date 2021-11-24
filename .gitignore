@@ -89,12 +89,13 @@ target/
 /data/*
 !/data/processed
 !/data/external
+/data/external/sitealign/complete_SiteAlign.txt.gz
 /data/external/structures/*_KLIFS_HUMAN/*
 /data/external/structures/AlphaFoldDB
 
 # exclude results from source control
 /results/*
+/_results/*
 /results_archive/*
-
-# exclude KinMap PNG files
-/notebooks/evaluation/results/kinmap/*png
+/results_archive
+/notebooks/figures/*

@@ -1,5 +1,5 @@
 """
-Calculate enrichment values. TODO Add clear definitions!
+Calculate enrichment values.
 """
 
 from sklearn import metrics

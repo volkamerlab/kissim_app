@@ -6,6 +6,18 @@ import matplotlib.pyplot as plt
 import pandas as pd
 from opencadd.databases.klifs import setup_remote
 
+SMALL_SIZE = 12
+MEDIUM_SIZE = 14
+BIGGER_SIZE = 16
+
+plt.rc("font", size=SMALL_SIZE)  # controls default text sizes
+plt.rc("axes", titlesize=SMALL_SIZE)  # fontsize of the axes title
+plt.rc("axes", labelsize=MEDIUM_SIZE)  # fontsize of the x and y labels
+plt.rc("xtick", labelsize=SMALL_SIZE)  # fontsize of the tick labels
+plt.rc("ytick", labelsize=SMALL_SIZE)  # fontsize of the tick labels
+plt.rc("legend", fontsize=SMALL_SIZE)  # legend fontsize
+plt.rc("figure", titlesize=BIGGER_SIZE)  # fontsize of the figure title
+
 
 def plot_important_categories(structures):
     """
@@ -24,6 +36,7 @@ def plot_important_categories(structures):
     numpy.array of matplotlib.pyplot.axis
         Plot axis array.
     """
+
     fig, axes = plt.subplots(1, 4, figsize=(15, 3), sharey=True)
     structures.groupby("species.klifs").size().plot(
         kind="bar", ax=axes[0], rot=0, title="Species", xlabel="", ylabel="Number of structures"
@@ -38,7 +51,7 @@ def plot_important_categories(structures):
     structures_have_ligand.groupby(structures_have_ligand).size().plot(
         kind="bar", ax=axes[3], title="Structure has ligand?", xlabel=""
     )
-    return axes
+    return fig, axes
 
 
 def plot_resolution_vs_qualityscore(structures):
@@ -55,7 +68,9 @@ def plot_resolution_vs_qualityscore(structures):
     matplotlib.pyplot.axis
         Plot axis.
     """
-    ax = structures.plot(
+
+    fig, ax = plt.subplots(1, 1)
+    structures.plot(
         x="structure.resolution",
         y="structure.qualityscore",
         kind="scatter",
@@ -63,10 +78,11 @@ def plot_resolution_vs_qualityscore(structures):
         title="Resolution vs. quality score",
         s=2,
         alpha=0.2,
+        ax=ax,
     )
     ax.set_xlabel("Resolution in $\AA$")  # noqa: W605
     ax.set_ylabel("KLIFS quality score")
-    return ax
+    return fig, ax
 
 
 def plot_number_of_structures_per_kinase_pdb_pair(structures):
@@ -83,15 +99,19 @@ def plot_number_of_structures_per_kinase_pdb_pair(structures):
     matplotlib.pyplot.axis
         Plot axis.
     """
+
     kinase_pdb_pair_sizes = structures.groupby(["kinase.klifs_name", "structure.pdb_id"]).size()
-    ax = kinase_pdb_pair_sizes.plot(
+
+    fig, ax = plt.subplots(1, 1)
+    kinase_pdb_pair_sizes.plot(
         kind="hist",
         title="Number of structures per kinase-PDB pair",
         bins=kinase_pdb_pair_sizes.max(),
+        ax=ax,
     )
     ax.set_xlabel("Number of structures per kinase-PDB pair")
     ax.set_ylabel("Number of kinase-PDB pairs")
-    return ax
+    return fig, ax
 
 
 def plot_number_of_structures_per_kinase(structures, top_n_kinases=30):
@@ -110,20 +130,20 @@ def plot_number_of_structures_per_kinase(structures, top_n_kinases=30):
     matplotlib.pyplot.axis
         Plot axis.
     """
+
     plot_height = top_n_kinases / 5
     n_structures_per_kinase = structures.groupby("kinase.klifs_name").size()
-    ax = (
-        n_structures_per_kinase.sort_values(ascending=False)
-        .head(top_n_kinases)
-        .sort_values()
-        .plot(
-            kind="barh",
-            figsize=(4, plot_height),
-            title=f"Number of structures per kinase (top {top_n_kinases} kinases)",
-            xlabel="KLIFS kinase name",
-        )
+
+    fig, ax = plt.subplots(1, 1)
+    n_structures_per_kinase.sort_values(ascending=False).head(top_n_kinases).sort_values().plot(
+        kind="barh",
+        figsize=(4, plot_height),
+        title=f"Number of structures per kinase (top {top_n_kinases} kinases)",
+        xlabel="KLIFS kinase name",
+        ax=ax,
     )
-    return ax
+
+    return fig, ax
 
 
 def plot_number_of_kinases_per_kinase_group(structures, remote=None):
@@ -142,23 +162,23 @@ def plot_number_of_kinases_per_kinase_group(structures, remote=None):
     matplotlib.pyplot.axis
         Plot axis.
     """
+
     kinase_ids = structures["kinase.klifs_id"].to_list()
     # Get kinases by kinase KLIFS IDs
     if remote is None:
         remote = setup_remote()
     kinases = remote.kinases.by_kinase_klifs_id(kinase_ids)
-    ax = (
-        kinases.groupby("kinase.group")
-        .size()
-        .sort_values()
-        .plot(
-            kind="barh",
-            figsize=(4, 3),
-            title="Number of kinases per kinase group",
-            xlabel="Kinase group",
-        )
+
+    fig, ax = plt.subplots(1, 1)
+    kinases.groupby("kinase.group").size().sort_values().plot(
+        kind="barh",
+        figsize=(4, 3),
+        title="Number of kinases per kinase group",
+        xlabel="Kinase group",
+        ax=ax,
     )
-    return ax
+
+    return fig, ax
 
 
 def plot_missing_residues(structures, remote=None, anchor_residues=None):
@@ -181,21 +201,25 @@ def plot_missing_residues(structures, remote=None, anchor_residues=None):
     matplotlib.pyplot.axis
         Plot axis.
     """
+
     # Get missing residues
     missing_residues = _get_missing_residues(structures)
     # Get KLIFS colors (remotely for example structure)
     klifs_colors = _get_klifs_residue_colors(remote)
+
     # Plot missing residues
-    ax = missing_residues.plot(
+    fig, ax = plt.subplots(1, 1)
+    missing_residues.plot(
         kind="bar",
         figsize=(20, 5),
         xlabel="KLIFS residue ID",
         ylabel="Number of structures",
         color=klifs_colors,
+        ax=ax,
     )
     ax = _label_anchor_residues(ax, anchor_residues)
 
-    return ax
+    return fig, ax
 
 
 def plot_missing_subpockets(structures, anchor_residues):
@@ -226,10 +250,11 @@ def plot_missing_subpockets(structures, anchor_residues):
         missing_subpockets.sort_values(ascending=False) / len(structures) * 100, 2
     )
     print(f"Percentage of structures with missing subpocket:\n{missing_subpockets_stats}")
-    ax = missing_subpockets.sort_values().plot(
-        kind="barh", title="Number of structures with missing subpocket center"
+    fig, ax = plt.subplots(1, 1)
+    missing_subpockets.sort_values().plot(
+        kind="barh", title="Number of structures with missing subpocket center", ax=ax
     )
-    return ax
+    return fig, ax
 
 
 def plot_modified_residues(structures, remote=None, anchor_residues=None):
@@ -256,13 +281,15 @@ def plot_modified_residues(structures, remote=None, anchor_residues=None):
     pockets = _get_pockets(structures)
     # Get KLIFS colors (remotely for example structure)
     klifs_colors = _get_klifs_residue_colors(remote)
-    ax = (
+
+    fig, ax = plt.subplots(1, 1)
+    (
         pockets.apply(lambda x: x == "X")
         .sum()
-        .plot(kind="bar", figsize=(20, 5), xlabel="KLIFS residue ID", color=klifs_colors)
+        .plot(kind="bar", figsize=(20, 5), xlabel="KLIFS residue ID", color=klifs_colors, ax=ax)
     )
     ax = _label_anchor_residues(ax, anchor_residues)
-    return ax
+    return fig, ax
 
 
 def _get_pockets(structures):

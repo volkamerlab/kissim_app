@@ -14,7 +14,7 @@ logger = logging.getLogger(__name__)
 
 class LigandVsKinaseData(BaseData):
     """
-    TODO
+    Prepare data to compare ligand- and kinase-focused data.
 
     Attributes
     ----------
@@ -26,7 +26,16 @@ class LigandVsKinaseData(BaseData):
         Name for ligand profiling method to be used as identifier.
     kinase_kinase_method : str
         Name for kinase distances method to be used as identifier.
-    TODO
+    data : pandas.DataFrame
+        Merged ligand-kinase and kinase-kinase datasets.
+    n_kinases_by_kinase : int
+        Number of kinases in kinase-kinase method
+    n_kinases_by_ligand : int
+        Number of kinases in ligand-kinase method
+    n_kinases_shared : int
+        Number of shared kinases
+    n_active_kinases_shared : int
+        Number of shared active kinases
     """
 
     def __init__(
@@ -41,7 +50,7 @@ class LigandVsKinaseData(BaseData):
         kinase_activity_max,
     ):
         """
-        TODO
+        Initiate dataset to compare ligand- and kinase-focused data.
 
         Parameters
         ----------
@@ -53,10 +62,10 @@ class LigandVsKinaseData(BaseData):
             Name for ligand profiling method to be used as identifier.
         kinase_kinase_method : str
             Name for kinase distances method to be used as identifier.
-        ligand_kinase_matrix : TODO
-            TODO
-        kinase_kinase_matrix : TODO
-            TODO
+        ligand_kinase_matrix : pandas.DataFrame
+            Ligand-kinase activity matrix.
+        kinase_kinase_matrix : pandas.DataFrame
+            Kinase-kinase distance matrix.
         kinase_activity_cutoff : float
             Cutoff value to be used to determine activity. By default this cutoff is the maximum
             value. Set `kinase_activity_max=False` if cutoff is the minimum value.
@@ -189,6 +198,26 @@ class LigandVsKinaseData(BaseData):
         # Sort rows by kinase-kinase method (DO NOT CHANGE!)
         kinase_data = kinase_data.sort_values(f"{self.kinase_kinase_method}.measure")
 
+        # Throw error if...
+
+        try:
+            # ... query kinase is not part of the ligand dataset
+            kinase_data.loc[self.kinase_query]
+        except KeyError:
+            raise KeyError(
+                f"{self.kinase_query} is not part of the ligand profiling dataset "
+                f"for {self.ligand_query}"
+            )
+
+        try:
+            # ... query kinase is not measured as an active kinase in ligand dataset
+            kinase_data[kinase_data[f"{self.ligand_kinase_method}.active"]].loc[self.kinase_query]
+        except KeyError:
+            raise KeyError(
+                f"{self.kinase_query} is not an active kinase in the ligand profiling dataset "
+                f"for {self.ligand_query}"
+            )
+
         return (
             kinase_data,
             n_kinases_by_kinase,
@@ -224,5 +253,4 @@ class LigandVsKinaseData(BaseData):
             kinase_data = self._add_rank(kinase_data)
             return kinase_data
         except KeyError:
-            logging.info(f"Query ligand {ligand_query} is not part of dataset.")
             raise KeyError(f"Query ligand {ligand_query} is not part of dataset.")
