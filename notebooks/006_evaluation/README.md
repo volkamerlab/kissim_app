@@ -67,7 +67,7 @@ Let's take a closer look at an example kinase-ligand pair.
 
 ## `006_kinmap_trees.ipynb`
 
-Ligand-based validation
+Ligand-based validation mapped on KinMap tree
 
 Check if we can retrieve on-/off-targets for a selected ligand (as reported by Karaman et al.) solely based on the structurally most similar kinases to respective main target of that ligand.
 
@@ -150,7 +150,7 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 
 ## `013_profiling_karaman_davis__sitealign.ipynb`
 
-Predict ligand profiling using sequence (pooled Karaman and Davis dataset)
+Predict ligand profiling using SiteAlign (pooled Karaman and Davis dataset)
 
 In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
 We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.

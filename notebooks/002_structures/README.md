@@ -1,6 +1,6 @@
 ## `001_prepare_dataset.ipynb`
 
-Data preparation and exploration
+KLIFS data preparation and exploration
 
 We prepare the KLIFS dataset to be used for `kissim` encoding and comparison.
 
@@ -20,7 +20,7 @@ __Note__: The KLIFS data is prepared only on the basis of the structures' metada
 
 ## `002_explore_dataset.ipynb`
 
-Data exploration
+KLIFS data exploration
 
 We explore the KLIFS dataset used to generate `kissim` fingerprints.
 
