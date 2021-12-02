@@ -81,3 +81,8 @@ We generate `kissim`-based kinome matrices and trees based on three different pa
 Fingerprint bit differences
 
 Investigate for some example fingerprint pairs their bit differences, incl. in 3D.
+
+
+## `008_alternative_comparison.ipynb`
+
+Alternative comparsion strategies
