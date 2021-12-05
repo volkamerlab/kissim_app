@@ -161,3 +161,17 @@ We will compare if `kissim` can predict on- and off-targets determined in ligand
 - Rank kinases by distances
 - Calculuate enrichment factors and enrichment plots
 - Calculate ROC curves
+
+
+## `014_comparative_analyses_auc.ipynb`
+
+Compare AUC values between KiSSim and other methods
+
+AUC values are calculated w.r.t. to Karaman-Davis profiling data for:
+
+- KiSSim (notebook 006/004)
+- KLIFS pocket sequence (notebook 006/012)
+- KLIFS pocket IFP (notebook 006/011)
+- SiteAlign (notebook 006/013)
+
+Show scatter plots KiSSim's AUC vs. other methods' AUC.
