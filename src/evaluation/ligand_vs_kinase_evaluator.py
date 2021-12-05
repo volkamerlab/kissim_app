@@ -411,7 +411,10 @@ class LigandVsKinaseEvaluator:
             axes[i].axis("off")
 
         if output_file:
-            plt.savefig(output_file, bbox_inches="tight")
+            if output_file.suffix == ".png":
+                plt.savefig(output_file, bbox_inches="tight", dpi=300)
+            else:
+                plt.savefig(output_file, bbox_inches="tight")
 
         return auc_dict
 

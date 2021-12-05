@@ -21,7 +21,7 @@ Get min-max values for distances and moments:
 
 ## `003_feature_distributions.ipynb`
 
-Fingerprints: Feature distributions
+Feature distributions
 
 We look at the distribution of features values observed in almost 5000 structures in order to get an impression on the feature value ranges and frequencies.
 

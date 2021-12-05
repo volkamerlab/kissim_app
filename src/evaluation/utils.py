@@ -26,14 +26,22 @@ def roc_fpr_tpr_auc(ligand_vs_kinase_data):
     """
 
     data = ligand_vs_kinase_data.data
+    # data[f"{ligand_vs_kinase_data.kinase_kinase_method}.measure"] = range(0, len(data))
 
     # Get labels
     y_true = data[f"{ligand_vs_kinase_data.ligand_kinase_method}.active"].to_list()
     # Get scores
     y_score = data[f"{ligand_vs_kinase_data.kinase_kinase_method}.measure"]
+    # TPR and FPR values are calculated based on different threshold values that will
+    # cast the `y_score` values to True or False, if `y_score` >= `threshold`
+    # Our score describes distances; if we want our score to be True if >= `threshold`,
+    # we will need to convert distances to similarities
+    # In short: `y_score` needs descending values!
     y_score = (1 - y_score / y_score.max()).to_list()
     pos_label = True
 
+    # `roc_curve` returns `(fpr, tpr, thresholds)`; number of thresholds and their values seem
+    # to be set based on the input data
     fpr, tpr, _ = metrics.roc_curve(y_true, y_score, pos_label=pos_label)
     auc = metrics.roc_auc_score(y_true, y_score)
     n_kinases_shared = ligand_vs_kinase_data.n_kinases_shared
