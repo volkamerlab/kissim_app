@@ -12,7 +12,6 @@ import numpy as np
 import pandas as pd
 from sklearn.metrics import pairwise_distances
 from opencadd.databases import klifs
-from kissim.comparison import FingerprintDistanceGenerator
 
 from . import kinases
 from src.definitions import COVERAGE_CUTOFF
