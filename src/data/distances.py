@@ -20,16 +20,14 @@ from src.paths import PATH_RESULTS, PATH_DATA
 
 logger = logging.getLogger(__name__)
 
-PATH_KISSIM = PATH_RESULTS / "dfg_in/fingerprint_distances.csv.bz2"
+PATH_KISSIM = PATH_RESULTS / "dfg_in/fingerprint_distances_to_kinase_matrix.csv"
 PATH_SITEALIGN = PATH_DATA / "external/sitealign/sitealign_kinase_distance_matrix.csv"
 
 
 def load(
     dataset_name,
-    structure_kinase_mapping_by="minimum",
     kinmap_kinases=False,
     distances_path=None,
-    coverage_min=COVERAGE_CUTOFF,
 ):
     """
     Utility function to load different kinase similarity datasets via the same API.
@@ -39,14 +37,10 @@ def load(
     ----------
     dataset_name : str
         Dataset name: 'kissim' or 'xxx'
-    structure_kinase_mapping_by : str
-        Structure-kinase mapping method (default: minimum).
     kinmap_kinases : bool
         Map kinase names to KinMap kinase names (default: False).
     distances_path : str or pathlib.Path or None
         Path to dataset file. If None, use default path for respective dataset.
-    coverage_min : float
-        Minimum allowed bit coverage (default 0.8).
 
     Returns
     -------
@@ -65,7 +59,7 @@ def load(
     if dataset_name == dataset_names[0]:
         if distances_path is None:
             distances_path = PATH_KISSIM
-        return kissim(structure_kinase_mapping_by, kinmap_kinases, distances_path, coverage_min)
+        return kissim(kinmap_kinases, distances_path)
     elif dataset_name == dataset_names[1]:
         return klifs_pocket_sequence(kinmap_kinases=kinmap_kinases)
     elif dataset_name == dataset_names[2]:
@@ -77,24 +71,18 @@ def load(
 
 
 def kissim(
-    structure_kinase_mapping_by="minimum",
     kinmap_kinases=False,
     distances_path=PATH_KISSIM,
-    coverage_min=COVERAGE_CUTOFF,
 ):
     """
     Get kinase distance matrix from `kissim` using a user-defined structure-kinase mapping method.
 
     Parameters
     ----------
-    structure_kinase_mapping_by : str
-        Structure-kinase mapping method (default: minimum).
     kinmap_kinases : bool
         Map kinase names to KinMap kinase names (default: False).
     distances_path : str or pathlib.Path
         Path to fingerprint distances CSV `kissim` file.
-    coverage_min : float
-        Minimum allowed bit coverage (default 0.8).
 
     Returns
     -------
@@ -102,10 +90,7 @@ def kissim(
         Kinase distance matrix.
     """
 
-    fingerprint_distance_generator = FingerprintDistanceGenerator.from_csv(distances_path)
-    distance_matrix = fingerprint_distance_generator.kinase_distance_matrix(
-        structure_kinase_mapping_by, coverage_min=coverage_min
-    )
+    distance_matrix = pd.read_csv(distances_path, index_col=0)
 
     if kinmap_kinases:
         distance_matrix = _use_kinmap_kinase_names(distance_matrix)
