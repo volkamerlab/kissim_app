@@ -14,7 +14,6 @@ from sklearn.metrics import pairwise_distances
 from opencadd.databases import klifs
 
 from . import kinases
-from src.definitions import COVERAGE_CUTOFF
 from src.paths import PATH_RESULTS, PATH_DATA
 
 logger = logging.getLogger(__name__)
