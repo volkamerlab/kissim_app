@@ -26,7 +26,6 @@ def load(
     dataset_name,
     kinmap_kinases=False,
     distances_path=None,
-    structure_kinase_mapping_by="minimum"
 ):
     """
     Utility function to load different kinase similarity datasets via the same API.
