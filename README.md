@@ -22,18 +22,18 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
     │   ├── user_env.yaml
     │   └── regenerate_readmes.py
     │
-    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details.
+    ├── docs               <- A default Sphinx project; see sphinx-doc.org for details (not used by us so far).
     │
     ├── notebooks          <- Jupyter notebooks.
     │
     ├── reports            <- Generated analysis as HTML, PDF, LaTeX, etc.
     │   └── figures        <- Generated graphics and figures to be used in reporting.
     │
-    ├── results            <- Encodings (fingerprints) and comparisons.
+    ├── results            <- Encodings (fingerprints) and comparisons. Needs to be downloaded from zenodo as described in the installation section.
     │
     ├── setup.py           <- Makes project pip installable (pip install -e .) so src can be imported.
     │
-    ├── scripts            <- KiSSim scripts.
+    ├── scripts            <- KiSSim and other scripts; includes README with details.
     │
     ├── src                <- Source code for use in this project.
     │   ├── __init__.py    <- Makes src a Python module.
@@ -49,7 +49,7 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
 
 ## Installation
 
-> We are assuming you have a working `mamba` installation in your computer. If this is not the case, please refer to their [official documentation](https://mamba.readthedocs.io/en/latest/installation.html#mamba). 
+> We are assuming you have a working `mamba` installation in your computer. If this is not the case, please refer to their [official documentation](https://mamba.readthedocs.io/en/latest/installation.html#mamba). If you installed `mamba` into an existing `conda` installation, also make sure that the `conda-forge` channel is configured by running `conda config --add channels conda-forge`.
 
 1. Clone this repository.
 
@@ -72,14 +72,7 @@ All-against all comparison of structurally covered kinases using the [`kissim`](
     pip install -e kissim_app
     ```
 
-3. Download `kissim` fingerprints and distances to `results/` folder.
-
-    ```
-    # Change to kissim_app directory (if you have not already)
-    cd /path/to/kissim_app
-    
-    # TBA
-    ```
+3. Download (a) `kissim` fingerprints and distances to `results/` folder and (b) KLIFS structures to `data/external/structures` folder as described in our [zenodo release](https://doi.org/10.5281/zenodo.5774521) (some files were just not suitable upload to GitHub).
 
 4. Open the notebooks, e.g. a [quick start](https://github.com/volkamerlab/kissim_app/blob/master/notebooks/001_quick_start/001_quick_start_kissim.ipynb) on how to load `kissim` results.
 
