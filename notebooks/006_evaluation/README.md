@@ -175,3 +175,12 @@ AUC values are calculated w.r.t. to Karaman-Davis profiling data for:
 - SiteAlign (notebook 006/013)
 
 Show scatter plots KiSSim's AUC vs. other methods' AUC.
+
+
+## `015_subset_kissim_fingerprints.ipynb`
+
+ KiSSim matrix only based on ligand-interacting residues
+
+> The advantage of IFPs is that they emphasize important residues and interactions as seen based on one or more ligands; the disadvantage is that not all possibly relevant interactions have been seen, yet.
+
+How about KiSSim? Does it outperform the IFP approach still if we focus on residues that are covered by IFPs for a single residue.

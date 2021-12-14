@@ -86,3 +86,12 @@ Investigate for some example fingerprint pairs their bit differences, incl. in 3
 ## `008_alternative_comparison.ipynb`
 
 Alternative comparsion strategies
+
+
+## `009_egfr_gak_kissim_ranks.ipynb`
+
+Closer look at EGFR-GAK KiSSim ranks
+
+We see in `006_evaluation/004_profiling_karaman_davis` that GAK is not detected as similar kinase to EGFR although Erlotinib targets both EGFR and GAK (Karaman profiling data).
+
+Let's load again our KiSSim kinase matrix and check the ranks of GAK and EGFR when the kinases are sorted by KiSSim-similarity to EGFR and GAK, respectively.

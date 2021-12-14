@@ -209,7 +209,7 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100, act
     stats = df_combined.applymap(
         lambda x: _choose_from_multiple_activities(x, activity_max, _stats=True)
     )
-    print(stats.unstack().value_counts().sort_index().rename(cases))
+    logger.info(stats.unstack().value_counts().sort_index().rename(cases))
 
     return df_combined_selected
 
