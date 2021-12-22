@@ -9,6 +9,7 @@ dependencies:
   - openpyxl
   - tabulate
   - scikit-learn
+  - rdkit<=2021.09.2
   - kissim
   # Testing
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
