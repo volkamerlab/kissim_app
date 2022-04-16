@@ -17,6 +17,7 @@ DATA_PATH = Path(__file__).parent / "../../data/external/profiling"
 KARAMAN_PATH = DATA_PATH / "Karaman/Karaman_profiling.js"
 DAVIS_PATH = DATA_PATH / "Davis/Davis_profiling.js"
 PKIS2_PATH = DATA_PATH / "PKIS2/pone.0181585.s004.xlsx"
+MORET_PATH = DATA_PATH / "Moret/compound-library-2022-04-16.csv"
 
 
 def load(dataset_name, pkidb_ligands=False, fda_approved=False):
@@ -45,8 +46,12 @@ def load(dataset_name, pkidb_ligands=False, fda_approved=False):
         return davis(pkidb_ligands, fda_approved)
     elif dataset_name == "karaman-davis":
         return karaman_davis(pkidb_ligands, fda_approved)
+    elif dataset_name == "moret":
+        return moret(pkidb_ligands, fda_approved)
     else:
-        raise KeyError("Unknown dataset name. Use 'karaman', 'davis', or 'karaman-davis'.")
+        raise KeyError(
+            "Unknown dataset name. Use 'karaman', 'davis', 'karaman-davis', or 'moret'."
+        )
 
 
 def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
@@ -373,3 +378,42 @@ def pkis2(kinmap_kinases=False, data_path=PKIS2_PATH):
         df = df.drop("unknown", axis=0)
 
     return df
+
+
+def moret(pkidb_ligands=False, fda_approved=False, data_path=MORET_PATH):
+    """
+    Load Moret profiling dataset from [1]. Dataset was downloaded as described in
+    ´kissim_app/data/external/profiling/Moret/README.md`.
+    Optionally: Keep only (a) all PKIDB ligands or (b) all FDA-approved PKIDB ligands (while
+    renaming all ligands to their names in PKIDB).
+
+    [1] https://doi.org/10.1016/j.chembiol.2019.02.018
+
+    Parameters
+    ----------
+    pkidb_ligands : bool
+        Keep only PKIDB ligands (will rename ligands to their names in PKIDB). Default is False.
+    fda_approved : bool
+        Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
+        Default is False.
+    data_path : str or pathlib.Path
+        Path to Moret dataset.
+
+    Returns
+    -------
+    pandas.DataFrame
+        Moret profiling data for different kinases (rows) and ligands (columns).
+    """
+    data_df = pd.read_csv(data_path)
+    # Sort kinase-ligand pairs by ascending IC50 values
+    data_df = data_df.sort_values(["symbol", "name", "ontarget_ic50_q1"])
+    # Per kinase-ligand pair select lowest IC50 value
+    data_df = data_df.groupby(["symbol", "name"]).first().reset_index()
+
+    # Transpose kinase-ligand pairs to kinase-ligand matrix
+    matrix_df = data_df.pivot(index="symbol", columns="name", values="ontarget_ic50_q1")
+
+    if pkidb_ligands:
+        matrix_df = _pkidb_ligands(matrix_df, fda_approved)
+
+    return matrix_df
