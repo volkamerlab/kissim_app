@@ -257,7 +257,7 @@ def _kinmap_profiling(data_path, data_name, pkidb_ligands=False, fda_approved=Fa
     data_df = pd.DataFrame(data_df)
 
     if pkidb_ligands:
-        data_df = _pkidb_ligands(data_df, fda_approved=False)
+        data_df = _pkidb_ligands(data_df, fda_approved)
 
     return data_df
 
