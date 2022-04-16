@@ -184,3 +184,18 @@ Show scatter plots KiSSim's AUC vs. other methods' AUC.
 > The advantage of IFPs is that they emphasize important residues and interactions as seen based on one or more ligands; the disadvantage is that not all possibly relevant interactions have been seen, yet.
 
 How about KiSSim? Does it outperform the IFP approach still if we focus on residues that are covered by IFPs for a single residue.
+
+
+## `016_profiling_moret.ipynb`
+
+Predict ligand profiling using `kissim` (pooled Karaman and Davis dataset)
+
+In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
+We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
+
+- Kinase-kinase distance dataset (use KinMap kinase names): Select kinases from profiling dataset by query ligand
+- Kinase-ligand profiling dataset (use KinMap kinase names and PKIDB ligand names): Select kinases from distances dataset by the ligand's on-target
+- Merge both datasets and keep only kinases that have measurements in both datasets
+- Rank kinases by distances
+- Calculuate enrichment factors and enrichment plots
+- Calculate ROC curves
