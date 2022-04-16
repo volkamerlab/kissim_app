@@ -282,7 +282,7 @@ def _kinmap_profiling(
     if pkidb_ligands:
         data_df = _pkidb_ligands(data_df, fda_approved)
     if kinmap_kinases:
-        matrix_df = _kinmap_kinases(data_df)
+        data_df = _kinmap_kinases(data_df)
 
     return data_df
 
