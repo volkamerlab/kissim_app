@@ -91,7 +91,7 @@ def kissim(
     distance_matrix = pd.read_csv(distances_path, index_col=0)
 
     if kinmap_kinases:
-        distance_matrix = _use_kinmap_kinase_names(distance_matrix)
+        distance_matrix = _kinmap_kinases(distance_matrix)
 
     return distance_matrix
 
@@ -135,7 +135,7 @@ def klifs_pocket_sequence(kinmap_kinases=False):
     distance_matrix = pd.DataFrame(distance_matrix, index=kinase_names, columns=kinase_names)
 
     if kinmap_kinases:
-        distance_matrix = _use_kinmap_kinase_names(distance_matrix)
+        distance_matrix = _kinmap_kinases(distance_matrix)
 
     return distance_matrix
 
@@ -220,7 +220,7 @@ def klifs_pocket_ifp(structure_klifs_ids=None, dfg="in", metric="jaccard", kinma
     logger.info(f"Kinase matrix: {kinase_distance_matrix.shape}")
 
     if kinmap_kinases:
-        kinase_distance_matrix = _use_kinmap_kinase_names(kinase_distance_matrix)
+        kinase_distance_matrix = _kinmap_kinases(kinase_distance_matrix)
 
     return kinase_distance_matrix
 
@@ -243,12 +243,12 @@ def sitealign_pocket_structure(kinmap_kinases=False):
     kinase_distance_matrix = pd.read_csv(PATH_SITEALIGN, index_col=0)
 
     if kinmap_kinases:
-        kinase_distance_matrix = _use_kinmap_kinase_names(kinase_distance_matrix)
+        kinase_distance_matrix = _kinmap_kinases(kinase_distance_matrix)
 
     return kinase_distance_matrix
 
 
-def _use_kinmap_kinase_names(kinase_df):
+def _kinmap_kinases(kinase_df):
 
     kinase_names_new = kinases._kinmap_kinase_names(kinase_df.columns)
     # Cast column name for all unknown kinases to "unknown" and drop these columns

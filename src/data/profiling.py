@@ -20,7 +20,7 @@ PKIS2_PATH = DATA_PATH / "PKIS2/pone.0181585.s004.xlsx"
 MORET_PATH = DATA_PATH / "Moret/compound-library-2022-04-16.csv"
 
 
-def load(dataset_name, pkidb_ligands=False, fda_approved=False):
+def load(dataset_name, pkidb_ligands=False, fda_approved=False, kinmap_kinases=False):
     """
     Utility function to load different profiling datasets via the same API.
 
@@ -33,6 +33,8 @@ def load(dataset_name, pkidb_ligands=False, fda_approved=False):
     fda_approved : bool
         Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
         Default is False.
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
 
     Returns
     -------
@@ -41,20 +43,20 @@ def load(dataset_name, pkidb_ligands=False, fda_approved=False):
     """
 
     if dataset_name == "karaman":
-        return karaman(pkidb_ligands, fda_approved)
+        return karaman(pkidb_ligands, fda_approved, kinmap_kinases)
     elif dataset_name == "davis":
-        return davis(pkidb_ligands, fda_approved)
+        return davis(pkidb_ligands, fda_approved, kinmap_kinases)
     elif dataset_name == "karaman-davis":
-        return karaman_davis(pkidb_ligands, fda_approved)
+        return karaman_davis(pkidb_ligands, fda_approved, kinmap_kinases)
     elif dataset_name == "moret":
-        return moret(pkidb_ligands, fda_approved)
+        return moret(pkidb_ligands, fda_approved, kinmap_kinases)
     else:
         raise KeyError(
             "Unknown dataset name. Use 'karaman', 'davis', 'karaman-davis', or 'moret'."
         )
 
 
-def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
+def karaman(pkidb_ligands=False, fda_approved=False, kinmap_kinases=False, data_path=KARAMAN_PATH):
     """
     Load Karaman profiling dataset [1] from KinMap [2].
     Optionally: Keep only (a) all PKIDB ligands or (b) all FDA-approved PKIDB ligands (while
@@ -70,6 +72,8 @@ def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
     fda_approved : bool
         Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
         Default is False.
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
     data_path : str or pathlib.Path
         Path to Karaman dataset (JS file from KinMap).
 
@@ -78,10 +82,10 @@ def karaman(pkidb_ligands=False, fda_approved=False, data_path=KARAMAN_PATH):
     pandas.DataFrame
         Karaman profiling data for different kinases (rows) and ligands (columns).
     """
-    return _kinmap_profiling(data_path, "karaman", pkidb_ligands, fda_approved)
+    return _kinmap_profiling(data_path, "karaman", pkidb_ligands, fda_approved, kinmap_kinases)
 
 
-def davis(pkidb_ligands=False, fda_approved=False, data_path=DAVIS_PATH):
+def davis(pkidb_ligands=False, fda_approved=False, kinmap_kinases=False, data_path=DAVIS_PATH):
     """
     Load Davis profiling dataset [1] from KinMap [2].
     Optionally: Keep only (a) all PKIDB ligands or (b) all FDA-approved PKIDB ligands (while
@@ -97,6 +101,8 @@ def davis(pkidb_ligands=False, fda_approved=False, data_path=DAVIS_PATH):
     fda_approved : bool
         Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
         Default is False.
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
     data_path : str or pathlib.Path
         Path to Davis dataset (JS file from KinMap).
 
@@ -105,10 +111,16 @@ def davis(pkidb_ligands=False, fda_approved=False, data_path=DAVIS_PATH):
     pandas.DataFrame
         Davis profiling data for different kinases (rows) and ligands (columns).
     """
-    return _kinmap_profiling(data_path, "davis", pkidb_ligands, fda_approved)
+    return _kinmap_profiling(data_path, "davis", pkidb_ligands, fda_approved, kinmap_kinases)
 
 
-def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100, activity_diff=100):
+def karaman_davis(
+    pkidb_ligands=False,
+    fda_approved=False,
+    kinmap_kinases=False,
+    activity_max=100,
+    activity_diff=100,
+):
     """
     Combine profiling data from Karaman and Davis datasets.
     - (1) If no measurement, return None.
@@ -126,6 +138,8 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100, act
     fda_approved : bool
         Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
         Default is False.
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
     activity_max : int
         Maximum cutoff for activity definition.
     activity_diff : int
@@ -179,9 +193,9 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100, act
                     else:
                         return None if not _stats else 6
 
-    df_karaman = karaman(pkidb_ligands, fda_approved)
+    df_karaman = karaman(pkidb_ligands, fda_approved, kinmap_kinases)
     logger.info(f"Karaman matrix: {df_karaman.shape}")
-    df_davis = davis(pkidb_ligands, fda_approved)
+    df_davis = davis(pkidb_ligands, fda_approved, kinmap_kinases)
     logger.info(f"Davis matrix: {df_davis.shape}")
 
     logger.info(
@@ -219,7 +233,9 @@ def karaman_davis(pkidb_ligands=False, fda_approved=False, activity_max=100, act
     return df_combined_selected
 
 
-def _kinmap_profiling(data_path, data_name, pkidb_ligands=False, fda_approved=False):
+def _kinmap_profiling(
+    data_path, data_name, pkidb_ligands=False, fda_approved=False, kinmap_kinases=False
+):
     """
     Load profiling dataset from KinMap (JS file).
     Optionally: Keep only (a) all PKIDB ligands or (b) all FDA-approved PKIDB ligands (while
@@ -236,6 +252,8 @@ def _kinmap_profiling(data_path, data_name, pkidb_ligands=False, fda_approved=Fa
     fda_approved : bool
         Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
         Default is False.
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
 
     Returns
     -------
@@ -263,11 +281,16 @@ def _kinmap_profiling(data_path, data_name, pkidb_ligands=False, fda_approved=Fa
 
     if pkidb_ligands:
         data_df = _pkidb_ligands(data_df, fda_approved)
+    if kinmap_kinases:
+        matrix_df = _kinmap_kinases(data_df)
 
     return data_df
 
 
 def _pkidb_ligands(profiling_df, fda_approved=False):
+    """
+    Cast ligand names in DataFrame (columns) to PKIDB ligand names.
+    """
 
     ligand_names_new = ligands._pkidb_ligand_names(profiling_df.columns, fda_approved)
     # Cast column name for all unknown ligands to "unknown" and drop these columns
@@ -283,7 +306,42 @@ def _pkidb_ligands(profiling_df, fda_approved=False):
     return profiling_df
 
 
+def _kinmap_kinases(profiling_df):
+    """
+    Cast kinase names in DataFrame (index) to KinMap kinase names.
+    """
+
+    kinase_names_new = kinases._kinmap_kinase_names(profiling_df.index)
+    # Cast column name for all unknown kinases to "unknown" and drop these columns
+    kinase_names_new = [
+        "unknown" if column_name.startswith("unknown") else column_name
+        for column_name in kinase_names_new
+    ]
+    # Rename kinases
+    profiling_df.index = kinase_names_new
+    # Remove kinases that could not be mapped to KinMap
+    profiling_df = profiling_df.drop("unknown", axis=0)
+
+    return profiling_df
+
+
 def pkis2(kinmap_kinases=False, data_path=PKIS2_PATH):
+    """
+    Load PKIS2 dataset.
+    TODO cast ligand names to PKIDB ligand names.
+
+    Parameters
+    ----------
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
+    data_path : str or pathlib.Path
+        Path to PKIS2 dataset.
+
+    Returns
+    -------
+    pandas.DataFrame
+        PKIS2 profiling data for different kinases (rows) and ligands (columns).
+    """
 
     df = pd.read_excel(data_path)
     # Remove empty line
@@ -366,21 +424,12 @@ def pkis2(kinmap_kinases=False, data_path=PKIS2_PATH):
     df.index.name = "kinase"
 
     if kinmap_kinases:
-        kinase_names_new = kinases._kinmap_kinase_names(df.index)
-        # Cast column name for all unknown kinases to "unknown" and drop these columns
-        kinase_names_new = [
-            "unknown" if column_name.startswith("unknown") else column_name
-            for column_name in kinase_names_new
-        ]
-        # Rename kinases
-        df.index = kinase_names_new
-        # Remove kinases that could not be mapped to KinMap
-        df = df.drop("unknown", axis=0)
+        df = _kinmap_kinases(df)
 
     return df
 
 
-def moret(pkidb_ligands=False, fda_approved=False, data_path=MORET_PATH):
+def moret(pkidb_ligands=False, fda_approved=False, kinmap_kinases=False, data_path=MORET_PATH):
     """
     Load Moret profiling dataset from [1]. Dataset was downloaded as described in
     ´kissim_app/data/external/profiling/Moret/README.md`.
@@ -396,6 +445,8 @@ def moret(pkidb_ligands=False, fda_approved=False, data_path=MORET_PATH):
     fda_approved : bool
         Has only effect if `pkidb_ligands` is True. Keep only FDA-approved PKIDB ligands.
         Default is False.
+    kinmap_kinases : bool
+        Map kinase names to KinMap kinase names (default: False).
     data_path : str or pathlib.Path
         Path to Moret dataset.
 
@@ -404,6 +455,7 @@ def moret(pkidb_ligands=False, fda_approved=False, data_path=MORET_PATH):
     pandas.DataFrame
         Moret profiling data for different kinases (rows) and ligands (columns).
     """
+
     data_df = pd.read_csv(data_path)
     # Sort kinase-ligand pairs by ascending IC50 values
     data_df = data_df.sort_values(["symbol", "name", "ontarget_ic50_q1"])
@@ -415,5 +467,8 @@ def moret(pkidb_ligands=False, fda_approved=False, data_path=MORET_PATH):
 
     if pkidb_ligands:
         matrix_df = _pkidb_ligands(matrix_df, fda_approved)
+
+    if kinmap_kinases:
+        matrix_df = _kinmap_kinases(matrix_df)
 
     return matrix_df
