@@ -1,5 +1,5 @@
 """
-Generate KiSSim data for 
+Generate KiSSim data for ligand-based residue subsets.
 """
 
 from pathlib import Path
@@ -10,9 +10,10 @@ from src.paths import PATH_RESULTS
 
 PATH_RESULTS_DFG_IN = PATH_RESULTS / "dfg_in"
 
+
 def main(ligand_expo_id, path_fp_in=PATH_RESULTS_DFG_IN / "fingerprints_normalized.json"):
     """
-    Generate KiSSim fingerprint distances for a subset version of the fingerprint that 
+    Generate KiSSim fingerprint distances for a subset version of the fingerprint that
     is based only on residues that show interactions with co-crystallized structures
     (use KLIFS IFPS for this).
 
@@ -36,19 +37,20 @@ def main(ligand_expo_id, path_fp_in=PATH_RESULTS_DFG_IN / "fingerprints_normaliz
     # Subset fingerprints
     print("Subset fingerprints...")
     fingerprint_generator = subset(
-        fingerprints_path = path_fp_in,
+        fingerprints_path=path_fp_in,
         klifs_pocket_residue_subset_type=ligand_expo_id,
-        fingerprints_subset_path = path_out / "fingerprints_normalized.json",
-        klifs_pocket_residue_subset={ligand_expo_id: interacting_residues}
+        fingerprints_subset_path=path_out / "fingerprints_normalized.json",
+        klifs_pocket_residue_subset={ligand_expo_id: interacting_residues},
     )
-    
+
     print("All-against-all comparison...")
     compare(
         fingerprint_generator=fingerprint_generator,
         output_path=path_out,
         feature_weights=None,
-        n_cores=7
+        n_cores=7,
     )
+
 
 if __name__ == "__main__":
     main("IRE")
