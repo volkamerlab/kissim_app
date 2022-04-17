@@ -188,7 +188,7 @@ How about KiSSim? Does it outperform the IFP approach still if we focus on resid
 
 ## `016_profiling_moret.ipynb`
 
-Predict ligand profiling using `kissim` (pooled Karaman and Davis dataset)
+Predict ligand profiling using `kissim` (pooled Moret dataset)
 
 In order to assess the predictive power of `kissim`, we here choose a ligand-centric evaluation. 
 We will compare if `kissim` can predict on- and off-targets determined in ligand profiling studies.
