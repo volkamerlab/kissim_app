@@ -10,6 +10,7 @@ dependencies:
   - tabulate
   - scikit-learn
   - kissim
+  - matplotlib-venn
   # Testing
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
