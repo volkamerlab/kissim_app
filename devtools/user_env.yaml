@@ -4,12 +4,13 @@ channels:
   - defaults
 dependencies:
     # Base depends
-  - python>=3.7
+  - python=3.7
   - pip
   - openpyxl
   - tabulate
   - scikit-learn
   - kissim
+  - matplotlib-venn
   # Testing
   # Workaround for https://github.com/computationalmodelling/nbval/issues/153
   - pytest 5.*
