@@ -53,6 +53,20 @@ We check the coverage and variability of fingerprint bit positions across all fi
 - Get top X bit positions with no/high standard deviation
 
 
+## `006_literature_pocket_subsets.ipynb`
+
+Pocket subsets
+
+- Martin et al. 2011 
+  - https://doi.org/10.1021/ci200314j
+  - 16 residues
+  - Residue numbering based on PKA
+- Bosc et al. 2015
+  - https://doi.org/10.1021/acschembio.5b00555
+  - 29 residues
+  - Residue numbering based on ABL1
+
+
 ## `999_fetch_sitealign_features.ipynb`
 
 SiteAlign features
