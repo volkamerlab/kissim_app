@@ -60,7 +60,7 @@ def pkidb(ligand_names, fda_approved=False):
         ]
     ).transpose()
     # Sort by ligands
-    ligand_target_sets = ligand_target_sets.sort_values("ligand.input")
+    ligand_target_sets = ligand_target_sets.sort_values("ligand.input").reset_index()
 
     return ligand_target_sets
 
