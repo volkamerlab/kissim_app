@@ -260,7 +260,9 @@ def _kinmap_kinases(kinase_df):
     kinase_df.columns = kinase_names_new
     kinase_df.index = kinase_names_new
     # Remove kinases that could not be mapped to KinMap
+    if "unknown" in kinase_df.index:
+        kinase_df = kinase_df.drop("unknown", axis=0)
     if "unknown" in kinase_df.columns:
-        kinase_df = kinase_df.drop("unknown", axis=0).drop("unknown", axis=1)
+        kinase_df = kinase_df.drop("unknown", axis=1)
 
     return kinase_df

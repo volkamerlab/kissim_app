@@ -301,7 +301,8 @@ def _pkidb_ligands(profiling_df, fda_approved=False):
     # Rename ligands
     profiling_df.columns = ligand_names_new
     # Remove ligands that could not be mapped to PKIDB
-    profiling_df = profiling_df.drop("unknown", axis=1)
+    if "unknown" in profiling_df.columns:
+        profiling_df = profiling_df.drop("unknown", axis=1)
 
     return profiling_df
 
@@ -320,7 +321,8 @@ def _kinmap_kinases(profiling_df):
     # Rename kinases
     profiling_df.index = kinase_names_new
     # Remove kinases that could not be mapped to KinMap
-    profiling_df = profiling_df.drop("unknown", axis=0)
+    if "unknown" in profiling_df.index:
+        profiling_df = profiling_df.drop("unknown", axis=0)
 
     return profiling_df
 
