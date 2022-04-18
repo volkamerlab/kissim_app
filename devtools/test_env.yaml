@@ -4,7 +4,7 @@ channels:
   - defaults
 dependencies:
     # Base depends
-  - python>=3.7
+  - python=3.7
   - pip
   - openpyxl
   - tabulate

@@ -47,8 +47,8 @@ class LigandVsKinaseEvaluator:
         min_n_shared_kinases=10,
         min_n_shared_active_kinases=3,
         pkidb_ligands=True,
-        fda_approved=True,
-        kinmap_kinases=False,
+        fda_approved=False,
+        kinmap_kinases=True,
         kinase_kinase_path=None,
     ):
         """
@@ -150,6 +150,7 @@ class LigandVsKinaseEvaluator:
             ligand_kinase_method,
             pkidb_ligands=pkidb_ligands,
             fda_approved=fda_approved,
+            kinmap_kinases=kinmap_kinases,
         )
 
         kinase_kinase_matrix = data.distances.load(
@@ -187,9 +188,13 @@ class LigandVsKinaseEvaluator:
         ligand_kinase_pairs_curated = []
         for ligand_name, ligand_dict in self.data_dict.items():
             for kinase_name, ligand_kinase_data in ligand_dict.items():
-                if (ligand_kinase_data.n_kinases_shared >= min_n_shared_kinases) & (
-                    ligand_kinase_data.n_active_kinases_shared > min_n_shared_active_kinases
-                ):
+                # Conditions
+                n_kinases_shared = ligand_kinase_data.n_kinases_shared
+                n_active_kinases_shared = ligand_kinase_data.n_active_kinases_shared
+                cond1 = n_kinases_shared >= min_n_shared_kinases
+                cond2 = n_active_kinases_shared > min_n_shared_active_kinases
+                cond3 = n_kinases_shared > n_active_kinases_shared
+                if cond1 & cond2 & cond3:
                     ligand_kinase_pairs_curated.append([ligand_name, kinase_name])
 
         logging.info(

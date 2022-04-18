@@ -59,10 +59,8 @@ def pkidb(ligand_names, fda_approved=False):
             ligand_targets.groupby("ligand.input")["targets.kinmap"].apply(list),
         ]
     ).transpose()
-    # Sort by number of targets (ascending)
-    ligand_target_sets = ligand_target_sets.loc[
-        ligand_target_sets["targets.pkidb"].apply(len).sort_values().index, :
-    ].reset_index()
+    # Sort by ligands
+    ligand_target_sets = ligand_target_sets.sort_values("ligand.input").reset_index()
 
     return ligand_target_sets
 

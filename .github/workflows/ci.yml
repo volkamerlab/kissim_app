@@ -22,8 +22,6 @@ jobs:
         cfg:
           - os: ubuntu-latest
             python-version: "3.7"
-          - os: ubuntu-latest
-            python-version: "3.9"
           - os: macos-latest
             python-version: "3.7"
           - os: windows-latest

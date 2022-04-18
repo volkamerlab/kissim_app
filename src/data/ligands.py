@@ -94,6 +94,10 @@ def _pkidb_ligand_name(ligand_name, pkidb_df):
         PKIDB ligand name. If input ligand name unknown or ambiguous return "unknown (why?)".
     """
 
+    # Make everything caseless to more generous caseless string matching
+    ligand_name = ligand_name.casefold()
+    pkidb_df["Synonyms"] = pkidb_df["Synonyms"].apply(lambda x: [xx.casefold() for xx in x])
+
     if pkidb_df["ID"].isin([ligand_name]).any():
         return ligand_name
     else:

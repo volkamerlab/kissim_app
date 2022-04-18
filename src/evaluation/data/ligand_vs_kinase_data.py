@@ -253,4 +253,4 @@ class LigandVsKinaseData(BaseData):
             kinase_data = self._add_rank(kinase_data)
             return kinase_data
         except KeyError:
-            raise KeyError(f"Query ligand {ligand_query} is not part of dataset.")
+            raise KeyError(f"Query ligand {ligand_query} is not part of kinase-ligand matrix.")
