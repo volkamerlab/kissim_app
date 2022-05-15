@@ -8,6 +8,7 @@ on:
     branches:
       - "master"
   schedule:
+    # Run CI twice a month
     - cron: "0 3 1,15 * *"
 
 jobs:
