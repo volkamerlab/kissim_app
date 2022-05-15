@@ -8,7 +8,7 @@ on:
     branches:
       - "master"
   schedule:
-    # Run a cron job once daily, weekdays only
+    # Run CI twice a month
     - cron: "0 3 1,15 * *"
 
 jobs:
@@ -23,8 +23,6 @@ jobs:
           - os: ubuntu-latest
             python-version: "3.7"
           - os: macos-latest
-            python-version: "3.7"
-          - os: windows-latest
             python-version: "3.7"
     steps:
       - uses: actions/checkout@v2
